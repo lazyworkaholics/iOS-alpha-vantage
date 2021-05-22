@@ -6,7 +6,6 @@
 //
 
 import XCTest
-
 @testable import AIADemo
 
 class NetworkManagerTests: XCTestCase {
@@ -172,7 +171,7 @@ class NetworkManagerTests: XCTestCase {
         networkManagerToTest?.httpRequest("test",
                                           params: ["biw":"1881", "bih":"1066"],
                                           method: HTTPRequestType.GET,
-                                          headers: [NETWORK.HTTP_HEADER_CONTENT_TYPE_KEY:NETWORK.HTTP_HEADER_CONTENT_TYPE_VALUE_APP_JSON],
+                                          headers: ["Header1":"headerValue"],
                                           body: mockRequestData,
                                           onSuccess: {
                                             (responseData) in
@@ -199,7 +198,7 @@ class NetworkManagerTests: XCTestCase {
         networkManagerToTest?.httpRequest("test/test2",
                                           params: ["biw":"1881", "bih":"1066"],
                                           method: HTTPRequestType.GET,
-                                          headers: [NETWORK.HTTP_HEADER_CONTENT_TYPE_KEY:NETWORK.HTTP_HEADER_CONTENT_TYPE_VALUE_APP_JSON],
+                                          headers: ["header1":"header"],
                                           body: mockRequestData,
                                           onSuccess: {
                                             (responseData) in

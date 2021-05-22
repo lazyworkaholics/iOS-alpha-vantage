@@ -13,10 +13,20 @@
 		E2EF529C2656512F002EE9E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2EF529B2656512F002EE9E8 /* Assets.xcassets */; };
 		E2EF529F2656512F002EE9E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EF529D2656512F002EE9E8 /* LaunchScreen.storyboard */; };
 		E2EF52C82656594E002EE9E8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52C72656594E002EE9E8 /* NetworkManager.swift */; };
-		E2EF52CC26565C19002EE9E8 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52CB26565C19002EE9E8 /* NetworkManagerProtocol.swift */; };
 		E2EF52CE26566228002EE9E8 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52CD26566228002EE9E8 /* URLSessionMock.swift */; };
 		E2EF52D2265662D0002EE9E8 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52D1265662D0002EE9E8 /* NetworkManagerTests.swift */; };
 		E2EF52D72656696C002EE9E8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52D62656696C002EE9E8 /* Constants.swift */; };
+		E2EF52DA265768C4002EE9E8 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52D9265768C4002EE9E8 /* Company.swift */; };
+		E2EF52DC26576C99002EE9E8 /* MetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52DB26576C99002EE9E8 /* MetaData.swift */; };
+		E2EF52DE26577A91002EE9E8 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52DD26577A91002EE9E8 /* ServiceManager.swift */; };
+		E2EF52E026577ADF002EE9E8 /* ServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52DF26577ADF002EE9E8 /* ServiceProtocols.swift */; };
+		E2EF52E32657D13B002EE9E8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52E22657D13B002EE9E8 /* Utilities.swift */; };
+		E2EF52E52658AA03002EE9E8 /* Candle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52E42658AA03002EE9E8 /* Candle.swift */; };
+		E2EF52EE2658E76B002EE9E8 /* CandleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52ED2658E76B002EE9E8 /* CandleTests.swift */; };
+		E2EF52F02658F2FF002EE9E8 /* MetaDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52EF2658F2FF002EE9E8 /* MetaDataTests.swift */; };
+		E2EF52F22658FF75002EE9E8 /* CompanyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52F12658FF75002EE9E8 /* CompanyTests.swift */; };
+		E2EF52F426590BE4002EE9E8 /* NetworkManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52F326590BE4002EE9E8 /* NetworkManagerMock.swift */; };
+		E2EF52F826590E14002EE9E8 /* ServiceManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52F726590E14002EE9E8 /* ServiceManagerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +50,20 @@
 		E2EF52A52656512F002EE9E8 /* AIADemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AIADemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2EF52AB2656512F002EE9E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2EF52C72656594E002EE9E8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		E2EF52CB26565C19002EE9E8 /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
 		E2EF52CD26566228002EE9E8 /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
 		E2EF52D1265662D0002EE9E8 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		E2EF52D62656696C002EE9E8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E2EF52D9265768C4002EE9E8 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		E2EF52DB26576C99002EE9E8 /* MetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaData.swift; sourceTree = "<group>"; };
+		E2EF52DD26577A91002EE9E8 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		E2EF52DF26577ADF002EE9E8 /* ServiceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocols.swift; sourceTree = "<group>"; };
+		E2EF52E22657D13B002EE9E8 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		E2EF52E42658AA03002EE9E8 /* Candle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Candle.swift; sourceTree = "<group>"; };
+		E2EF52ED2658E76B002EE9E8 /* CandleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleTests.swift; sourceTree = "<group>"; };
+		E2EF52EF2658F2FF002EE9E8 /* MetaDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaDataTests.swift; sourceTree = "<group>"; };
+		E2EF52F12658FF75002EE9E8 /* CompanyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyTests.swift; sourceTree = "<group>"; };
+		E2EF52F326590BE4002EE9E8 /* NetworkManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMock.swift; sourceTree = "<group>"; };
+		E2EF52F726590E14002EE9E8 /* ServiceManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManagerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				E2EF52922656512E002EE9E8 /* AppDelegate.swift */,
+				E2EF52D8265768B3002EE9E8 /* Models */,
 				E2EF52CA26565B5A002EE9E8 /* Protocols */,
 				E2EF52C4265656B9002EE9E8 /* ViewControllers */,
 				E2EF52C5265656CD002EE9E8 /* Storyboards */,
@@ -93,6 +114,8 @@
 				E2EF52C926565B43002EE9E8 /* Assets */,
 				E2EF52D32656690A002EE9E8 /* Constants */,
 				E2EF52A02656512F002EE9E8 /* Info.plist */,
+				E2EF52E62658CEFE002EE9E8 /* Extensions */,
+				E2EF52E12657D123002EE9E8 /* OtherFiles */,
 			);
 			path = AIADemo;
 			sourceTree = "<group>";
@@ -110,6 +133,7 @@
 		E2EF52C22656567D002EE9E8 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				E2EF52EB2658E74C002EE9E8 /* Models */,
 				E2EF52CF2656622D002EE9E8 /* Services */,
 			);
 			path = Mocks;
@@ -118,6 +142,7 @@
 		E2EF52C326565684002EE9E8 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				E2EF52EC2658E753002EE9E8 /* Models */,
 				E2EF52D026566296002EE9E8 /* Services */,
 			);
 			path = Tests;
@@ -143,6 +168,7 @@
 		E2EF52C62656570A002EE9E8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E2EF52DD26577A91002EE9E8 /* ServiceManager.swift */,
 				E2EF52C72656594E002EE9E8 /* NetworkManager.swift */,
 			);
 			path = Services;
@@ -159,7 +185,7 @@
 		E2EF52CA26565B5A002EE9E8 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				E2EF52CB26565C19002EE9E8 /* NetworkManagerProtocol.swift */,
+				E2EF52DF26577ADF002EE9E8 /* ServiceProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -168,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				E2EF52CD26566228002EE9E8 /* URLSessionMock.swift */,
+				E2EF52F326590BE4002EE9E8 /* NetworkManagerMock.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -175,6 +202,7 @@
 		E2EF52D026566296002EE9E8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E2EF52F726590E14002EE9E8 /* ServiceManagerTests.swift */,
 				E2EF52D1265662D0002EE9E8 /* NetworkManagerTests.swift */,
 			);
 			path = Services;
@@ -186,6 +214,48 @@
 				E2EF52D62656696C002EE9E8 /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		E2EF52D8265768B3002EE9E8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E2EF52D9265768C4002EE9E8 /* Company.swift */,
+				E2EF52DB26576C99002EE9E8 /* MetaData.swift */,
+				E2EF52E42658AA03002EE9E8 /* Candle.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E2EF52E12657D123002EE9E8 /* OtherFiles */ = {
+			isa = PBXGroup;
+			children = (
+				E2EF52E22657D13B002EE9E8 /* Utilities.swift */,
+			);
+			path = OtherFiles;
+			sourceTree = "<group>";
+		};
+		E2EF52E62658CEFE002EE9E8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E2EF52EB2658E74C002EE9E8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E2EF52EC2658E753002EE9E8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E2EF52ED2658E76B002EE9E8 /* CandleTests.swift */,
+				E2EF52EF2658F2FF002EE9E8 /* MetaDataTests.swift */,
+				E2EF52F12658FF75002EE9E8 /* CompanyTests.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,10 +358,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2EF52E52658AA03002EE9E8 /* Candle.swift in Sources */,
+				E2EF52DA265768C4002EE9E8 /* Company.swift in Sources */,
 				E2EF52C82656594E002EE9E8 /* NetworkManager.swift in Sources */,
+				E2EF52E026577ADF002EE9E8 /* ServiceProtocols.swift in Sources */,
 				E2EF52972656512E002EE9E8 /* ViewController.swift in Sources */,
+				E2EF52DE26577A91002EE9E8 /* ServiceManager.swift in Sources */,
 				E2EF52D72656696C002EE9E8 /* Constants.swift in Sources */,
-				E2EF52CC26565C19002EE9E8 /* NetworkManagerProtocol.swift in Sources */,
+				E2EF52DC26576C99002EE9E8 /* MetaData.swift in Sources */,
+				E2EF52E32657D13B002EE9E8 /* Utilities.swift in Sources */,
 				E2EF52932656512E002EE9E8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,6 +376,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2EF52D2265662D0002EE9E8 /* NetworkManagerTests.swift in Sources */,
+				E2EF52EE2658E76B002EE9E8 /* CandleTests.swift in Sources */,
+				E2EF52F826590E14002EE9E8 /* ServiceManagerTests.swift in Sources */,
+				E2EF52F426590BE4002EE9E8 /* NetworkManagerMock.swift in Sources */,
+				E2EF52F02658F2FF002EE9E8 /* MetaDataTests.swift in Sources */,
+				E2EF52F22658FF75002EE9E8 /* CompanyTests.swift in Sources */,
 				E2EF52CE26566228002EE9E8 /* URLSessionMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

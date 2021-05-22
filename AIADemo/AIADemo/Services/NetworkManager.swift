@@ -37,11 +37,11 @@ struct NetworkManager: NetworkManagerProtocol {
         // check if the device has internet connectivity, either through wifi or cellular
         if isConnectedToNetwork
         {
-            guard let urlRequest = self._requestConstructor(urlPath, params: params, method: method, headers: headers, body: body) else {
+            guard let urlRequest = _requestConstructor(urlPath, params: params, method: method, headers: headers, body: body) else {
                 return
             }
             
-            self._sessionDataTask(urlRequest, onSuccess: successBlock, onFailure: failureBlock)
+            _sessionDataTask(urlRequest, onSuccess: successBlock, onFailure: failureBlock)
         }
         else {
             // Network Error
@@ -57,8 +57,8 @@ struct NetworkManager: NetworkManagerProtocol {
     // with appropriate success and failure blocks
     private func _sessionDataTask(_ urlRequest:URLRequest,
                      onSuccess successBlock:@escaping (Data)->Void,
-                     onFailure failureBlock:@escaping (NSError)->Void)
-    {
+                     onFailure failureBlock:@escaping (NSError)->Void) {
+        
         // urlsession's dataTask function call to fetch response from backent
         let dataTask = urlSession.dataTask(with: urlRequest) {
             (responseData, urlResponse, error) in
@@ -102,13 +102,13 @@ struct NetworkManager: NetworkManagerProtocol {
         dataTask.resume()
     }
     
-    // helper function to construct a urlRequest from given relative path, parameters, body etc
+    // helper function to construct a urlRequest from given path, parameters, body etc
     private func _requestConstructor(_ urlPath:String,
                                      params: [String: String]?,
                                      method: HTTPRequestType,
                                      headers: [String: String]?,
-                                     body: Data?) -> URLRequest?
-    {
+                                     body: Data?) -> URLRequest? {
+        
         guard var url = URL.init(string: NETWORK.BASE_URL) else {
             return nil
         }
@@ -127,7 +127,7 @@ struct NetworkManager: NetworkManagerProtocol {
             }
         }
         
-        url.appendPathComponent(relativePath)
+        url = URL.init(string: url.appendingPathComponent(relativePath) .absoluteString.removingPercentEncoding!)!
         
         var urlRequest = URLRequest.init(url:url,
                                          cachePolicy: .useProtocolCachePolicy,
@@ -146,13 +146,10 @@ struct NetworkManager: NetworkManagerProtocol {
         return urlRequest
     }
     
-    // helper function to construct an Error object from Error String and Error Code
-    private func _errorConstructor(_ domain:String, code:Int, description:String) -> NSError
-    {
-        let error = NSError.init(domain: domain,
-                                 code: code,
-                                 userInfo: [NSLocalizedDescriptionKey: description])
+    // helper function to construct an error object from domain code and description
+    private func _errorConstructor(_ domain:String, code:Int, description:String) -> NSError {
         
+        let error = NSError.init(domain: domain, code: code, userInfo: [NSLocalizedDescriptionKey: description])
         return error
     }
     

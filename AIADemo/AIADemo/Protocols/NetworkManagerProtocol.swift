@@ -7,13 +7,4 @@
 
 import Foundation
 
-protocol NetworkManagerProtocol {
-    
-    func httpRequest(_ urlPath:String,
-                     params: [String: String]?,
-                     method: HTTPRequestType,
-                     headers: [String: String]?,
-                     body: Data?,
-                     onSuccess successBlock:@escaping (Data)->Void,
-                     onFailure failureBlock:@escaping (NSError)->Void)
-}
+

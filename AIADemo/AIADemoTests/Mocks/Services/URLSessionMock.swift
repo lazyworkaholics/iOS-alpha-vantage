@@ -6,6 +6,7 @@
 //
 
 import Foundation
+@testable import AIADemo
 
 class URLSessionMock: URLSession {
     typealias CompletionHandler = (Data?, URLResponse?, Error?) -> Void
