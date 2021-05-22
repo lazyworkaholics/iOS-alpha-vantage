@@ -65,4 +65,22 @@ struct STRINGS {
     static let USER_DEFAULTS_INTERVAL = "interval_key"
     static let USER_DEFAULTS_OUTPUTSIZE = "outputsize_key"
     static let KEYCHAIN_APIKEY = "api_key"
+    
+    static let MAIN = "Main"
+    static let DASHBOARD = "Dashboard"
+    static let INTRADAY = "Intra Day"
+    static let DAILYADJ = "Daily Adjusted"
+    
+    struct VIEWCONTROLLERS {
+        
+        static let DASHBOARD = "DashboardViewController"
+        static let INTRADAY = "IntradayViewController"
+        static let DAILYADJ = "DailyAdjViewController"
+        static let SETTINGS = "SettingsViewController"
+    }
+    
+    struct Colors {
+        
+        static let APP_COLOR = "appColor"
+    }
 }

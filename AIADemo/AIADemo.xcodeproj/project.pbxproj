@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		E2EF52932656512E002EE9E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52922656512E002EE9E8 /* AppDelegate.swift */; };
-		E2EF52972656512E002EE9E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52962656512E002EE9E8 /* ViewController.swift */; };
+		E2EF52972656512E002EE9E8 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52962656512E002EE9E8 /* DashboardViewController.swift */; };
 		E2EF529A2656512E002EE9E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EF52982656512E002EE9E8 /* Main.storyboard */; };
-		E2EF529C2656512F002EE9E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2EF529B2656512F002EE9E8 /* Assets.xcassets */; };
+		E2EF529C2656512F002EE9E8 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2EF529B2656512F002EE9E8 /* Icons.xcassets */; };
 		E2EF529F2656512F002EE9E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EF529D2656512F002EE9E8 /* LaunchScreen.storyboard */; };
 		E2EF52C82656594E002EE9E8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52C72656594E002EE9E8 /* NetworkManager.swift */; };
 		E2EF52CE26566228002EE9E8 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52CD26566228002EE9E8 /* URLSessionMock.swift */; };
@@ -27,6 +27,17 @@
 		E2EF52F22658FF75002EE9E8 /* CompanyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52F12658FF75002EE9E8 /* CompanyTests.swift */; };
 		E2EF52F426590BE4002EE9E8 /* NetworkManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52F326590BE4002EE9E8 /* NetworkManagerMock.swift */; };
 		E2EF52F826590E14002EE9E8 /* ServiceManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52F726590E14002EE9E8 /* ServiceManagerTests.swift */; };
+		E2EF52FA26591A59002EE9E8 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52F926591A59002EE9E8 /* Router.swift */; };
+		E2EF52FC26592896002EE9E8 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52FB26592896002EE9E8 /* RouterProtocol.swift */; };
+		E2EF52FE26592AEC002EE9E8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2EF52FD26592AEC002EE9E8 /* Colors.xcassets */; };
+		E2EF53002659301B002EE9E8 /* IntradayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52FF2659301B002EE9E8 /* IntradayViewController.swift */; };
+		E2EF5302265930DA002EE9E8 /* DailyAdjViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF5301265930DA002EE9E8 /* DailyAdjViewController.swift */; };
+		E2EF5304265930F4002EE9E8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF5303265930F4002EE9E8 /* SettingsViewController.swift */; };
+		E2EF530626593107002EE9E8 /* ViewModelProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF530526593107002EE9E8 /* ViewModelProtocols.swift */; };
+		E2EF530926593283002EE9E8 /* IntradayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF530826593283002EE9E8 /* IntradayViewModel.swift */; };
+		E2EF530B26595557002EE9E8 /* DailyAdjViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF530A26595557002EE9E8 /* DailyAdjViewModel.swift */; };
+		E2EF530D265955CC002EE9E8 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF530C265955CC002EE9E8 /* DashboardViewModel.swift */; };
+		E2EF530F2659562C002EE9E8 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF530E2659562C002EE9E8 /* SettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,9 +53,9 @@
 /* Begin PBXFileReference section */
 		E2EF528F2656512E002EE9E8 /* AIADemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIADemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2EF52922656512E002EE9E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E2EF52962656512E002EE9E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E2EF52962656512E002EE9E8 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		E2EF52992656512E002EE9E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E2EF529B2656512F002EE9E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E2EF529B2656512F002EE9E8 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		E2EF529E2656512F002EE9E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2EF52A02656512F002EE9E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2EF52A52656512F002EE9E8 /* AIADemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AIADemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +75,17 @@
 		E2EF52F12658FF75002EE9E8 /* CompanyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyTests.swift; sourceTree = "<group>"; };
 		E2EF52F326590BE4002EE9E8 /* NetworkManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMock.swift; sourceTree = "<group>"; };
 		E2EF52F726590E14002EE9E8 /* ServiceManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManagerTests.swift; sourceTree = "<group>"; };
+		E2EF52F926591A59002EE9E8 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		E2EF52FB26592896002EE9E8 /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
+		E2EF52FD26592AEC002EE9E8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		E2EF52FF2659301B002EE9E8 /* IntradayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayViewController.swift; sourceTree = "<group>"; };
+		E2EF5301265930DA002EE9E8 /* DailyAdjViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdjViewController.swift; sourceTree = "<group>"; };
+		E2EF5303265930F4002EE9E8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E2EF530526593107002EE9E8 /* ViewModelProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocols.swift; sourceTree = "<group>"; };
+		E2EF530826593283002EE9E8 /* IntradayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayViewModel.swift; sourceTree = "<group>"; };
+		E2EF530A26595557002EE9E8 /* DailyAdjViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdjViewModel.swift; sourceTree = "<group>"; };
+		E2EF530C265955CC002EE9E8 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		E2EF530E2659562C002EE9E8 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +128,10 @@
 			isa = PBXGroup;
 			children = (
 				E2EF52922656512E002EE9E8 /* AppDelegate.swift */,
-				E2EF52D8265768B3002EE9E8 /* Models */,
+				E2EF52F926591A59002EE9E8 /* Router.swift */,
 				E2EF52CA26565B5A002EE9E8 /* Protocols */,
+				E2EF52D8265768B3002EE9E8 /* Models */,
+				E2EF530726593215002EE9E8 /* ViewModels */,
 				E2EF52C4265656B9002EE9E8 /* ViewControllers */,
 				E2EF52C5265656CD002EE9E8 /* Storyboards */,
 				E2EF52C62656570A002EE9E8 /* Services */,
@@ -151,7 +175,10 @@
 		E2EF52C4265656B9002EE9E8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E2EF52962656512E002EE9E8 /* ViewController.swift */,
+				E2EF52962656512E002EE9E8 /* DashboardViewController.swift */,
+				E2EF52FF2659301B002EE9E8 /* IntradayViewController.swift */,
+				E2EF5301265930DA002EE9E8 /* DailyAdjViewController.swift */,
+				E2EF5303265930F4002EE9E8 /* SettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -177,7 +204,8 @@
 		E2EF52C926565B43002EE9E8 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				E2EF529B2656512F002EE9E8 /* Assets.xcassets */,
+				E2EF529B2656512F002EE9E8 /* Icons.xcassets */,
+				E2EF52FD26592AEC002EE9E8 /* Colors.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -185,7 +213,9 @@
 		E2EF52CA26565B5A002EE9E8 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				E2EF52FB26592896002EE9E8 /* RouterProtocol.swift */,
 				E2EF52DF26577ADF002EE9E8 /* ServiceProtocols.swift */,
+				E2EF530526593107002EE9E8 /* ViewModelProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -256,6 +286,17 @@
 				E2EF52F12658FF75002EE9E8 /* CompanyTests.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E2EF530726593215002EE9E8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E2EF530C265955CC002EE9E8 /* DashboardViewModel.swift */,
+				E2EF530826593283002EE9E8 /* IntradayViewModel.swift */,
+				E2EF530A26595557002EE9E8 /* DailyAdjViewModel.swift */,
+				E2EF530E2659562C002EE9E8 /* SettingsViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,7 +380,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2EF529F2656512F002EE9E8 /* LaunchScreen.storyboard in Resources */,
-				E2EF529C2656512F002EE9E8 /* Assets.xcassets in Resources */,
+				E2EF52FE26592AEC002EE9E8 /* Colors.xcassets in Resources */,
+				E2EF529C2656512F002EE9E8 /* Icons.xcassets in Resources */,
 				E2EF529A2656512E002EE9E8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,15 +400,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2EF52FA26591A59002EE9E8 /* Router.swift in Sources */,
+				E2EF530926593283002EE9E8 /* IntradayViewModel.swift in Sources */,
+				E2EF530B26595557002EE9E8 /* DailyAdjViewModel.swift in Sources */,
 				E2EF52E52658AA03002EE9E8 /* Candle.swift in Sources */,
+				E2EF530D265955CC002EE9E8 /* DashboardViewModel.swift in Sources */,
 				E2EF52DA265768C4002EE9E8 /* Company.swift in Sources */,
 				E2EF52C82656594E002EE9E8 /* NetworkManager.swift in Sources */,
+				E2EF530626593107002EE9E8 /* ViewModelProtocols.swift in Sources */,
 				E2EF52E026577ADF002EE9E8 /* ServiceProtocols.swift in Sources */,
-				E2EF52972656512E002EE9E8 /* ViewController.swift in Sources */,
+				E2EF52972656512E002EE9E8 /* DashboardViewController.swift in Sources */,
+				E2EF52FC26592896002EE9E8 /* RouterProtocol.swift in Sources */,
 				E2EF52DE26577A91002EE9E8 /* ServiceManager.swift in Sources */,
+				E2EF5304265930F4002EE9E8 /* SettingsViewController.swift in Sources */,
 				E2EF52D72656696C002EE9E8 /* Constants.swift in Sources */,
 				E2EF52DC26576C99002EE9E8 /* MetaData.swift in Sources */,
+				E2EF530F2659562C002EE9E8 /* SettingsViewModel.swift in Sources */,
+				E2EF5302265930DA002EE9E8 /* DailyAdjViewController.swift in Sources */,
 				E2EF52E32657D13B002EE9E8 /* Utilities.swift in Sources */,
+				E2EF53002659301B002EE9E8 /* IntradayViewController.swift in Sources */,
 				E2EF52932656512E002EE9E8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -539,7 +591,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M57FNS7F48;
 				INFOPLIST_FILE = AIADemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -559,7 +611,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M57FNS7F48;
 				INFOPLIST_FILE = AIADemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

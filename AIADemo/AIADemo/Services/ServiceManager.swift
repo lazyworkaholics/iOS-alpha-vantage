@@ -17,7 +17,7 @@ struct ServiceManager: ServiceManagerProtocol   {
     
     
     //MARK: - Internal functions
-    internal func getData(_ companySymbol: String, isIntraDay: Bool,
+    internal func getData(_ companySymbol: String, isIntraday: Bool,
                         onSuccess successBlock: @escaping (Company) -> Void,
                         onFailure failureBlock: @escaping (NSError) -> Void) {
         
@@ -25,7 +25,7 @@ struct ServiceManager: ServiceManagerProtocol   {
                       STRINGS.APIKEY:Utilities().getAPIKey(),
                       STRINGS.OUTPUTSIZE:Utilities().getOutputSize()]
         
-        if isIntraDay {
+        if isIntraday {
             params[NETWORK.PARAM_FUNCTION] = NETWORK.PARAM_INTRADAY
             params[STRINGS.INTERVAL] = Utilities().getInterval()
         } else {

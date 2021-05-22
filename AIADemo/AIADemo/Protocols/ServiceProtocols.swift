@@ -9,7 +9,7 @@ import Foundation
 
 protocol ServiceManagerProtocol {
         
-    func getData(_ company:String, isIntraDay: Bool,
+    func getData(_ company:String, isIntraday: Bool,
                          onSuccess successBlock:@escaping (Company)->Void,
                          onFailure failureBlock:@escaping (NSError)->Void)
     

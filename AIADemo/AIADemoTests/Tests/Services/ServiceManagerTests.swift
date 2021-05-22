@@ -43,7 +43,7 @@ class ServiceManagerTests: XCTestCase {
         mockNetworkManager?.isSuccess = false
         
         serviceManagerToTest?.networkManager = mockNetworkManager!
-        serviceManagerToTest?.getData("TSLA", isIntraDay: true,
+        serviceManagerToTest?.getData("TSLA", isIntraday: true,
                                       onSuccess: { (company) in
             
                                         XCTFail("Success block should not be called if there is an internal network error.")
@@ -58,7 +58,7 @@ class ServiceManagerTests: XCTestCase {
         mockNetworkManager?.isSuccess = true
         serviceManagerToTest?.networkManager = mockNetworkManager!
         
-        serviceManagerToTest?.getData("TSLA", isIntraDay: false,
+        serviceManagerToTest?.getData("TSLA", isIntraday: false,
                                       onSuccess: { [self] (company) in
             
                                         XCTAssertEqual(company.metadata?.information, mockCompany?.metadata?.information, "failed to parse the given data into required model")
@@ -75,7 +75,7 @@ class ServiceManagerTests: XCTestCase {
         mockNetworkManager?.data = "WrongData-invalide Case".data(using: .utf8)
         serviceManagerToTest?.networkManager = mockNetworkManager!
         
-        serviceManagerToTest?.getData("TSLA", isIntraDay: false,
+        serviceManagerToTest?.getData("TSLA", isIntraday: false,
                                       onSuccess: { (company) in
             
                                         XCTFail("Success block should not be called the data is  not in valid format")
