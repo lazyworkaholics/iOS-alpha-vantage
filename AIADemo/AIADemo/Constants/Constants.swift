@@ -11,11 +11,16 @@ struct NETWORK {
     static let BASE_URL = "https://www.alphavantage.co/"
         
     static let EDIT_SYMBOL_PRE_RELATIVE_PATH = "query"
+    
     static let PARAM_FUNCTION = "function"
     static let PARAM_INTRADAY = "TIME_SERIES_INTRADAY"
     static let PARAM_DAILYADJ = "TIME_SERIES_DAILY_ADJUSTED"
+    static let PARAM_SEARCH = "SYMBOL_SEARCH"
+    
     static let PARAM_SYMBOL = "symbol"
     static let PARAM_INTERVAL = "interval"
+    static let PARAM_KEYWORDS = "keywords"
+    
     static let API_KEY = "apikey"
 }
 
@@ -58,6 +63,7 @@ struct STRINGS {
     static let FIFTEEN_MINS = "15min"
     static let THIRTY_MINS = "30min"
     static let SIXTY_MINS = "60min"
+    static let BEST_MATCHES = "bestMatches"
     
     static let FULL = "full"
     static let COMPACT = "compact"
@@ -79,8 +85,9 @@ struct STRINGS {
         static let SETTINGS = "SettingsViewController"
     }
     
-    struct Colors {
+    struct COLORS {
         
-        static let APP_COLOR = "appColor"
+        static let FONT_COLOR = "font"
+        static let NAV_COLOR = "navigation"
     }
 }

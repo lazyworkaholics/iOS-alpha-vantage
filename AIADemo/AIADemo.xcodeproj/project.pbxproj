@@ -38,6 +38,8 @@
 		E2EF530B26595557002EE9E8 /* DailyAdjViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF530A26595557002EE9E8 /* DailyAdjViewModel.swift */; };
 		E2EF530D265955CC002EE9E8 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF530C265955CC002EE9E8 /* DashboardViewModel.swift */; };
 		E2EF530F2659562C002EE9E8 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF530E2659562C002EE9E8 /* SettingsViewModel.swift */; };
+		E2EF5311265A1D6E002EE9E8 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF5310265A1D6E002EE9E8 /* Search.swift */; };
+		E2EF5313265A20B0002EE9E8 /* SearchServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF5312265A20B0002EE9E8 /* SearchServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +88,8 @@
 		E2EF530A26595557002EE9E8 /* DailyAdjViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdjViewModel.swift; sourceTree = "<group>"; };
 		E2EF530C265955CC002EE9E8 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		E2EF530E2659562C002EE9E8 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		E2EF5310265A1D6E002EE9E8 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		E2EF5312265A20B0002EE9E8 /* SearchServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				E2EF52F726590E14002EE9E8 /* ServiceManagerTests.swift */,
+				E2EF5312265A20B0002EE9E8 /* SearchServiceTests.swift */,
 				E2EF52D1265662D0002EE9E8 /* NetworkManagerTests.swift */,
 			);
 			path = Services;
@@ -252,6 +257,7 @@
 				E2EF52D9265768C4002EE9E8 /* Company.swift */,
 				E2EF52DB26576C99002EE9E8 /* MetaData.swift */,
 				E2EF52E42658AA03002EE9E8 /* Candle.swift */,
+				E2EF5310265A1D6E002EE9E8 /* Search.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -406,6 +412,7 @@
 				E2EF52E52658AA03002EE9E8 /* Candle.swift in Sources */,
 				E2EF530D265955CC002EE9E8 /* DashboardViewModel.swift in Sources */,
 				E2EF52DA265768C4002EE9E8 /* Company.swift in Sources */,
+				E2EF5311265A1D6E002EE9E8 /* Search.swift in Sources */,
 				E2EF52C82656594E002EE9E8 /* NetworkManager.swift in Sources */,
 				E2EF530626593107002EE9E8 /* ViewModelProtocols.swift in Sources */,
 				E2EF52E026577ADF002EE9E8 /* ServiceProtocols.swift in Sources */,
@@ -432,6 +439,7 @@
 				E2EF52F826590E14002EE9E8 /* ServiceManagerTests.swift in Sources */,
 				E2EF52F426590BE4002EE9E8 /* NetworkManagerMock.swift in Sources */,
 				E2EF52F02658F2FF002EE9E8 /* MetaDataTests.swift in Sources */,
+				E2EF5313265A20B0002EE9E8 /* SearchServiceTests.swift in Sources */,
 				E2EF52F22658FF75002EE9E8 /* CompanyTests.swift in Sources */,
 				E2EF52CE26566228002EE9E8 /* URLSessionMock.swift in Sources */,
 			);

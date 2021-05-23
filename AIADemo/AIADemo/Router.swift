@@ -32,14 +32,17 @@ struct Router: RouterProtocol {
         self.dashboardViewModel = DashboardViewModel.init()
         let dashboardViewController = DashboardViewController.initWithViewModel(self.dashboardViewModel!)
         
-        UINavigationBar.appearance().tintColor = UIColor.init(named: STRINGS.Colors.APP_COLOR)
         self.rootNavigationController = UINavigationController(rootViewController: dashboardViewController)
-       
-        window.tintColor = UIColor.init(named: STRINGS.Colors.APP_COLOR)
+        
+        self.rootNavigationController?.navigationBar.barTintColor = UIColor.init(named: STRINGS.COLORS.NAV_COLOR)
+        
+        self.rootNavigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.init(named: STRINGS.COLORS.FONT_COLOR) as Any]
+
+        
+        window.tintColor = UIColor.init(named: STRINGS.COLORS.NAV_COLOR)
         window.rootViewController = self.rootNavigationController!
         window.makeKeyAndVisible()
         
-//        self.listViewModel!.fetch()
         self.currentRouteState = AppRouteState.dashboardView
     }
     

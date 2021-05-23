@@ -17,7 +17,7 @@ struct ServiceManager: ServiceManagerProtocol   {
     
     
     //MARK: - Internal functions
-    internal func getData(_ companySymbol: String, isIntraday: Bool,
+    func getData(_ companySymbol: String, isIntraday: Bool,
                         onSuccess successBlock: @escaping (Company) -> Void,
                         onFailure failureBlock: @escaping (NSError) -> Void) {
         
@@ -40,6 +40,31 @@ struct ServiceManager: ServiceManagerProtocol   {
                         onSuccess: {
                             (company) in
                             successBlock(company)
+                        },
+                        onFailure: {
+                            (error) in
+                            failureBlock(error)
+                        })
+    }
+    
+    func search(_ searchString: String,
+                        onSuccess successBlock: @escaping ([Search]) -> Void,
+                        onFailure failureBlock: @escaping (NSError) -> Void) {
+        
+        let params = [NETWORK.PARAM_FUNCTION: NETWORK.PARAM_SEARCH,
+                      STRINGS.APIKEY: Utilities().getAPIKey(),
+                      NETWORK.PARAM_KEYWORDS:searchString]
+    
+        
+        _networkRequest(urlPath: NETWORK.EDIT_SYMBOL_PRE_RELATIVE_PATH,
+                        params: params,
+                        method: HTTPRequestType.GET,
+                        headers: nil,
+                        body: nil,
+                        onSuccess: {
+                            (result: [String:[Search]]) in
+                            
+                            successBlock(result[STRINGS.BEST_MATCHES] ?? [])
                         },
                         onFailure: {
                             (error) in

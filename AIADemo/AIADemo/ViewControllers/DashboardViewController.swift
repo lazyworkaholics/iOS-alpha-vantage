@@ -10,6 +10,7 @@ import UIKit
 class DashboardViewController: UIViewController {
 
     //MARK:- iboutlets and variables
+    @IBOutlet var searchBar:UISearchBar!
     @IBOutlet var collectionView:UICollectionView!
     
     var viewModel: DashboardViewModel!
@@ -29,6 +30,15 @@ class DashboardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ServiceManager.init().search("tsla", onSuccess: { searchResults in
+            
+            print(searchResults)
+        }, onFailure: { error in
+            
+            print(error.localizedDescription)
+        })
+
     }
 }
 
