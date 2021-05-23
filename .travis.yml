@@ -1,4 +1,7 @@
 language: Swift 5
-xcode_project: AIADemo/AIADemo.xcodeproj # path to your xcodeproj folder
+os: osx
+osx_image: xcode12.4
+xcode_project: AIADemo/AIADemo.xcodeproj
 xcode_scheme: AIADemoTests
 xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone XR
+script: xcodebuild -project AIADemo/AIADemo.xcodeproj -scheme AIADemoTests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone XR,OS=12.1' build test
