@@ -40,6 +40,10 @@
 		E2EF530F2659562C002EE9E8 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF530E2659562C002EE9E8 /* SettingsViewModel.swift */; };
 		E2EF5311265A1D6E002EE9E8 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF5310265A1D6E002EE9E8 /* Search.swift */; };
 		E2EF5313265A20B0002EE9E8 /* SearchServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF5312265A20B0002EE9E8 /* SearchServiceTests.swift */; };
+		E2EF5315265A2657002EE9E8 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF5314265A2657002EE9E8 /* StorageManager.swift */; };
+		E2EF5319265A3087002EE9E8 /* StorageManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF5318265A3086002EE9E8 /* StorageManagerTests.swift */; };
+		E2EF531B265A309F002EE9E8 /* UserdefaultsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF531A265A309F002EE9E8 /* UserdefaultsMock.swift */; };
+		E2EF531D265A330C002EE9E8 /* StorageManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF531C265A330C002EE9E8 /* StorageManagerProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +94,10 @@
 		E2EF530E2659562C002EE9E8 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		E2EF5310265A1D6E002EE9E8 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		E2EF5312265A20B0002EE9E8 /* SearchServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceTests.swift; sourceTree = "<group>"; };
+		E2EF5314265A2657002EE9E8 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		E2EF5318265A3086002EE9E8 /* StorageManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManagerTests.swift; sourceTree = "<group>"; };
+		E2EF531A265A309F002EE9E8 /* UserdefaultsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultsMock.swift; sourceTree = "<group>"; };
+		E2EF531C265A330C002EE9E8 /* StorageManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManagerProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +151,7 @@
 				E2EF52D32656690A002EE9E8 /* Constants */,
 				E2EF52A02656512F002EE9E8 /* Info.plist */,
 				E2EF52E62658CEFE002EE9E8 /* Extensions */,
-				E2EF52E12657D123002EE9E8 /* OtherFiles */,
+				E2EF52E12657D123002EE9E8 /* Utilities */,
 			);
 			path = AIADemo;
 			sourceTree = "<group>";
@@ -161,6 +169,7 @@
 		E2EF52C22656567D002EE9E8 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				E2EF5316265A305B002EE9E8 /* Utilities */,
 				E2EF52EB2658E74C002EE9E8 /* Models */,
 				E2EF52CF2656622D002EE9E8 /* Services */,
 			);
@@ -170,6 +179,7 @@
 		E2EF52C326565684002EE9E8 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				E2EF5317265A3065002EE9E8 /* Utilities */,
 				E2EF52EC2658E753002EE9E8 /* Models */,
 				E2EF52D026566296002EE9E8 /* Services */,
 			);
@@ -220,6 +230,7 @@
 				E2EF52FB26592896002EE9E8 /* RouterProtocol.swift */,
 				E2EF52DF26577ADF002EE9E8 /* ServiceProtocols.swift */,
 				E2EF530526593107002EE9E8 /* ViewModelProtocols.swift */,
+				E2EF531C265A330C002EE9E8 /* StorageManagerProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -262,12 +273,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		E2EF52E12657D123002EE9E8 /* OtherFiles */ = {
+		E2EF52E12657D123002EE9E8 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				E2EF52E22657D13B002EE9E8 /* Utilities.swift */,
+				E2EF5314265A2657002EE9E8 /* StorageManager.swift */,
 			);
-			path = OtherFiles;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		E2EF52E62658CEFE002EE9E8 /* Extensions */ = {
@@ -303,6 +315,22 @@
 				E2EF530E2659562C002EE9E8 /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E2EF5316265A305B002EE9E8 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E2EF531A265A309F002EE9E8 /* UserdefaultsMock.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		E2EF5317265A3065002EE9E8 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E2EF5318265A3086002EE9E8 /* StorageManagerTests.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,6 +437,7 @@
 				E2EF52FA26591A59002EE9E8 /* Router.swift in Sources */,
 				E2EF530926593283002EE9E8 /* IntradayViewModel.swift in Sources */,
 				E2EF530B26595557002EE9E8 /* DailyAdjViewModel.swift in Sources */,
+				E2EF531D265A330C002EE9E8 /* StorageManagerProtocol.swift in Sources */,
 				E2EF52E52658AA03002EE9E8 /* Candle.swift in Sources */,
 				E2EF530D265955CC002EE9E8 /* DashboardViewModel.swift in Sources */,
 				E2EF52DA265768C4002EE9E8 /* Company.swift in Sources */,
@@ -419,6 +448,7 @@
 				E2EF52972656512E002EE9E8 /* DashboardViewController.swift in Sources */,
 				E2EF52FC26592896002EE9E8 /* RouterProtocol.swift in Sources */,
 				E2EF52DE26577A91002EE9E8 /* ServiceManager.swift in Sources */,
+				E2EF5315265A2657002EE9E8 /* StorageManager.swift in Sources */,
 				E2EF5304265930F4002EE9E8 /* SettingsViewController.swift in Sources */,
 				E2EF52D72656696C002EE9E8 /* Constants.swift in Sources */,
 				E2EF52DC26576C99002EE9E8 /* MetaData.swift in Sources */,
@@ -439,7 +469,9 @@
 				E2EF52F826590E14002EE9E8 /* ServiceManagerTests.swift in Sources */,
 				E2EF52F426590BE4002EE9E8 /* NetworkManagerMock.swift in Sources */,
 				E2EF52F02658F2FF002EE9E8 /* MetaDataTests.swift in Sources */,
+				E2EF531B265A309F002EE9E8 /* UserdefaultsMock.swift in Sources */,
 				E2EF5313265A20B0002EE9E8 /* SearchServiceTests.swift in Sources */,
+				E2EF5319265A3087002EE9E8 /* StorageManagerTests.swift in Sources */,
 				E2EF52F22658FF75002EE9E8 /* CompanyTests.swift in Sources */,
 				E2EF52CE26566228002EE9E8 /* URLSessionMock.swift in Sources */,
 			);

@@ -30,15 +30,6 @@ class DashboardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        ServiceManager.init().search("tsla", onSuccess: { searchResults in
-            
-            print(searchResults)
-        }, onFailure: { error in
-            
-            print(error.localizedDescription)
-        })
-
     }
 }
 

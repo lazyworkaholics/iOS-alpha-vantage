@@ -22,12 +22,12 @@ struct ServiceManager: ServiceManagerProtocol   {
                         onFailure failureBlock: @escaping (NSError) -> Void) {
         
         var params = [STRINGS.SYMBOL:companySymbol,
-                      STRINGS.APIKEY:Utilities().getAPIKey(),
-                      STRINGS.OUTPUTSIZE:Utilities().getOutputSize()]
+                      STRINGS.APIKEY:StorageManager().getAPIKey(),
+                      STRINGS.OUTPUTSIZE:StorageManager().getOutputSize()]
         
         if isIntraday {
             params[NETWORK.PARAM_FUNCTION] = NETWORK.PARAM_INTRADAY
-            params[STRINGS.INTERVAL] = Utilities().getInterval()
+            params[STRINGS.INTERVAL] = StorageManager().getInterval()
         } else {
             params[NETWORK.PARAM_FUNCTION] = NETWORK.PARAM_DAILYADJ
         }
@@ -52,7 +52,7 @@ struct ServiceManager: ServiceManagerProtocol   {
                         onFailure failureBlock: @escaping (NSError) -> Void) {
         
         let params = [NETWORK.PARAM_FUNCTION: NETWORK.PARAM_SEARCH,
-                      STRINGS.APIKEY: Utilities().getAPIKey(),
+                      STRINGS.APIKEY: StorageManager().getAPIKey(),
                       NETWORK.PARAM_KEYWORDS:searchString]
     
         
