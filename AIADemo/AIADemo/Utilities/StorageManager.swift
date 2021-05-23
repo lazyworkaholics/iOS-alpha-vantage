@@ -73,44 +73,51 @@ struct StorageManager: StorageManagerProtocol {
     
     func getDashboardData() -> [Search] {
     
-        guard let dashboardData:[Search] = userDefaults.object(forKey: "dashboard_data") as? [Search] else {
-            
-            userDefaults.setValue([], forKey: "dashboard_data")
-            return []
-        }
-        return dashboardData.reversed()
+        let dashboardData = userDefaults.object(forKey: "dashboard_data") as? [[String:String]] ?? []
+        return self._unSortToSearch(data: dashboardData)
     }
     
     func saveToDashboardData( object:Search) -> [Search] {
     
-        var dashboardData:[Search] = userDefaults.object(forKey: "dashboard_data") as? [Search] ?? []
-
-        dashboardData.append(object)
+        var dashboardData = userDefaults.object(forKey: "dashboard_data") as? [[String:String]] ?? []
+        dashboardData.append(["name":object.name, "symbol":object.symbol])
+        
         if dashboardData.count == 51 {
             dashboardData.remove(at: 0)
         }
         
-        userDefaults.setValue(dashboardData, forKey: "dashboard_data")
-        return dashboardData.reversed()
+        userDefaults.set(dashboardData, forKey: "dashboard_data")
+        return self._unSortToSearch(data: dashboardData)
     }
     
     func deleteFromDashboardData( object:Search) -> [Search] {
         
-        var dashboardData:[Search] = userDefaults.object(forKey: "dashboard_data") as? [Search] ?? []
+        var dashboardData = userDefaults.object(forKey: "dashboard_data") as? [[String:String]] ?? []
         
         var index = 0
         for item in dashboardData {
-            if item.symbol == object.symbol {
+            if item["symbol"] == object.symbol {
                 break
             }
             index += 1
         }
-        
         if index < dashboardData.count {
             dashboardData.remove(at: index)
         }
 
         userDefaults.setValue(dashboardData, forKey: "dashboard_data")
-        return dashboardData.reversed()
+        return self._unSortToSearch(data: dashboardData)
+    }
+    
+    private func _unSortToSearch(data:[[String:String]]) -> [Search] {
+        
+        var searchElements:[Search] = []
+        for eachElement in data {
+            var search = Search.init()
+            search.name = eachElement["name"]
+            search.symbol = eachElement["symbol"]
+            searchElements.append(search)
+        }
+        return searchElements.reversed()
     }
 }

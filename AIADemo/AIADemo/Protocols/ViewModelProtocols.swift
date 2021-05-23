@@ -9,7 +9,7 @@ import Foundation
 
 @objc protocol ViewModelProtocol {
     
-    func showStaticAlert(_ title: String, message: String)
+    @objc optional func showStaticAlert(_ title: String, message: String)
     func showLoadingIndicator()
     func hideLoadingIndicator()
     
@@ -18,6 +18,13 @@ import Foundation
 
 protocol DashboardViewModelProtocol: ViewModelProtocol {
     
+    func displaySearch(controller:SearchDisplayViewController)
+    
+    func hideSearch(controller:SearchDisplayViewController)
+    
+    func dismissSearchKeyboard()
+    
+    func clearSearchText()
 }
 
 protocol IntradayViewModelProtocol: ViewModelProtocol {

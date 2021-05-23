@@ -52,6 +52,9 @@ struct ERROR {
 
 struct STRINGS {
     
+    static let OK = "OK"
+    static let YES = "Yes"
+    static let NO = "No"
     static let SYMBOL = "symbol"
     static let OUTPUTSIZE = "outputsize"
     static let APIKEY = "apikey"
@@ -73,6 +76,7 @@ struct STRINGS {
     static let KEYCHAIN_APIKEY = "api_key"
     
     static let MAIN = "Main"
+    static let ERROR = "Error"
     static let DASHBOARD = "Dashboard"
     static let INTRADAY = "Intra Day"
     static let DAILYADJ = "Daily Adjusted"
@@ -83,6 +87,7 @@ struct STRINGS {
         static let INTRADAY = "IntradayViewController"
         static let DAILYADJ = "DailyAdjViewController"
         static let SETTINGS = "SettingsViewController"
+        static let SEARCH = "SearchDisplayViewController"
     }
     
     struct COLORS {

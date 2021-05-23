@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E2B9E8CB265A921400A2E287 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B9E8CA265A921400A2E287 /* SearchCell.swift */; };
 		E2EF52932656512E002EE9E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52922656512E002EE9E8 /* AppDelegate.swift */; };
 		E2EF52972656512E002EE9E8 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52962656512E002EE9E8 /* DashboardViewController.swift */; };
 		E2EF529A2656512E002EE9E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EF52982656512E002EE9E8 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		E2EF5319265A3087002EE9E8 /* StorageManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF5318265A3086002EE9E8 /* StorageManagerTests.swift */; };
 		E2EF531B265A309F002EE9E8 /* UserdefaultsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF531A265A309F002EE9E8 /* UserdefaultsMock.swift */; };
 		E2EF531D265A330C002EE9E8 /* StorageManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF531C265A330C002EE9E8 /* StorageManagerProtocol.swift */; };
+		E2EF531F265A6240002EE9E8 /* SearchDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF531E265A6240002EE9E8 /* SearchDisplayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E2B9E8CA265A921400A2E287 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		E2EF528F2656512E002EE9E8 /* AIADemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIADemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2EF52922656512E002EE9E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2EF52962656512E002EE9E8 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +101,7 @@
 		E2EF5318265A3086002EE9E8 /* StorageManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManagerTests.swift; sourceTree = "<group>"; };
 		E2EF531A265A309F002EE9E8 /* UserdefaultsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultsMock.swift; sourceTree = "<group>"; };
 		E2EF531C265A330C002EE9E8 /* StorageManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManagerProtocol.swift; sourceTree = "<group>"; };
+		E2EF531E265A6240002EE9E8 /* SearchDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDisplayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E2B9E8C9265A91E800A2E287 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E2B9E8CA265A921400A2E287 /* SearchCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		E2EF52862656512E002EE9E8 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +157,7 @@
 				E2EF52D8265768B3002EE9E8 /* Models */,
 				E2EF530726593215002EE9E8 /* ViewModels */,
 				E2EF52C4265656B9002EE9E8 /* ViewControllers */,
+				E2B9E8C9265A91E800A2E287 /* Cells */,
 				E2EF52C5265656CD002EE9E8 /* Storyboards */,
 				E2EF52C62656570A002EE9E8 /* Services */,
 				E2EF52C926565B43002EE9E8 /* Assets */,
@@ -193,6 +206,7 @@
 				E2EF52FF2659301B002EE9E8 /* IntradayViewController.swift */,
 				E2EF5301265930DA002EE9E8 /* DailyAdjViewController.swift */,
 				E2EF5303265930F4002EE9E8 /* SettingsViewController.swift */,
+				E2EF531E265A6240002EE9E8 /* SearchDisplayViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -445,6 +459,7 @@
 				E2EF52C82656594E002EE9E8 /* NetworkManager.swift in Sources */,
 				E2EF530626593107002EE9E8 /* ViewModelProtocols.swift in Sources */,
 				E2EF52E026577ADF002EE9E8 /* ServiceProtocols.swift in Sources */,
+				E2B9E8CB265A921400A2E287 /* SearchCell.swift in Sources */,
 				E2EF52972656512E002EE9E8 /* DashboardViewController.swift in Sources */,
 				E2EF52FC26592896002EE9E8 /* RouterProtocol.swift in Sources */,
 				E2EF52DE26577A91002EE9E8 /* ServiceManager.swift in Sources */,
@@ -455,6 +470,7 @@
 				E2EF530F2659562C002EE9E8 /* SettingsViewModel.swift in Sources */,
 				E2EF5302265930DA002EE9E8 /* DailyAdjViewController.swift in Sources */,
 				E2EF52E32657D13B002EE9E8 /* Utilities.swift in Sources */,
+				E2EF531F265A6240002EE9E8 /* SearchDisplayViewController.swift in Sources */,
 				E2EF53002659301B002EE9E8 /* IntradayViewController.swift in Sources */,
 				E2EF52932656512E002EE9E8 /* AppDelegate.swift in Sources */,
 			);
@@ -631,7 +647,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M57FNS7F48;
 				INFOPLIST_FILE = AIADemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -651,7 +667,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M57FNS7F48;
 				INFOPLIST_FILE = AIADemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -671,7 +687,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M57FNS7F48;
 				INFOPLIST_FILE = AIADemoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -693,7 +709,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M57FNS7F48;
 				INFOPLIST_FILE = AIADemoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
