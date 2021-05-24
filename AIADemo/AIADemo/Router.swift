@@ -56,7 +56,7 @@ class Router: RouterProtocol {
         }
     }
     
-    func navigateToDailyAdj(with search:Search) {
+    func navigateToDailyAdj(with search:[Search]) {
         
         if self.currentRouteState == .dashboardView {
             DispatchQueue.main.async(execute: {() -> Void in

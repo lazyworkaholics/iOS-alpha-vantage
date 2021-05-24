@@ -20,6 +20,8 @@ class DashboardViewModel {
     
     var router:RouterProtocol = Router.sharedInstance
     
+    var dailyAdj_CheckIndexes:[Int] = []
+    
     // MARK: - dashboard functions
     init()  {
         
@@ -64,8 +66,42 @@ class DashboardViewModel {
             router.navigateToIntraday(with: dashboardDataSource[index])
         }
         else {
-            router.navigateToDailyAdj(with: dashboardDataSource[index])
+            if dailyAdj_CheckIndexes.contains(index) {
+                var count = 0
+                for element in dailyAdj_CheckIndexes {
+                    if element == index {
+                        break
+                    }
+                    count += 1
+                }
+                dailyAdj_CheckIndexes.remove(at: count)
+                if dailyAdj_CheckIndexes.count == 0 {
+                    self._clearAndReloadCollection()
+                } else {
+                    dashboardProtocol?.showCollectionView()
+                    dashboardProtocol?.isRightBarButtonHidden(isHidden: false)
+                }
+            } else {
+                dailyAdj_CheckIndexes.append(index)
+                if dailyAdj_CheckIndexes.count == 3 {
+                    let searches:[Search] = [dashboardDataSource[dailyAdj_CheckIndexes[0]], dashboardDataSource[dailyAdj_CheckIndexes[1]], dashboardDataSource[dailyAdj_CheckIndexes[2]]]
+                    router.navigateToDailyAdj(with: searches)
+                    self._clearAndReloadCollection()
+                } else {
+                    dashboardProtocol?.showCollectionView()
+                    dashboardProtocol?.isRightBarButtonHidden(isHidden: false)
+                }
+            }
         }
+    }
+     
+    func segmentValueChange(index:Int) {
+        if index == 0 {
+            isIntraday = true
+        } else {
+            isIntraday = false
+        }
+        _clearAndReloadCollection()
     }
     
     func removeSearchItem(at index:Int) {
@@ -73,7 +109,8 @@ class DashboardViewModel {
         let data = StorageManager.init().deleteFromDashboardData(object: dashboardDataSource[index])
         dashboardDataSource = data
         if dashboardDataSource.count > 0 {
-            dashboardProtocol?.showCollectionView()
+            _clearAndReloadCollection()
+            
         } else {
             dashboardProtocol?.hideCollectionView()
         }
@@ -83,6 +120,15 @@ class DashboardViewModel {
     func routeTosettingsView() {
         
         router.navigateToSettings()
+    }
+    
+    func routeToDailyView() {
+        var searches:[Search] = []
+        for element in dailyAdj_CheckIndexes {
+            searches.append(dashboardDataSource[element])
+        }
+        router.navigateToDailyAdj(with: searches)
+        _clearAndReloadCollection()
     }
     
     // MARK: - search custom functions
@@ -114,12 +160,26 @@ class DashboardViewModel {
                 self.dashboardProtocol?.hideSearch(controller: self.searchDisplayController!)
                 self.dashboardProtocol?.clearSearchText()
                 self.dashboardDataSource = StorageManager.init().saveToDashboardData(object: search)
-                self.dashboardProtocol?.showCollectionView()
+                self._clearAndReloadCollection()
             }, onSecondClick: {
                 
                 self.dashboardProtocol?.hideSearch(controller: self.searchDisplayController!)
                 self.dashboardProtocol?.clearSearchText()
             })
         }
+    }
+    
+    func isDailyAdjustChecked(index:Int) ->  Bool{
+        
+        if !isIntraday &&  dailyAdj_CheckIndexes.contains(index) {
+            return true
+        }
+        return false
+    }
+    
+    func _clearAndReloadCollection() {
+        dailyAdj_CheckIndexes = []
+        dashboardProtocol?.showCollectionView()
+        dashboardProtocol?.isRightBarButtonHidden(isHidden: true)
     }
 }

@@ -85,6 +85,7 @@ struct STRINGS {
     static let SETTINGS = "settings"
     static let BACK = "back"
     static let DOWN = "down"
+    static let NEXT = "next"
     
     struct VIEWCONTROLLERS {
         

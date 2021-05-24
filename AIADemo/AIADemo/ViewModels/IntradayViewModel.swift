@@ -74,7 +74,7 @@ class IntradayViewModel {
         let candle = sortedCandles[index]
         switch object {
         case .date:
-            return candle.getIntradayTimeStamp(timeZone: (dataSource!.metadata?.timezone)!, isIntraday: true)
+            return candle.getTimeStamp(timeZone: (dataSource!.metadata?.timezone)!, isIntraday: true)
         case .open:
             return String(candle.open)
         case .high:

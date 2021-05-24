@@ -18,14 +18,8 @@ class SearchDisplayViewController: UIViewController {
         
         let storyBoardRef = UIStoryboard.init(name: STRINGS.MAIN, bundle: nil)
         let viewController = storyBoardRef.instantiateViewController(withIdentifier: STRINGS.VIEWCONTROLLERS.SEARCH) as! SearchDisplayViewController
-        
         viewController.viewModel = viewModel
-        
         return viewController
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -78,7 +72,6 @@ extension SearchDisplayViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell") as! SearchCell
-        
         cell.name_lbl.text = viewModel.searchDataSource[indexPath.row].name
         cell.symbol_lbl.text = viewModel.searchDataSource[indexPath.row].symbol
         return cell

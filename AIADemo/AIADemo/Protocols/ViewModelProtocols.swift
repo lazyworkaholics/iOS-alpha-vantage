@@ -29,6 +29,8 @@ protocol DashboardViewModelProtocol: ViewModelProtocol {
     func dismissSearchKeyboard()
     
     func clearSearchText()
+    
+    func isRightBarButtonHidden(isHidden:Bool) 
 }
 
 protocol IntradayViewModelProtocol: ViewModelProtocol {
@@ -38,6 +40,9 @@ protocol IntradayViewModelProtocol: ViewModelProtocol {
 
 protocol DailyAdjViewModelProtocol: ViewModelProtocol {
     
+    func setSegmentHeaders(titles:[String])
+    
+    func showTableView()
 }
 
 protocol SettingsViewModelProtocol: ViewModelProtocol {

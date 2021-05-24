@@ -71,7 +71,7 @@ struct Candle: Decodable {
         }
     }
     
-    func getIntradayTimeStamp(timeZone: String, isIntraday: Bool) -> String {
+    func getTimeStamp(timeZone: String, isIntraday: Bool) -> String {
         
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone =  TimeZone.init(identifier: timeZone)

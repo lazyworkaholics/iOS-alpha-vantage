@@ -35,8 +35,8 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let rightBarButton = UIBarButtonItem.init(image: UIImage.init(named: STRINGS.SETTINGS), style: UIBarButtonItem.Style.plain, target: self, action: #selector(DashboardViewController.settings_buttonAction))
-        self.navigationItem.rightBarButtonItem = rightBarButton
+        let leftBarButton = UIBarButtonItem.init(image: UIImage.init(named: STRINGS.SETTINGS), style: UIBarButtonItem.Style.plain, target: self, action: #selector(DashboardViewController.settings_buttonAction))
+        self.navigationItem.leftBarButtonItem = leftBarButton
         
         let width = (view.frame.width - 100)/2
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -60,6 +60,11 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
         viewModel.routeTosettingsView()
     }
     
+    @objc func dailyAdj_buttonAction() {
+        
+        viewModel.routeToDailyView()
+    }
+    
     @IBAction func searchTextChange(_ sender: Any) {
         
         if searchBar.isFirstResponder {
@@ -69,15 +74,20 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
     
     @IBAction func segmentToggle(_ sender: UISegmentedControl) {
         
-        if sender.selectedSegmentIndex == 0 {
-            viewModel.isIntraday = true
-        } else {
-            viewModel.isIntraday = false
-        }
+        viewModel.segmentValueChange(index: sender.selectedSegmentIndex)
     }
 }
 
 extension DashboardViewController: DashboardViewModelProtocol {
+    
+    func isRightBarButtonHidden(isHidden:Bool) {
+        if isHidden {
+            self.navigationItem.rightBarButtonItem = nil
+        } else {
+            let rightBarButton = UIBarButtonItem.init(image: UIImage.init(named: STRINGS.NEXT), style: UIBarButtonItem.Style.plain, target: self, action: #selector(DashboardViewController.dailyAdj_buttonAction))
+            self.navigationItem.rightBarButtonItem = rightBarButton
+        }
+    }
     
     func showCollectionView() {
         
@@ -160,6 +170,7 @@ extension DashboardViewController: UICollectionViewDataSource {
         cell.name_lbl.text = viewModel.dashboardDataSource[indexPath.row].name
         cell.symbol_lbl.text = viewModel.dashboardDataSource[indexPath.row].symbol
         cell.delete_btn.tag = indexPath.row
+        cell.selected_Image.isHidden = !viewModel.isDailyAdjustChecked(index: indexPath.row)
         cell.contentView.layer.cornerRadius = 10
         cell.contentView.layer.borderWidth = 1
         cell.contentView.layer.borderColor = UIColor.init(named: "navigation")?.cgColor

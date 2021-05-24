@@ -13,7 +13,7 @@ protocol RouterProtocol {
     
     func navigateToIntraday(with search:Search)
     
-    func navigateToDailyAdj(with search:Search)
+    func navigateToDailyAdj(with searches:[Search])
     
     func navigateToSettings()
     

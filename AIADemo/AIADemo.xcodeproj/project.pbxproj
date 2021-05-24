@@ -11,6 +11,8 @@
 		E2B9E8CD265AE5B700A2E287 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B9E8CC265AE5B700A2E287 /* CollectionCell.swift */; };
 		E2B9E8CF265B571F00A2E287 /* IntradayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B9E8CE265B571F00A2E287 /* IntradayCell.swift */; };
 		E2BFB8B0265B75C00053A55B /* RedundantFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BFB8AF265B75C00053A55B /* RedundantFunctions.swift */; };
+		E2BFB8B2265B9FE60053A55B /* DailyAdjCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BFB8B1265B9FE60053A55B /* DailyAdjCell.swift */; };
+		E2BFB8B4265BADC00053A55B /* DailyAdjust.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BFB8B3265BADC00053A55B /* DailyAdjust.swift */; };
 		E2EF52932656512E002EE9E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52922656512E002EE9E8 /* AppDelegate.swift */; };
 		E2EF52972656512E002EE9E8 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52962656512E002EE9E8 /* DashboardViewController.swift */; };
 		E2EF529A2656512E002EE9E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EF52982656512E002EE9E8 /* Main.storyboard */; };
@@ -66,6 +68,8 @@
 		E2B9E8CC265AE5B700A2E287 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		E2B9E8CE265B571F00A2E287 /* IntradayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayCell.swift; sourceTree = "<group>"; };
 		E2BFB8AF265B75C00053A55B /* RedundantFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedundantFunctions.swift; sourceTree = "<group>"; };
+		E2BFB8B1265B9FE60053A55B /* DailyAdjCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdjCell.swift; sourceTree = "<group>"; };
+		E2BFB8B3265BADC00053A55B /* DailyAdjust.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdjust.swift; sourceTree = "<group>"; };
 		E2EF528F2656512E002EE9E8 /* AIADemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIADemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2EF52922656512E002EE9E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2EF52962656512E002EE9E8 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 				E2B9E8CA265A921400A2E287 /* SearchCell.swift */,
 				E2B9E8CC265AE5B700A2E287 /* CollectionCell.swift */,
 				E2B9E8CE265B571F00A2E287 /* IntradayCell.swift */,
+				E2BFB8B1265B9FE60053A55B /* DailyAdjCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 				E2EF52DB26576C99002EE9E8 /* MetaData.swift */,
 				E2EF52E42658AA03002EE9E8 /* Candle.swift */,
 				E2EF5310265A1D6E002EE9E8 /* Search.swift */,
+				E2BFB8B3265BADC00053A55B /* DailyAdjust.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -466,10 +472,12 @@
 				E2EF530D265955CC002EE9E8 /* DashboardViewModel.swift in Sources */,
 				E2EF52DA265768C4002EE9E8 /* Company.swift in Sources */,
 				E2EF5311265A1D6E002EE9E8 /* Search.swift in Sources */,
+				E2BFB8B2265B9FE60053A55B /* DailyAdjCell.swift in Sources */,
 				E2B9E8CF265B571F00A2E287 /* IntradayCell.swift in Sources */,
 				E2EF52C82656594E002EE9E8 /* NetworkManager.swift in Sources */,
 				E2EF530626593107002EE9E8 /* ViewModelProtocols.swift in Sources */,
 				E2EF52E026577ADF002EE9E8 /* ServiceProtocols.swift in Sources */,
+				E2BFB8B4265BADC00053A55B /* DailyAdjust.swift in Sources */,
 				E2B9E8CB265A921400A2E287 /* SearchCell.swift in Sources */,
 				E2EF52972656512E002EE9E8 /* DashboardViewController.swift in Sources */,
 				E2EF52FC26592896002EE9E8 /* RouterProtocol.swift in Sources */,

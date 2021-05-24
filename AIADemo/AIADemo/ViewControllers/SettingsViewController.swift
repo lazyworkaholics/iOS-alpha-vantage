@@ -28,7 +28,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        let leftBarButton = UIBarButtonItem.init(image: UIImage.init(named: STRINGS.DOWN), style: UIBarButtonItem.Style.plain, target: self, action: #selector(IntradayViewController.back_buttonAction))
+        let leftBarButton = UIBarButtonItem.init(image: UIImage.init(named: STRINGS.DOWN), style: UIBarButtonItem.Style.plain, target: self, action: #selector(SettingsViewController.back_buttonAction))
         navigationItem.leftBarButtonItem = leftBarButton
     }
     
