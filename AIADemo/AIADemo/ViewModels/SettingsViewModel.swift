@@ -11,4 +11,11 @@ struct SettingsViewModel {
     
     //MARK:- variables and initializers
     var settingsProtocol: SettingsViewModelProtocol?
+    var router:RouterProtocol = Router.sharedInstance
+    
+    // MARK: - settings custom functions
+    func navigateToDashboard() {
+        
+        router.backToDashboard()
+    }
 }

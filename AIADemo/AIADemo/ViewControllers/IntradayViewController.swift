@@ -29,6 +29,14 @@ class IntradayViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let leftBarButton = UIBarButtonItem.init(image: UIImage.init(named: STRINGS.BACK), style: UIBarButtonItem.Style.plain, target: self, action: #selector(IntradayViewController.back_buttonAction))
+        navigationItem.leftBarButtonItem = leftBarButton
+    }
+    
+    @objc func back_buttonAction() {
+        
+        viewModel.navigateToDashboard()
     }
 }
 

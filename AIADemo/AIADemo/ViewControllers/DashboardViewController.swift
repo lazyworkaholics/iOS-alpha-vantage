@@ -35,22 +35,70 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let rightBarButton = UIBarButtonItem.init(image: UIImage.init(named: "settings"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(DashboardViewController.settings_buttonAction))
+        let rightBarButton = UIBarButtonItem.init(image: UIImage.init(named: STRINGS.SETTINGS), style: UIBarButtonItem.Style.plain, target: self, action: #selector(DashboardViewController.settings_buttonAction))
         self.navigationItem.rightBarButtonItem = rightBarButton
+        
+        let width = (view.frame.width - 100)/2
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize(width: width, height: width)
+        
+        if viewModel.dashboardDataSource.count == 0 {
+            segmentControl.isHidden = true
+            collectionNilLabel.isHidden = false
+            collectionView.isHidden = true
+        } else {
+            segmentControl.isHidden = false
+            collectionNilLabel.isHidden = true
+            collectionView.isHidden = false
+            collectionView.reloadData()
+        }
     }
     
     //MARK:- Custom Button Actions
     @objc func settings_buttonAction() {
         
+        viewModel.routeTosettingsView()
     }
     
     @IBAction func searchTextChange(_ sender: Any) {
         
-        viewModel.searchforCompanies(keyword: searchBar.text!)
+        if searchBar.isFirstResponder {
+            viewModel.searchforCompanies(keyword: searchBar.text!)
+        }
+    }
+    
+    @IBAction func segmentToggle(_ sender: UISegmentedControl) {
+        
+        if sender.selectedSegmentIndex == 0 {
+            viewModel.isIntraday = true
+        } else {
+            viewModel.isIntraday = false
+        }
     }
 }
 
 extension DashboardViewController: DashboardViewModelProtocol {
+    
+    func showCollectionView() {
+        
+        DispatchQueue.main.async(execute: {() -> Void in
+            
+            self.segmentControl.isHidden = false
+            self.collectionView.isHidden = false
+            self.collectionView.reloadData()
+            self.collectionNilLabel.isHidden = true
+        })
+    }
+    
+    func hideCollectionView() {
+        
+        DispatchQueue.main.async(execute: {() -> Void in
+            
+            self.segmentControl.isHidden = true
+            self.collectionView.isHidden = true
+            self.collectionNilLabel.isHidden = false
+        })
+    }
     
     func showStaticAlert(_ title: String, message: String) {
         
@@ -60,14 +108,6 @@ extension DashboardViewController: DashboardViewModelProtocol {
             alert.addAction(UIAlertAction.init(title: STRINGS.OK, style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         })
-    }
-    
-    func showLoadingIndicator() {
-        
-    }
-    
-    func hideLoadingIndicator() {
-        
     }
     
     func displaySearch(controller:SearchDisplayViewController) {
@@ -107,14 +147,37 @@ extension DashboardViewController: UITextFieldDelegate {
         
         viewModel.searchforCompanies(keyword: searchBar.text!)
     }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+}
+
+//MARK: - CollectionView Delegates functions
+extension DashboardViewController: UICollectionViewDataSource {
+   
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return true
+        return viewModel.dashboardDataSource.count
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! CollectionCell
+        
+        cell.name_lbl.text = viewModel.dashboardDataSource[indexPath.row].name
+        cell.symbol_lbl.text = viewModel.dashboardDataSource[indexPath.row].symbol
+        
+        cell.contentView.layer.cornerRadius = 10
+        cell.contentView.layer.borderWidth = 1
+        cell.contentView.layer.borderColor = UIColor.init(named: "navigation")?.cgColor
+   
+        return cell
+    }
+}
+
+extension DashboardViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        viewModel.companySelected(index: indexPath.row)
     }
 }
 

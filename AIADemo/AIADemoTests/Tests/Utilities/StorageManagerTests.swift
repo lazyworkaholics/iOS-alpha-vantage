@@ -110,17 +110,14 @@ class StorageManagerTests: XCTestCase {
     }
     
     func test_getDashboardData() {
-        var search1 = Search.init()
-        search1.name = "testName"
-        search1.symbol = "testSymbol"
-        let testData = [search1]
+
         let mockDefaults = UserdefaultsMock.init()
-        mockDefaults.mockObject = testData
+        mockDefaults.mockObject = [["name":"testName", "symbol":"testSymbol"]]
         storageManager?.userDefaults = mockDefaults
         
         let returnValue = storageManager?.getDashboardData()
-        XCTAssertEqual(testData.count, returnValue?.count)
-        XCTAssertEqual(testData[0].name, returnValue![0].name)
+        XCTAssertEqual(returnValue?.count, 1)
+        XCTAssertEqual(returnValue![0].name, "testName")
     }
     
     func test_getDashboard_firstTime() {
@@ -143,17 +140,14 @@ class StorageManagerTests: XCTestCase {
         let testData = storageManager?.saveToDashboardData(object: search1)
         
         XCTAssertEqual(testData?.count, 1)
-        XCTAssertEqual(testData?[0].name, search1.name)
+        XCTAssertEqual(testData?[0].name, "testName")
     }
     
     func test_saveToDashboard2() {
         
-        var testDataArray:[Search] = []
+        var testDataArray:[[String:String]] = []
         for index in 1...50 {
-            var search1 = Search.init()
-            search1.name = "testName" + String(index)
-            search1.symbol = "testSymbol" + String(index)
-            testDataArray.append(search1)
+            testDataArray.append(["name":"testName" + String(index), "symbol": "testSymbol" + String(index)])
         }
         
         let mockDefaults = UserdefaultsMock.init()
@@ -171,12 +165,9 @@ class StorageManagerTests: XCTestCase {
     
     func test_deleteFromDashboard() {
         
-        var testDataArray:[Search] = []
+        var testDataArray:[[String:String]] = []
         for index in 1...10 {
-            var search1 = Search.init()
-            search1.name = "testName" + String(index)
-            search1.symbol = "testSymbol" + String(index)
-            testDataArray.append(search1)
+            testDataArray.append(["name":"testName" + String(index), "symbol": "testSymbol" + String(index)])
         }
         
         var search = Search.init()

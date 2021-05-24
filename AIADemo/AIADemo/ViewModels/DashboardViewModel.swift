@@ -12,13 +12,20 @@ class DashboardViewModel {
     //MARK:- variables and initializers
     var dashboardProtocol: DashboardViewModelProtocol?
     var dashboardDataSource:[Search] = []
+    var isIntraday:Bool = true
     
     var searchDisplayController: SearchDisplayViewController?
     var isSearchDisplayPresented = false
     var searchDataSource:[Search] = []
     
+    var router:RouterProtocol = Router.sharedInstance
     
-    // MARK: - dashboard custom functions
+    // MARK: - dashboard functions
+    init()  {
+        
+        self.dashboardDataSource = StorageManager.init().getDashboardData()
+    }
+    
     func searchforCompanies(keyword: String) {
         
         if searchDisplayController == nil {
@@ -51,6 +58,21 @@ class DashboardViewModel {
         }
     }
     
+    func companySelected(index: Int) {
+        
+        if isIntraday {
+            router.navigateToIntraday(with: dashboardDataSource[index])
+        }
+        else {
+            router.navigateToDailyAdj(with: dashboardDataSource[index])
+        }
+    }
+    
+    func routeTosettingsView() {
+        
+        router.navigateToSettings()
+    }
+    
     // MARK: - search custom functions
     func searchDisappeared() {
         
@@ -59,8 +81,9 @@ class DashboardViewModel {
     }
     
     func searchSelected(index: Int) {
+        
         let search = searchDataSource[index]
-        // Check if this element is an already added data
+
         var isElementAlreadyAdded = false
         for eachElement in dashboardDataSource {
             if search.symbol == eachElement.symbol {
@@ -79,8 +102,7 @@ class DashboardViewModel {
                 self.dashboardProtocol?.hideSearch(controller: self.searchDisplayController!)
                 self.dashboardProtocol?.clearSearchText()
                 self.dashboardDataSource = StorageManager.init().saveToDashboardData(object: search)
-                
-                // - Reload Collection View
+                self.dashboardProtocol?.showCollectionView()
             }, onSecondClick: {
                 
                 self.dashboardProtocol?.hideSearch(controller: self.searchDisplayController!)

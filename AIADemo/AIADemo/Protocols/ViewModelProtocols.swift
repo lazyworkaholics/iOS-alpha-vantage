@@ -10,13 +10,17 @@ import Foundation
 @objc protocol ViewModelProtocol {
     
     @objc optional func showStaticAlert(_ title: String, message: String)
-    func showLoadingIndicator()
-    func hideLoadingIndicator()
+    @objc optional func showLoadingIndicator()
+    @objc optional func hideLoadingIndicator()
     
     @objc optional func showDoubleActionAlert(_ title: String, message: String?, firstTitle:String, secondTitle:String?, onfirstClick:@escaping (() -> Void), onSecondClick:(() -> Void)?)
 }
 
 protocol DashboardViewModelProtocol: ViewModelProtocol {
+    
+    func showCollectionView()
+    
+    func hideCollectionView()
     
     func displaySearch(controller:SearchDisplayViewController)
     

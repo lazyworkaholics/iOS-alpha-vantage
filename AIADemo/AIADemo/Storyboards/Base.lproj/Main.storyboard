@@ -6,7 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18091"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,7 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="pOJ-fr-fDS"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="background"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rp3-2b-NhC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -33,7 +34,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="odi-Ce-CkA"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="background"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tow-c3-Wgb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -48,7 +50,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="JYo-Cr-QJm"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="background"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ijz-gJ-Qh0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -199,6 +202,9 @@
                                 </segments>
                                 <color key="tintColor" name="navigation"/>
                                 <color key="selectedSegmentTintColor" name="navigation"/>
+                                <connections>
+                                    <action selector="segmentToggle:" destination="Yo9-aP-cZQ" eventType="valueChanged" id="9PY-1A-wmu"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Companies added to your dashboard to display here." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAB-OX-j1S">
                                 <rect key="frame" x="20" y="153" width="374" height="699"/>
@@ -206,6 +212,63 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="b2q-bj-XQ4">
+                                <rect key="frame" x="10" y="173" width="394" height="679"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" name="navigation"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="B3d-3v-GZ4">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionCell" id="1me-jO-svi" customClass="CollectionCell" customModule="AIADemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="mxt-Ag-AJH">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oQ-xh-phk">
+                                                    <rect key="frame" x="5" y="5" width="118" height="118"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" name="font_white"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiy-qu-rZP">
+                                                    <rect key="frame" x="5" y="87" width="118" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="5s5-pt-wYL"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                    <color key="textColor" name="font_white"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" name="navigation"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="5oQ-xh-phk" secondAttribute="trailing" constant="5" id="LfB-gy-yE7"/>
+                                                <constraint firstAttribute="bottom" secondItem="qiy-qu-rZP" secondAttribute="bottom" constant="20" id="NNm-de-C48"/>
+                                                <constraint firstItem="5oQ-xh-phk" firstAttribute="leading" secondItem="mxt-Ag-AJH" secondAttribute="leading" constant="5" id="cGb-o3-iHQ"/>
+                                                <constraint firstItem="qiy-qu-rZP" firstAttribute="leading" secondItem="mxt-Ag-AJH" secondAttribute="leading" constant="5" id="i60-Za-xsZ"/>
+                                                <constraint firstItem="5oQ-xh-phk" firstAttribute="top" secondItem="mxt-Ag-AJH" secondAttribute="top" constant="5" id="kV2-dG-vpU"/>
+                                                <constraint firstAttribute="trailing" secondItem="qiy-qu-rZP" secondAttribute="trailing" constant="5" id="nJH-uM-U6G"/>
+                                                <constraint firstAttribute="bottom" secondItem="5oQ-xh-phk" secondAttribute="bottom" constant="5" id="z5a-vN-9pf"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="name_lbl" destination="5oQ-xh-phk" id="aAo-ya-AWg"/>
+                                            <outlet property="symbol_lbl" destination="qiy-qu-rZP" id="wL0-tE-4dm"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Yo9-aP-cZQ" id="ZxH-Xs-rZK"/>
+                                    <outlet property="delegate" destination="Yo9-aP-cZQ" id="XKX-Rc-Gja"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rxr-lV-HMx"/>
                         <color key="backgroundColor" name="background"/>
@@ -214,12 +277,16 @@
                             <constraint firstItem="22E-5L-WZX" firstAttribute="top" secondItem="rxr-lV-HMx" secondAttribute="top" constant="10" id="Dxv-IE-DhB"/>
                             <constraint firstItem="xQ3-SU-fPD" firstAttribute="top" secondItem="22E-5L-WZX" secondAttribute="bottom" constant="20" id="H9u-tL-Qv9"/>
                             <constraint firstItem="22E-5L-WZX" firstAttribute="leading" secondItem="rxr-lV-HMx" secondAttribute="leading" constant="10" id="LlF-Na-jTW"/>
+                            <constraint firstItem="rxr-lV-HMx" firstAttribute="bottom" secondItem="b2q-bj-XQ4" secondAttribute="bottom" constant="10" id="Mvj-FS-RKE"/>
                             <constraint firstItem="rxr-lV-HMx" firstAttribute="trailing" secondItem="Spd-Q1-UG2" secondAttribute="trailing" constant="10" id="N0Q-2g-k0c"/>
                             <constraint firstItem="AAB-OX-j1S" firstAttribute="top" secondItem="xQ3-SU-fPD" secondAttribute="bottom" constant="10" id="NBy-oh-wez"/>
+                            <constraint firstItem="b2q-bj-XQ4" firstAttribute="top" secondItem="xQ3-SU-fPD" secondAttribute="bottom" constant="30" id="PAH-8T-Qqc"/>
                             <constraint firstItem="xQ3-SU-fPD" firstAttribute="leading" secondItem="rxr-lV-HMx" secondAttribute="leading" constant="10" id="RX1-SM-4ax"/>
+                            <constraint firstItem="b2q-bj-XQ4" firstAttribute="leading" secondItem="rxr-lV-HMx" secondAttribute="leading" constant="10" id="VAd-iD-ePJ"/>
                             <constraint firstItem="Spd-Q1-UG2" firstAttribute="leading" secondItem="22E-5L-WZX" secondAttribute="trailing" constant="10" id="Y6s-R6-tzd"/>
                             <constraint firstItem="rxr-lV-HMx" firstAttribute="trailing" secondItem="xQ3-SU-fPD" secondAttribute="trailing" constant="10" id="c0m-i1-hYg"/>
                             <constraint firstAttribute="trailing" secondItem="AAB-OX-j1S" secondAttribute="trailing" constant="20" id="dBX-Jx-J8y"/>
+                            <constraint firstItem="rxr-lV-HMx" firstAttribute="trailing" secondItem="b2q-bj-XQ4" secondAttribute="trailing" constant="10" id="hQI-cW-fJI"/>
                             <constraint firstItem="AAB-OX-j1S" firstAttribute="leading" secondItem="rxr-lV-HMx" secondAttribute="leading" constant="20" id="kPy-Cd-CPx"/>
                             <constraint firstItem="rxr-lV-HMx" firstAttribute="bottom" secondItem="AAB-OX-j1S" secondAttribute="bottom" constant="10" id="odQ-2h-ZTm"/>
                             <constraint firstItem="Spd-Q1-UG2" firstAttribute="top" secondItem="rxr-lV-HMx" secondAttribute="top" constant="10" id="rVU-13-QCj"/>
@@ -227,6 +294,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionNilLabel" destination="AAB-OX-j1S" id="QGf-lL-csz"/>
+                        <outlet property="collectionView" destination="b2q-bj-XQ4" id="oqj-l4-r1g"/>
                         <outlet property="searchBar" destination="22E-5L-WZX" id="IQG-lc-7fv"/>
                         <outlet property="segmentControl" destination="xQ3-SU-fPD" id="PTM-NX-Dse"/>
                     </connections>
@@ -241,11 +309,11 @@
         <namedColor name="background">
             <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="font_white">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="navigation">
             <color red="0.0" green="0.88627450980392153" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

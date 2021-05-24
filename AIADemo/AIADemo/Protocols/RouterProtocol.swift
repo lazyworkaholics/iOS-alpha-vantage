@@ -9,5 +9,13 @@ import UIKit
 
 protocol RouterProtocol {
     
-    mutating func appLaunch(_ window:UIWindow)
+    func appLaunch(_ window:UIWindow)
+    
+    func navigateToIntraday(with search:Search)
+    
+    func navigateToDailyAdj(with search:Search)
+    
+    func navigateToSettings()
+    
+    func backToDashboard()
 }
