@@ -24,7 +24,7 @@ class IntradayViewController: UIViewController {
         
         viewController.viewModel = viewModel
         viewController.viewModel.intradayProtocol = viewController
-        viewController.title = STRINGS.INTRADAY
+        viewController.title = (viewModel.search.symbol)! + " " + STRINGS.INTRADAY
         
         return viewController
     }

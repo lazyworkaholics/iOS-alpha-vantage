@@ -44,7 +44,3 @@ protocol DailyAdjViewModelProtocol: ViewModelProtocol {
     
     func showTableView()
 }
-
-protocol SettingsViewModelProtocol: ViewModelProtocol {
-    
-}

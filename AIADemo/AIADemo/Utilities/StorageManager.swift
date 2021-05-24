@@ -25,15 +25,16 @@ struct StorageManager: StorageManagerProtocol {
     var userDefaults = UserDefaults.standard
     
     // MARK: - Handy functions
-    func getInterval() -> String {
+    func getInterval() -> Interval {
         
         guard let interval = userDefaults.string(forKey: STRINGS.USER_DEFAULTS_INTERVAL) else {
             
             userDefaults.setValue(STRINGS.FIFTEEN_MINS, forKey: STRINGS.USER_DEFAULTS_INTERVAL)
-            return STRINGS.FIFTEEN_MINS
+            
+            return Interval(rawValue: STRINGS.FIFTEEN_MINS)!
         }
         
-        return interval
+        return Interval(rawValue: interval)!
     }
     
     func setInterval(interval:Interval) {

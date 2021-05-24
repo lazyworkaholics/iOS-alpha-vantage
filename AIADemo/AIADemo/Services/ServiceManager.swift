@@ -27,7 +27,7 @@ struct ServiceManager: ServiceManagerProtocol   {
         
         if isIntraday {
             params[NETWORK.PARAM_FUNCTION] = NETWORK.PARAM_INTRADAY
-            params[STRINGS.INTERVAL] = StorageManager().getInterval()
+            params[STRINGS.INTERVAL] = StorageManager().getInterval().rawValue
         } else {
             params[NETWORK.PARAM_FUNCTION] = NETWORK.PARAM_DAILYADJ
         }

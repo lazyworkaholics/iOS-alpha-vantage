@@ -9,7 +9,7 @@ import Foundation
 
 protocol StorageManagerProtocol {
     
-    func getInterval() -> String
+    func getInterval() -> Interval
     func setInterval(interval:Interval)
     
     func getOutputSize() -> String
