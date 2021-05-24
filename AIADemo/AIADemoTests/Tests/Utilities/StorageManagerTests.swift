@@ -24,13 +24,13 @@ class StorageManagerTests: XCTestCase {
     
     func test_getInterval() {
         
-        let testInterval = "TestValue"
+        let testInterval = "15min"
         let mockDefaults = UserdefaultsMock.init()
         mockDefaults.mockString = testInterval
         storageManager?.userDefaults = mockDefaults
         
         let returnValue = storageManager?.getInterval()
-        XCTAssertEqual(testInterval, returnValue)
+        XCTAssertEqual(testInterval, returnValue?.rawValue)
     }
     
     func test_getInterval_firstTime() {
@@ -38,7 +38,7 @@ class StorageManagerTests: XCTestCase {
         storageManager?.userDefaults = UserdefaultsMock.init()
         
         let returnValue = storageManager?.getInterval()
-        XCTAssertEqual(STRINGS.FIFTEEN_MINS, returnValue)
+        XCTAssertEqual(STRINGS.FIFTEEN_MINS, returnValue?.rawValue)
     }
     
     func test_setInterval() {
@@ -53,13 +53,13 @@ class StorageManagerTests: XCTestCase {
     
     func test_getOutputSize() {
         
-        let testInterval = "TestValue"
+        let testOutputSize = "full"
         let mockDefaults = UserdefaultsMock.init()
-        mockDefaults.mockString = testInterval
+        mockDefaults.mockString = testOutputSize
         storageManager?.userDefaults = mockDefaults
         
         let returnValue = storageManager?.getOutputSize()
-        XCTAssertEqual(testInterval, returnValue)
+        XCTAssertEqual(testOutputSize, returnValue)
     }
     
     func test_getOutputSize_firstTime() {
