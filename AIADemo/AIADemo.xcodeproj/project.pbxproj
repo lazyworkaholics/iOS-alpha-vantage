@@ -10,6 +10,7 @@
 		E2B9E8CB265A921400A2E287 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B9E8CA265A921400A2E287 /* SearchCell.swift */; };
 		E2B9E8CD265AE5B700A2E287 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B9E8CC265AE5B700A2E287 /* CollectionCell.swift */; };
 		E2B9E8CF265B571F00A2E287 /* IntradayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B9E8CE265B571F00A2E287 /* IntradayCell.swift */; };
+		E2BFB8B0265B75C00053A55B /* RedundantFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BFB8AF265B75C00053A55B /* RedundantFunctions.swift */; };
 		E2EF52932656512E002EE9E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52922656512E002EE9E8 /* AppDelegate.swift */; };
 		E2EF52972656512E002EE9E8 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF52962656512E002EE9E8 /* DashboardViewController.swift */; };
 		E2EF529A2656512E002EE9E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EF52982656512E002EE9E8 /* Main.storyboard */; };
@@ -64,6 +65,7 @@
 		E2B9E8CA265A921400A2E287 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		E2B9E8CC265AE5B700A2E287 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		E2B9E8CE265B571F00A2E287 /* IntradayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayCell.swift; sourceTree = "<group>"; };
+		E2BFB8AF265B75C00053A55B /* RedundantFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedundantFunctions.swift; sourceTree = "<group>"; };
 		E2EF528F2656512E002EE9E8 /* AIADemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIADemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2EF52922656512E002EE9E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2EF52962656512E002EE9E8 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 			children = (
 				E2EF52E22657D13B002EE9E8 /* Utilities.swift */,
 				E2EF5314265A2657002EE9E8 /* StorageManager.swift */,
+				E2BFB8AF265B75C00053A55B /* RedundantFunctions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2EF52FA26591A59002EE9E8 /* Router.swift in Sources */,
+				E2BFB8B0265B75C00053A55B /* RedundantFunctions.swift in Sources */,
 				E2EF530926593283002EE9E8 /* IntradayViewModel.swift in Sources */,
 				E2EF530B26595557002EE9E8 /* DailyAdjViewModel.swift in Sources */,
 				E2EF531D265A330C002EE9E8 /* StorageManagerProtocol.swift in Sources */,

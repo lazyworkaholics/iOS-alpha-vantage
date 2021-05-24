@@ -405,20 +405,34 @@
                                                     <color key="textColor" name="font_white"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWK-13-Gzp">
+                                                    <rect key="frame" x="98" y="2" width="28" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="28" id="CR9-vG-NjP"/>
+                                                        <constraint firstAttribute="height" constant="28" id="HxK-2M-nSz"/>
+                                                    </constraints>
+                                                    <state key="normal" image="remove"/>
+                                                    <connections>
+                                                        <action selector="deleteButtonAction:" destination="Yo9-aP-cZQ" eventType="touchUpInside" id="brQ-hq-LdY"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="tintColor" name="navigation"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="5oQ-xh-phk" secondAttribute="trailing" constant="5" id="LfB-gy-yE7"/>
                                                 <constraint firstAttribute="bottom" secondItem="qiy-qu-rZP" secondAttribute="bottom" constant="20" id="NNm-de-C48"/>
+                                                <constraint firstItem="jWK-13-Gzp" firstAttribute="top" secondItem="mxt-Ag-AJH" secondAttribute="top" constant="2" id="ZFg-xW-Ha8"/>
                                                 <constraint firstItem="5oQ-xh-phk" firstAttribute="leading" secondItem="mxt-Ag-AJH" secondAttribute="leading" constant="5" id="cGb-o3-iHQ"/>
                                                 <constraint firstItem="qiy-qu-rZP" firstAttribute="leading" secondItem="mxt-Ag-AJH" secondAttribute="leading" constant="5" id="i60-Za-xsZ"/>
                                                 <constraint firstItem="5oQ-xh-phk" firstAttribute="top" secondItem="mxt-Ag-AJH" secondAttribute="top" constant="5" id="kV2-dG-vpU"/>
                                                 <constraint firstAttribute="trailing" secondItem="qiy-qu-rZP" secondAttribute="trailing" constant="5" id="nJH-uM-U6G"/>
+                                                <constraint firstAttribute="trailing" secondItem="jWK-13-Gzp" secondAttribute="trailing" constant="2" id="v1l-E8-2st"/>
                                                 <constraint firstAttribute="bottom" secondItem="5oQ-xh-phk" secondAttribute="bottom" constant="5" id="z5a-vN-9pf"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="delete_btn" destination="jWK-13-Gzp" id="iAI-9X-sKS"/>
                                             <outlet property="name_lbl" destination="5oQ-xh-phk" id="aAo-ya-AWg"/>
                                             <outlet property="symbol_lbl" destination="qiy-qu-rZP" id="wL0-tE-4dm"/>
                                         </connections>
@@ -465,6 +479,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="remove" width="48" height="48"/>
         <image name="search" width="72" height="72"/>
         <namedColor name="background">
             <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

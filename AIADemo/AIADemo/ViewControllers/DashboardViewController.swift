@@ -102,12 +102,7 @@ extension DashboardViewController: DashboardViewModelProtocol {
     
     func showStaticAlert(_ title: String, message: String) {
         
-        DispatchQueue.main.async(execute: {() -> Void in
-            
-            let alert = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction.init(title: STRINGS.OK, style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        })
+        RedundantFunctions.init().showStaticAlert(title, message: message, onViewController: self)
     }
     
     func displaySearch(controller:SearchDisplayViewController) {
@@ -164,7 +159,7 @@ extension DashboardViewController: UICollectionViewDataSource {
         
         cell.name_lbl.text = viewModel.dashboardDataSource[indexPath.row].name
         cell.symbol_lbl.text = viewModel.dashboardDataSource[indexPath.row].symbol
-        
+        cell.delete_btn.tag = indexPath.row
         cell.contentView.layer.cornerRadius = 10
         cell.contentView.layer.borderWidth = 1
         cell.contentView.layer.borderColor = UIColor.init(named: "navigation")?.cgColor
@@ -178,6 +173,14 @@ extension DashboardViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         viewModel.companySelected(index: indexPath.row)
+    }
+    
+    @IBAction func deleteButtonAction(_ sender: UIButton) {
+        
+        RedundantFunctions.init().showDoubleActionAlert("Do you want to remove this company from your dashboard ?", message: "", firstTitle: STRINGS.YES, secondTitle: STRINGS.NO, onfirstClick: {
+            self.viewModel.removeSearchItem(at: sender.tag)
+        }, onSecondClick: {}, onViewController: self)
+        
     }
 }
 

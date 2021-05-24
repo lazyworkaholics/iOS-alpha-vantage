@@ -68,6 +68,18 @@ class DashboardViewModel {
         }
     }
     
+    func removeSearchItem(at index:Int) {
+        
+        let data = StorageManager.init().deleteFromDashboardData(object: dashboardDataSource[index])
+        dashboardDataSource = data
+        if dashboardDataSource.count > 0 {
+            dashboardProtocol?.showCollectionView()
+        } else {
+            dashboardProtocol?.hideCollectionView()
+        }
+        
+    }
+    
     func routeTosettingsView() {
         
         router.navigateToSettings()

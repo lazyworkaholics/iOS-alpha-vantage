@@ -57,30 +57,13 @@ class SearchDisplayViewController: UIViewController {
     }
     
     func showStaticAlert(_ title: String, message: String) {
-        DispatchQueue.main.async(execute: {() -> Void in
-            
-            let alert = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction.init(title: STRINGS.OK, style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        })
+        
+        RedundantFunctions.init().showStaticAlert(title, message: message, onViewController: self)
     }
     
     func showDoubleActionAlert(_ title: String, message: String?, firstTitle:String, secondTitle:String?, onfirstClick:@escaping (() -> Void), onSecondClick:(() -> Void)?) {
         
-        DispatchQueue.main.async(execute: {() -> Void in
-            
-            let alert = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction.init(title: firstTitle, style: .default, handler: { (nil) in
-                onfirstClick()
-            }))
-            
-            if secondTitle != nil && onSecondClick != nil {
-                alert.addAction(UIAlertAction.init(title: secondTitle!, style: .default, handler: { (nil) in
-                    onSecondClick!()
-                }))
-            }
-            self.present(alert, animated: true, completion: nil)
-        })
+        RedundantFunctions.init().showDoubleActionAlert(title, message: message, firstTitle: firstTitle, secondTitle: secondTitle, onfirstClick: onfirstClick, onSecondClick: onSecondClick, onViewController: self)
     }
 }
 
