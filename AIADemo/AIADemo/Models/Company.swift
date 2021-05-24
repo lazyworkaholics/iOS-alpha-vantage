@@ -68,15 +68,15 @@ struct Company: Decodable {
         
         switch sortby {
         case .open:
-            return candles.sorted(by:{ $0.open < $1.open })
+            return candles.sorted(by:{ $0.open > $1.open })
         case .high:
-            return candles.sorted(by:{ $0.high < $1.high })
+            return candles.sorted(by:{ $0.high > $1.high })
         case .low:
-            return candles.sorted(by:{ $0.low < $1.low })
+            return candles.sorted(by:{ $0.low > $1.low })
         case .close:
-            return candles.sorted(by:{ $0.close < $1.close })
+            return candles.sorted(by:{ $0.close > $1.close })
         default:
-            return candles.sorted(by:{ $0.timeStamp!.timeIntervalSince1970 < $1.timeStamp!.timeIntervalSince1970 })
+            return candles.sorted(by:{ $0.timeStamp!.timeIntervalSince1970 > $1.timeStamp!.timeIntervalSince1970 })
         }
     }
 }

@@ -95,6 +95,7 @@ extension SearchDisplayViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell") as! SearchCell
+        
         cell.name_lbl.text = viewModel.searchDataSource[indexPath.row].name
         cell.symbol_lbl.text = viewModel.searchDataSource[indexPath.row].symbol
         return cell

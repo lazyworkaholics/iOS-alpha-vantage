@@ -7,17 +7,83 @@
 
 import Foundation
 
-struct IntradayViewModel {
+class IntradayViewModel {
     
     //MARK:- variables and initializers
     var intradayProtocol: IntradayViewModelProtocol?
-    var datasource: Search
+    var search: Search
+    var dataSource: Company?
+    var sortedCandles: [Candle] = []
     var router:RouterProtocol = Router.sharedInstance
     
     // MARK: - intraday functions
     init(_ search: Search) {
         
-        datasource = search
+        self.search = search
+    }
+    
+    func getCompanyData() {
+        
+        self.intradayProtocol?.showLoadingIndicator?()
+        ServiceManager.init().getData(search.symbol, isIntraday: true, onSuccess: { company in
+            
+            if company.errorMessage != nil {
+                self.intradayProtocol?.showStaticAlert?(STRINGS.ERROR, message: company.errorMessage)
+            } else {
+                self.dataSource = company
+                self.sortedCandles = company.getCandles(.date)
+                self.intradayProtocol?.showTableView()
+            }
+            self.intradayProtocol?.hideLoadingIndicator?()
+        }, onFailure: { error in
+            
+            self.intradayProtocol?.showStaticAlert?(STRINGS.ERROR, message: error.localizedDescription)
+            self.intradayProtocol?.hideLoadingIndicator?()
+        })
+    }
+    
+    func sortIDChange(index: Int) {
+        
+        switch index {
+        case 0:
+            sortedCandles = (dataSource?.getCandles(.date)) ?? []
+            break
+        case 1:
+            sortedCandles = (dataSource?.getCandles(.open)) ?? []
+            break
+        case 2:
+            sortedCandles = (dataSource?.getCandles(.high)) ?? []
+            break
+        case 3:
+            sortedCandles = (dataSource?.getCandles(.low)) ?? []
+            break
+        default:
+            sortedCandles = (dataSource?.getCandles(.close)) ?? []
+            break
+        }
+        self.intradayProtocol?.showTableView()
+    }
+    
+    func getRowCount() -> Int {
+        
+        return sortedCandles.count
+    }
+    
+    func getValue(index:Int, object:SortingID) -> String {
+        
+        let candle = sortedCandles[index]
+        switch object {
+        case .date:
+            return candle.getIntradayTimeStamp(timeZone: (dataSource!.metadata?.timezone)!, isIntraday: true)
+        case .open:
+            return String(candle.open)
+        case .high:
+            return String(candle.high)
+        case .low:
+            return String(candle.low)
+        case .close:
+            return String(candle.close)
+        }
     }
     
     func navigateToDashboard() {

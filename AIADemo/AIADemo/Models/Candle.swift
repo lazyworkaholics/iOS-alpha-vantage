@@ -70,4 +70,16 @@ struct Candle: Decodable {
             print(error.localizedDescription)
         }
     }
+    
+    func getIntradayTimeStamp(timeZone: String, isIntraday: Bool) -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone =  TimeZone.init(identifier: timeZone)
+        if isIntraday {
+            dateFormatter.dateFormat = "HH:mm"
+        } else {
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+        }
+        return dateFormatter.string(from: timeStamp!)
+    }
 }

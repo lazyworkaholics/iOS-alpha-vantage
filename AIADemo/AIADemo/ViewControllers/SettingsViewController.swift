@@ -20,7 +20,7 @@ class SettingsViewController: UIViewController {
         
         viewController.viewModel = viewModel
         viewController.viewModel.settingsProtocol = viewController
-        viewController.title = STRINGS.DAILYADJ
+        viewController.title = STRINGS.SETTINGS2
         
         return viewController
     }

@@ -80,11 +80,11 @@ struct STRINGS {
     static let DASHBOARD = "Dashboard"
     static let INTRADAY = "Intra Day"
     static let DAILYADJ = "Daily Adjusted"
+    static let SETTINGS2 = "Settings"
     
     static let SETTINGS = "settings"
     static let BACK = "back"
     static let DOWN = "down"
-    static let DASHBOARD2 = "dashboard"
     
     struct VIEWCONTROLLERS {
         

@@ -33,6 +33,7 @@ protocol DashboardViewModelProtocol: ViewModelProtocol {
 
 protocol IntradayViewModelProtocol: ViewModelProtocol {
     
+    func showTableView()
 }
 
 protocol DailyAdjViewModelProtocol: ViewModelProtocol {

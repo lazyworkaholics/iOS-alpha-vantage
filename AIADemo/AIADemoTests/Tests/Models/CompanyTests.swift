@@ -67,7 +67,7 @@ class CompanyTests: XCTestCase {
             let company = try decoder.decode(Company.self, from: utf8str!)
             
             let candles = company.getCandles(.open)
-            XCTAssertEqual(candles[0].open, 570.11, "failed to sort by opening" )
+            XCTAssertEqual(candles[1].open, 570.11, "failed to sort by opening" )
             
         } catch {
             XCTFail("init with coder should not fail with an exception for this data")
@@ -82,7 +82,7 @@ class CompanyTests: XCTestCase {
             let company = try decoder.decode(Company.self, from: utf8str!)
             
             let candles = company.getCandles(.close)
-            XCTAssertEqual(candles[1].close, 580.88, "failed to sort by close" )
+            XCTAssertEqual(candles[0].close, 580.88, "failed to sort by close" )
             
         } catch {
             XCTFail("init with coder should not fail with an exception for this data")
@@ -97,7 +97,7 @@ class CompanyTests: XCTestCase {
             let company = try decoder.decode(Company.self, from: utf8str!)
             
             let candles = company.getCandles(.high)
-            XCTAssertEqual(candles[0].high, 592.68, "failed to sort by high" )
+            XCTAssertEqual(candles[1].high, 592.68, "failed to sort by high" )
             
         } catch {
             XCTFail("init with coder should not fail with an exception for this data")
@@ -112,7 +112,7 @@ class CompanyTests: XCTestCase {
             let company = try decoder.decode(Company.self, from: utf8str!)
             
             let candles = company.getCandles(.low)
-            XCTAssertEqual(candles[1].low, 543.33, "failed to sort by low" )
+            XCTAssertEqual(candles[0].low, 543.33, "failed to sort by low" )
             
         } catch {
             XCTFail("init with coder should not fail with an exception for this data")
@@ -127,7 +127,7 @@ class CompanyTests: XCTestCase {
             let company = try decoder.decode(Company.self, from: utf8str!)
             
             let candles = company.getCandles(.date)
-            XCTAssertEqual(candles[0].open, 570.11, "failed to sort by opening" )
+            XCTAssertEqual(candles[1].open, 570.11, "failed to sort by opening" )
             
         } catch {
             XCTFail("init with coder should not fail with an exception for this data")
