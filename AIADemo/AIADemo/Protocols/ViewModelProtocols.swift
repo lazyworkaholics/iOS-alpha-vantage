@@ -23,11 +23,7 @@ protocol DashboardViewModelProtocol: ViewModelProtocol {
     func showCollectionView()
     
     func hideCollectionView()
-    
-//    func displaySearch(controller:SearchDisplayViewController)
-//    
-//    func hideSearch(controller:SearchDisplayViewController)
-    
+        
     func dismissSearchKeyboard()
     
     func clearSearchText()

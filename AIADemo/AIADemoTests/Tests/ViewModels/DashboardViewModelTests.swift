@@ -9,34 +9,13 @@ import XCTest
 @testable import AIADemo
 
 class DashboardViewModelTests: XCTestCase {
-    
-//    var mock_company:Company?
-//    var mock_search:Search?
-//    var mock_error:NSError?
 
     override func setUpWithError() throws {
-        
-        
-//        let text = "{\"Meta Data\":{\"1. Information\":\"Daily Time Series with Splits and Dividend Events\",\"2. Symbol\":\"TSLA\",\"3. Last Refreshed\":\"2021-05-21\",\"4. Output Size\":\"Compact\",\"5. Time Zone\": \"US/Eastern\"},\"Time Series (5min)\":{\"2021-05-20 20:00:00\":{\"1. open\":\"596.11\",\"2. high\":\"596.68\",\"3. low\":\"543.33\",\"4. close\":\"580.88\",\"5. volume\": \"14129\"},\"2021-05-20 19:00:00\":{\"1. open\":\"570.11\",\"2. high\":\"592.68\",\"3. low\":\"543.30\",\"4. close\":\"570.88\",\"5. volume\": \"15000\"}}}"
-//        let searchText = "{\"1. symbol\":\"test symbol\", \"2. name\":\"test name\"}"
-//        let utf8str = text.data(using: .utf8)
-//        let utf8str2 = searchText.data(using: .utf8)
-//        do {
-//            let decoder = JSONDecoder.init()
-//            mock_company = try decoder.decode(Company.self, from: utf8str!)
-//            let search = try decoder.decode(Search.self, from: utf8str2!)
-//            mock_search = search
-//        } catch {
-//            XCTFail("init with coder should not fail with an exception for this data")
-//        }
         
     }
 
     override func tearDownWithError() throws {
 
-//        mock_company = nil
-//        mock_error = nil
-//        mock_search = nil
     }
     
     func testDashboardViewModelInit() {

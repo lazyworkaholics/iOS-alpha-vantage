@@ -18,7 +18,7 @@ enum SortingID {
 
 struct Company: Decodable {
     
-    var errorMessage: String!
+    var errorMessage: String?
     var metadata: MetaData?
     
     var candles:[Candle] = []

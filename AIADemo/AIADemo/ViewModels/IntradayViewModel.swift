@@ -13,22 +13,27 @@ class IntradayViewModel {
     var intradayProtocol: IntradayViewModelProtocol?
     var search: Search
     var dataSource: Company?
-    var sortedCandles: [Candle] = []
-    var router:RouterProtocol = Router.sharedInstance
+    var sortedCandles: [Candle]?
+    var router:RouterProtocol?
+    var serviceManager: ServiceManagerProtocol!
     
     // MARK: - intraday functions
     init(_ search: Search) {
         
         self.search = search
+        sortedCandles = []
+        router = Router.sharedInstance
+        serviceManager = ServiceManager.init()
     }
     
+    // MARK: - IntradayViewController - Action Handlers
     func getCompanyData() {
         
         self.intradayProtocol?.showLoadingIndicator?()
-        ServiceManager.init().getData(search.symbol, isIntraday: true, onSuccess: { company in
+        serviceManager.getData(search.symbol, isIntraday: true, onSuccess: { company in
             
             if company.errorMessage != nil {
-                self.intradayProtocol?.showStaticAlert?(STRINGS.ERROR, message: company.errorMessage)
+                self.intradayProtocol?.showStaticAlert?(STRINGS.ERROR, message: company.errorMessage!)
             } else {
                 self.dataSource = company
                 self.sortedCandles = company.getCandles(.date)
@@ -64,14 +69,20 @@ class IntradayViewModel {
         self.intradayProtocol?.showTableView()
     }
     
+    func routeToDashboard() {
+        
+        router!.backToDashboard()
+    }
+    
+    // MARK: - IntradayViewController - Data Handlers
     func getRowCount() -> Int {
         
-        return sortedCandles.count
+        return sortedCandles!.count
     }
     
     func getValue(index:Int, object:SortingID) -> String {
         
-        let candle = sortedCandles[index]
+        let candle = sortedCandles![index]
         switch object {
         case .date:
             return candle.getTimeStamp(timeZone: (dataSource!.metadata?.timezone)!, isIntraday: true)
@@ -84,10 +95,5 @@ class IntradayViewModel {
         case .close:
             return String(candle.close)
         }
-    }
-    
-    func navigateToDashboard() {
-        
-        router.backToDashboard()
     }
 }

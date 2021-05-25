@@ -13,6 +13,8 @@
 		E202E229265CD138001B0674 /* SearchProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E202E228265CD138001B0674 /* SearchProtocolMock.swift */; };
 		E202E22B265CDC44001B0674 /* RouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E202E22A265CDC44001B0674 /* RouterMock.swift */; };
 		E202E22F265CF439001B0674 /* StoreManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E202E22E265CF439001B0674 /* StoreManagerMock.swift */; };
+		E202E231265D0DE0001B0674 /* IntradayViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E202E230265D0DE0001B0674 /* IntradayViewModelTests.swift */; };
+		E202E233265D0FBD001B0674 /* IntradayViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E202E232265D0FBD001B0674 /* IntradayViewModelMock.swift */; };
 		E2B9E8CB265A921400A2E287 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B9E8CA265A921400A2E287 /* SearchCell.swift */; };
 		E2B9E8CD265AE5B700A2E287 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B9E8CC265AE5B700A2E287 /* CollectionCell.swift */; };
 		E2B9E8CF265B571F00A2E287 /* IntradayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B9E8CE265B571F00A2E287 /* IntradayCell.swift */; };
@@ -76,6 +78,8 @@
 		E202E228265CD138001B0674 /* SearchProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProtocolMock.swift; sourceTree = "<group>"; };
 		E202E22A265CDC44001B0674 /* RouterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterMock.swift; sourceTree = "<group>"; };
 		E202E22E265CF439001B0674 /* StoreManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManagerMock.swift; sourceTree = "<group>"; };
+		E202E230265D0DE0001B0674 /* IntradayViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayViewModelTests.swift; sourceTree = "<group>"; };
+		E202E232265D0FBD001B0674 /* IntradayViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayViewModelMock.swift; sourceTree = "<group>"; };
 		E2B9E8CA265A921400A2E287 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		E2B9E8CC265AE5B700A2E287 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		E2B9E8CE265B571F00A2E287 /* IntradayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayCell.swift; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				E202E222265CC0BF001B0674 /* DashboardViewModelTests.swift */,
+				E202E230265D0DE0001B0674 /* IntradayViewModelTests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -344,6 +349,7 @@
 			children = (
 				E202E226265CC84E001B0674 /* DashboardProtocolMock.swift */,
 				E202E228265CD138001B0674 /* SearchProtocolMock.swift */,
+				E202E232265D0FBD001B0674 /* IntradayViewModelMock.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -528,6 +534,7 @@
 			files = (
 				E202E22B265CDC44001B0674 /* RouterMock.swift in Sources */,
 				E2EF52D2265662D0002EE9E8 /* NetworkManagerTests.swift in Sources */,
+				E202E233265D0FBD001B0674 /* IntradayViewModelMock.swift in Sources */,
 				E2EF52EE2658E76B002EE9E8 /* CandleTests.swift in Sources */,
 				E202E22F265CF439001B0674 /* StoreManagerMock.swift in Sources */,
 				E202E223265CC0BF001B0674 /* DashboardViewModelTests.swift in Sources */,
@@ -541,6 +548,7 @@
 				E202E227265CC84E001B0674 /* DashboardProtocolMock.swift in Sources */,
 				E2EF5319265A3087002EE9E8 /* StorageManagerTests.swift in Sources */,
 				E2EF52F22658FF75002EE9E8 /* CompanyTests.swift in Sources */,
+				E202E231265D0DE0001B0674 /* IntradayViewModelTests.swift in Sources */,
 				E2EF52CE26566228002EE9E8 /* URLSessionMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
