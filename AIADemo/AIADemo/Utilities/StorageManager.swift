@@ -57,19 +57,18 @@ struct StorageManager: StorageManagerProtocol {
     }
     
     func getAPIKey() -> String {
-        // to be changed to keychain
-        guard let apikey = userDefaults.string(forKey: STRINGS.KEYCHAIN_APIKEY) else {
-            
-            userDefaults.setValue(STRINGS.APIKEY_DEFAULT_VALUE, forKey: STRINGS.KEYCHAIN_APIKEY)
+        
+        guard let  data = KeyChain.load(key: STRINGS.KEYCHAIN_APIKEY) else {
+            setAPIKey(key: STRINGS.APIKEY_DEFAULT_VALUE)
             return STRINGS.APIKEY_DEFAULT_VALUE
         }
-        
-        return apikey
+        return String(decoding: data, as: UTF8.self)
     }
     
     func setAPIKey(key:String) {
-        // to be changed to keychain
-        userDefaults.setValue(key, forKey: STRINGS.KEYCHAIN_APIKEY)
+
+        let data = key.data(using: .utf8)
+        _ = KeyChain.save(key: STRINGS.KEYCHAIN_APIKEY, data: data!)
     }
     
     func getDashboardData() -> [Search] {
