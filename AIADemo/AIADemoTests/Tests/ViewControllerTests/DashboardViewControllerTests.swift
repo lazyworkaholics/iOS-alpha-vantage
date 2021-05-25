@@ -94,6 +94,17 @@ class DashboardViewControllerTests: XCTestCase {
         XCTAssertEqual(viewController.adaptivePresentationStyle(for: UIPresentationController.init(presentedViewController: viewController, presenting: viewcontroller2)), UIModalPresentationStyle.none)
     }
     
+    func test_showCollectionView() {
+        let viewmodel = DashboardViewModelMock.init()
+        let viewController = DashboardViewController.initWithViewModel(viewmodel)
+        viewController.loadView()
+        
+        viewController.showCollectionView()
+        XCTAssertFalse(viewController.segmentControl.isHidden)
+        XCTAssertFalse(viewController.collectionView.isHidden)
+        viewController.hideCollectionView()
+    }
+    
     func test_textFieldDidBeginEditing() {
         
         let viewmodel = DashboardViewModelMock.init()
@@ -102,19 +113,28 @@ class DashboardViewControllerTests: XCTestCase {
         viewController.textFieldDidBeginEditing(textfield)
         
         XCTAssertTrue(viewmodel.is_searchforCompanies_called)
+        viewController.loadView()
+        viewController.dismissSearchKeyboard()
+        viewController.clearSearchText()
     }
     
+    func test_searchTextChange() {
+        let viewmodel = DashboardViewModelMock.init()
+        let viewController = DashboardViewController.initWithViewModel(viewmodel)
+        viewController.loadView()
+        viewController.searchTextChange(viewController.searchBar!)
+        XCTAssertFalse(viewmodel.is_searchforCompanies_called)
+    }
     
-    /*
     func test_collectionView_datasources() {
         
         let viewmodel = DashboardViewModelMock.init()
-//        let viewController = DashboardViewController.initWithViewModel(viewmodel)
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
         viewController.viewModel = viewmodel
+        viewController.loadView()
         
-        var itemsCount_stub = 100
+        let itemsCount_stub = 100
         viewmodel.itemsCount_stub = itemsCount_stub
         let collectionView = viewController.collectionView!
         XCTAssertEqual(viewController.collectionView(collectionView, numberOfItemsInSection: 0), itemsCount_stub)
@@ -123,11 +143,12 @@ class DashboardViewControllerTests: XCTestCase {
     func test_collectionView_CellforRow() {
         
         let viewmodel = DashboardViewModelMock.init()
-//        let viewController = DashboardViewController.initWithViewModel(viewmodel)
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
+        let viewController = DashboardViewController.initWithViewModel(viewmodel)
         viewController.viewModel = viewmodel
+        viewController.loadView()
         
+        let itemsCount_stub = 100
+        viewmodel.itemsCount_stub = itemsCount_stub
         let getDashboardCompanyName_stub = "testName"
         viewmodel.getDashboardCompanyName_stub = getDashboardCompanyName_stub
         let getDashboardCompanySymbol_stub = "testSymbol"
@@ -142,22 +163,24 @@ class DashboardViewControllerTests: XCTestCase {
         XCTAssertTrue(viewmodel.is_DailyAdjustChecked_called)
     }
     
-    /*
-     searchTextChange
-     DashboardViewController: DashboardViewModelProtocol
-     isRightBarButtonHidden
-     showCollectionView
-     hideCollectionView
-     showStaticAlert
-     dismissSearchKeyboard
-     clearSearchText
-     
-     collectinview row
-     colectionview items
-    -didselectitem at
-     - delete button action
- 
- */
- */
-
+    func test_collectionView_didSelect() {
+        
+        let viewmodel = DashboardViewModelMock.init()
+        let viewController = DashboardViewController.initWithViewModel(viewmodel)
+        viewController.viewModel = viewmodel
+        viewController.loadView()
+        
+        let itemsCount_stub = 100
+        viewmodel.itemsCount_stub = itemsCount_stub
+        let getDashboardCompanyName_stub = "testName"
+        viewmodel.getDashboardCompanyName_stub = getDashboardCompanyName_stub
+        let getDashboardCompanySymbol_stub = "testSymbol"
+        viewmodel.getDashboardCompanySymbol_stub = getDashboardCompanySymbol_stub
+        let isDailyAdjustChecked_stub = false
+        viewmodel.isDailyAdjustChecked_stub = isDailyAdjustChecked_stub
+        
+        viewController.collectionView(viewController.collectionView, didSelectItemAt: IndexPath.init(item: 0, section: 0))
+        XCTAssertTrue(viewmodel.is_companySelected_called)
+        
+    }
 }

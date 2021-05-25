@@ -70,10 +70,10 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
         viewModel.routeToDailyView()
     }
     
-    @IBAction func searchTextChange(_ sender: Any) {
+    @IBAction func searchTextChange(_ sender: UITextField) {
         
-        if searchBar.isFirstResponder {
-            viewModel.searchforCompanies(keyword: searchBar.text!)
+        if sender.isFirstResponder {
+            viewModel.searchforCompanies(keyword: sender.text!)
         }
     }
     

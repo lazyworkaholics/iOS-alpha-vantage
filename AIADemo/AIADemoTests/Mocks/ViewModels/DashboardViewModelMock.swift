@@ -26,6 +26,8 @@ class DashboardViewModelMock: DashboardViewModel {
     var isDailyAdjustChecked_stub:Bool?
     var is_DailyAdjustChecked_called = false
     
+    var is_companySelected_called = false
+    
     override func routeTosettingsView() {
         is_routeTosettingsView_called = true
     }
@@ -59,5 +61,9 @@ class DashboardViewModelMock: DashboardViewModel {
     override func isDailyAdjustChecked(index:Int) ->  Bool {
         is_DailyAdjustChecked_called = true
         return isDailyAdjustChecked_stub!
+    }
+    
+    override func companySelected(at index: Int) {
+        is_companySelected_called = true
     }
 }
