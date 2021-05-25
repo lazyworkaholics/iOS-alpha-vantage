@@ -352,7 +352,12 @@ class DashboardViewModelTests: XCTestCase {
         let mockDashboardProtocol = DashboardProtocolMock.init()
         viewmodel.dashboardProtocol = mockDashboardProtocol
         
-        viewmodel.removeSearchItem(at: 1)
+        var search1 = Search.init()
+        search1.name = "Name1"
+        search1.symbol = "symboll1"
+        viewmodel.dashboardDataSource = [search1]
+        
+        viewmodel.removeSearchItem(at: 0)
         
         XCTAssertEqual(viewmodel.dashboardDataSource.count, 0, "dashboardDataSource should be matching to that of mock_searches")
         XCTAssertTrue(mockDashboardProtocol.is_hideCollectionView_Called, "hideCollecrtion View of DashboardViewController should be invoked")
@@ -371,8 +376,9 @@ class DashboardViewModelTests: XCTestCase {
         
         let mockDashboardProtocol = DashboardProtocolMock.init()
         viewmodel.dashboardProtocol = mockDashboardProtocol
+        viewmodel.dashboardDataSource = [search1]
         
-        viewmodel.removeSearchItem(at: 1)
+        viewmodel.removeSearchItem(at: 0)
 
         XCTAssertEqual(viewmodel.dashboardDataSource.count, 1, "dashboardDataSource should be matching to that of mock_searches")
         XCTAssertEqual(viewmodel.dashboardDataSource[0].name, search1.name, "dashboardDataSource should be matching to that of mock_searches")
