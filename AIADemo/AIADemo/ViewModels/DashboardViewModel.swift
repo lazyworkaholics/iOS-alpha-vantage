@@ -11,56 +11,64 @@ class DashboardViewModel {
     
     //MARK:- variables and initializers
     var dashboardProtocol: DashboardViewModelProtocol?
-    var dashboardDataSource:[Search] = []
-    var isIntraday:Bool = true
+    var searchProtocol: SearchViewModelProtocol?
+    var router:RouterProtocol!
     
-    var searchDisplayController: SearchDisplayViewController?
-    var isSearchDisplayPresented = false
-    var searchDataSource:[Search] = []
+    var dashboardDataSource:[Search]!
+    var isIntraday:Bool!
+    var dailyAdj_CheckIndexes:[Int]!
     
-    var router:RouterProtocol = Router.sharedInstance
+    var isSearchDisplayPresented:Bool!
+    var searchDataSource:[Search]!
     
-    var dailyAdj_CheckIndexes:[Int] = []
+    var serviceManager: ServiceManagerProtocol!
+    var storeManager: StorageManagerProtocol!
     
     // MARK: - dashboard functions
     init()  {
         
-        self.dashboardDataSource = StorageManager.init().getDashboardData()
+        router = Router.sharedInstance
+        serviceManager = ServiceManager.init()
+        storeManager = StorageManager.init()
+        dashboardDataSource = storeManager.getDashboardData()
+        
+        isIntraday = true
+        dailyAdj_CheckIndexes = []
+        isSearchDisplayPresented = false
+        searchDataSource = []
     }
     
+    // MARK: - DashboardViewController - Action Handlers
     func searchforCompanies(keyword: String) {
         
-        if searchDisplayController == nil {
-            searchDisplayController = SearchDisplayViewController.initWithViewModel(self)
-        }
         if isSearchDisplayPresented == false {
-            dashboardProtocol?.displaySearch(controller: searchDisplayController!)
+            router.displaySearchView()
             isSearchDisplayPresented = true
         }
         
-        searchDisplayController?.showLoadingIndicator()
+        searchProtocol?.showLoadingIndicator!()
         if keyword == "" {
             
             searchDataSource = []
-            searchDisplayController?.reloadData()
-            self.searchDisplayController?.hideLoadingIndicator()
+            searchProtocol?.reloadData()
+            searchProtocol?.hideLoadingIndicator!()
         } else {
             
-            ServiceManager.init().search(keyword,
+            serviceManager.search(keyword,
                                          onSuccess: { searchResults in
                                             
                                             self.searchDataSource = searchResults
-                                            self.searchDisplayController?.reloadData()
-                                            self.searchDisplayController?.hideLoadingIndicator()
+                                            self.searchProtocol?.reloadData()
+                                            self.searchProtocol?.hideLoadingIndicator!()
                                          }, onFailure: { error in
                                             
                                             self.dashboardProtocol?.showStaticAlert?(STRINGS.ERROR, message: error.localizedDescription)
-                                            self.searchDisplayController?.hideLoadingIndicator()
+                                            self.searchProtocol?.hideLoadingIndicator!()
                                          })
         }
     }
     
-    func companySelected(index: Int) {
+    func companySelected(at index: Int) {
         
         if isIntraday {
             router.navigateToIntraday(with: dashboardDataSource[index])
@@ -76,7 +84,7 @@ class DashboardViewModel {
                 }
                 dailyAdj_CheckIndexes.remove(at: count)
                 if dailyAdj_CheckIndexes.count == 0 {
-                    self._clearAndReloadCollection()
+                    _clearAndReloadCollection()
                 } else {
                     dashboardProtocol?.showCollectionView()
                     dashboardProtocol?.isRightBarButtonHidden(isHidden: false)
@@ -106,7 +114,7 @@ class DashboardViewModel {
     
     func removeSearchItem(at index:Int) {
         
-        let data = StorageManager.init().deleteFromDashboardData(object: dashboardDataSource[index])
+        let data = storeManager.deleteFromDashboardData(object: dashboardDataSource[index])
         dashboardDataSource = data
         if dashboardDataSource.count > 0 {
             _clearAndReloadCollection()
@@ -131,7 +139,28 @@ class DashboardViewModel {
         _clearAndReloadCollection()
     }
     
-    // MARK: - search custom functions
+    // MARK: - DashboardViewController - Data Handlers
+    func getDashboardCompaniesCount() -> Int {
+        return dashboardDataSource.count
+    }
+    
+    func getDashboardCompanyName(for index:Int) -> String {
+        return dashboardDataSource[index].name
+    }
+    
+    func getDashboardCompanySymbol(for index:Int) -> String {
+        return dashboardDataSource[index].symbol
+    }
+    
+    func isDailyAdjustChecked(index:Int) ->  Bool {
+        
+        if !isIntraday &&  dailyAdj_CheckIndexes.contains(index) {
+            return true
+        }
+        return false
+    }
+    
+    // MARK: - SearchDisplayViewController - Action Handlers
     func searchDisappeared() {
         
         isSearchDisplayPresented = false
@@ -151,33 +180,37 @@ class DashboardViewModel {
         }
         if isElementAlreadyAdded {
             
-            self.searchDisplayController?.showStaticAlert("This company is already added to your dashboard", message: "")
+            self.searchProtocol?.showStaticAlert!(STRINGS.ALREADY_ADDED_TEXT, message: "")
         } else {
             
-            let title = "Do you want to add " + search.symbol + " to your dashboard"
-            self.searchDisplayController?.showDoubleActionAlert(title, message: "", firstTitle: STRINGS.YES, secondTitle: STRINGS.NO, onfirstClick: {
-                
-                self.dashboardProtocol?.hideSearch(controller: self.searchDisplayController!)
+            let title = STRINGS.ADD_TO_DASHBOARD1 + search.symbol + STRINGS.ADD_TO_DASHBOARD2
+            self.searchProtocol?.showDoubleActionAlert!(title, message: "", firstTitle: STRINGS.YES, secondTitle: STRINGS.NO, onfirstClick: {
+                self.router.hideSearchView()
                 self.dashboardProtocol?.clearSearchText()
-                self.dashboardDataSource = StorageManager.init().saveToDashboardData(object: search)
+                self.dashboardDataSource = self.storeManager.saveToDashboardData(object: search)
                 self._clearAndReloadCollection()
             }, onSecondClick: {
-                
-                self.dashboardProtocol?.hideSearch(controller: self.searchDisplayController!)
+                self.router.hideSearchView()
                 self.dashboardProtocol?.clearSearchText()
             })
         }
     }
     
-    func isDailyAdjustChecked(index:Int) ->  Bool{
-        
-        if !isIntraday &&  dailyAdj_CheckIndexes.contains(index) {
-            return true
-        }
-        return false
+    // MARK: - SearchDisplayViewController - Data Handlers
+    func getSearchCompaniesCount() -> Int {
+        return searchDataSource.count
     }
     
-    func _clearAndReloadCollection() {
+    func getSearchCompanyName(for index:Int) -> String {
+        return searchDataSource[index].name
+    }
+    
+    func getSearchCompanySymbol(for index:Int) -> String {
+        return searchDataSource[index].symbol
+    }
+    
+    // MARK: - Private functions
+    private func _clearAndReloadCollection() {
         dailyAdj_CheckIndexes = []
         dashboardProtocol?.showCollectionView()
         dashboardProtocol?.isRightBarButtonHidden(isHidden: true)

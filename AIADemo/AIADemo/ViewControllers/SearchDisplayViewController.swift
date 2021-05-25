@@ -19,6 +19,7 @@ class SearchDisplayViewController: UIViewController {
         let storyBoardRef = UIStoryboard.init(name: STRINGS.MAIN, bundle: nil)
         let viewController = storyBoardRef.instantiateViewController(withIdentifier: STRINGS.VIEWCONTROLLERS.SEARCH) as! SearchDisplayViewController
         viewController.viewModel = viewModel
+        viewModel.searchProtocol = viewController
         return viewController
     }
     
@@ -26,8 +27,10 @@ class SearchDisplayViewController: UIViewController {
         
         viewModel.searchDisappeared()
     }
+}
+
+extension SearchDisplayViewController: SearchViewModelProtocol {
     
-    // Mark: - ViewModel interactors
     func reloadData() {
         DispatchQueue.main.async {
             
@@ -66,14 +69,14 @@ extension SearchDisplayViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return viewModel.searchDataSource.count
+        return viewModel.getSearchCompaniesCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell") as! SearchCell
-        cell.name_lbl.text = viewModel.searchDataSource[indexPath.row].name
-        cell.symbol_lbl.text = viewModel.searchDataSource[indexPath.row].symbol
+        cell.name_lbl.text = viewModel.getSearchCompanyName(for: indexPath.row)
+        cell.symbol_lbl.text = viewModel.getSearchCompanySymbol(for: indexPath.row)
         return cell
     }
 }

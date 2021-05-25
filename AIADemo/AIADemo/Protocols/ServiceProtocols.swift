@@ -13,6 +13,10 @@ protocol ServiceManagerProtocol {
                          onSuccess successBlock:@escaping (Company)->Void,
                          onFailure failureBlock:@escaping (NSError)->Void)
     
+    func search(_ searchString: String,
+                        onSuccess successBlock: @escaping ([Search]) -> Void,
+                        onFailure failureBlock: @escaping (NSError) -> Void)
+    
 }
 
 protocol NetworkManagerProtocol {

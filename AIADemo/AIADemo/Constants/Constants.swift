@@ -87,6 +87,10 @@ struct STRINGS {
     static let DOWN = "down"
     static let NEXT = "next"
     
+    static let ALREADY_ADDED_TEXT = "This company is already added to your dashboard"
+    static let ADD_TO_DASHBOARD1 = "Do you want to add "
+    static let ADD_TO_DASHBOARD2 = " to your dashboard?"
+    
     struct VIEWCONTROLLERS {
         
         static let DASHBOARD = "DashboardViewController"

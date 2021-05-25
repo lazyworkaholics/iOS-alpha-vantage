@@ -38,11 +38,16 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
         let leftBarButton = UIBarButtonItem.init(image: UIImage.init(named: STRINGS.SETTINGS), style: UIBarButtonItem.Style.plain, target: self, action: #selector(DashboardViewController.settings_buttonAction))
         self.navigationItem.leftBarButtonItem = leftBarButton
         
+        self.setupUI()
+    }
+    
+    func setupUI() {
+        
         let width = (view.frame.width - 100)/2
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: width)
         
-        if viewModel.dashboardDataSource.count == 0 {
+        if viewModel.getDashboardCompaniesCount() == 0 {
             segmentControl.isHidden = true
             collectionNilLabel.isHidden = false
             collectionView.isHidden = true
@@ -81,6 +86,7 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
 extension DashboardViewController: DashboardViewModelProtocol {
     
     func isRightBarButtonHidden(isHidden:Bool) {
+        
         if isHidden {
             self.navigationItem.rightBarButtonItem = nil
         } else {
@@ -90,7 +96,6 @@ extension DashboardViewController: DashboardViewModelProtocol {
     }
     
     func showCollectionView() {
-        
         DispatchQueue.main.async(execute: {() -> Void in
             
             self.segmentControl.isHidden = false
@@ -101,7 +106,6 @@ extension DashboardViewController: DashboardViewModelProtocol {
     }
     
     func hideCollectionView() {
-        
         DispatchQueue.main.async(execute: {() -> Void in
             
             self.segmentControl.isHidden = true
@@ -115,23 +119,8 @@ extension DashboardViewController: DashboardViewModelProtocol {
         RedundantFunctions.init().showStaticAlert(title, message: message, onViewController: self)
     }
     
-    func displaySearch(controller:SearchDisplayViewController) {
-        
-        controller.modalPresentationStyle = .popover
-        controller.popoverPresentationController?.delegate = self
-        controller.popoverPresentationController?.permittedArrowDirections = .any
-        controller.popoverPresentationController?.sourceView = searchBar
-        controller.popoverPresentationController?.sourceRect = CGRect.init(x: searchBar.frame.origin.x, y: searchBar.frame.origin.y-90, width: searchBar.frame.width, height: searchBar.frame.height)
-        self.present(controller, animated: true, completion: nil)
-    }
-    
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
-    }
-    
-    func hideSearch(controller:SearchDisplayViewController) {
-        
-        controller.dismiss(animated: false, completion: nil)
     }
     
     func dismissSearchKeyboard() {
@@ -149,7 +138,6 @@ extension DashboardViewController: DashboardViewModelProtocol {
 extension DashboardViewController: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
         viewModel.searchforCompanies(keyword: searchBar.text!)
     }
 }
@@ -160,15 +148,15 @@ extension DashboardViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return viewModel.dashboardDataSource.count
+        return viewModel.getDashboardCompaniesCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! CollectionCell
         
-        cell.name_lbl.text = viewModel.dashboardDataSource[indexPath.row].name
-        cell.symbol_lbl.text = viewModel.dashboardDataSource[indexPath.row].symbol
+        cell.name_lbl.text = viewModel.getDashboardCompanyName(for: indexPath.row)
+        cell.symbol_lbl.text = viewModel.getDashboardCompanySymbol(for: indexPath.row)
         cell.delete_btn.tag = indexPath.row
         cell.selected_Image.isHidden = !viewModel.isDailyAdjustChecked(index: indexPath.row)
         cell.contentView.layer.cornerRadius = 10
@@ -183,7 +171,7 @@ extension DashboardViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        viewModel.companySelected(index: indexPath.row)
+        viewModel.companySelected(at: indexPath.row)
     }
     
     @IBAction func deleteButtonAction(_ sender: UIButton) {

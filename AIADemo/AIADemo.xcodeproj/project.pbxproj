@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E202E223265CC0BF001B0674 /* DashboardViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E202E222265CC0BF001B0674 /* DashboardViewModelTests.swift */; };
+		E202E225265CC18A001B0674 /* ServiceManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E202E224265CC18A001B0674 /* ServiceManagerMock.swift */; };
+		E202E227265CC84E001B0674 /* DashboardProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E202E226265CC84E001B0674 /* DashboardProtocolMock.swift */; };
+		E202E229265CD138001B0674 /* SearchProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E202E228265CD138001B0674 /* SearchProtocolMock.swift */; };
+		E202E22B265CDC44001B0674 /* RouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E202E22A265CDC44001B0674 /* RouterMock.swift */; };
+		E202E22F265CF439001B0674 /* StoreManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E202E22E265CF439001B0674 /* StoreManagerMock.swift */; };
 		E2B9E8CB265A921400A2E287 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B9E8CA265A921400A2E287 /* SearchCell.swift */; };
 		E2B9E8CD265AE5B700A2E287 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B9E8CC265AE5B700A2E287 /* CollectionCell.swift */; };
 		E2B9E8CF265B571F00A2E287 /* IntradayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B9E8CE265B571F00A2E287 /* IntradayCell.swift */; };
@@ -64,6 +70,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E202E222265CC0BF001B0674 /* DashboardViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModelTests.swift; sourceTree = "<group>"; };
+		E202E224265CC18A001B0674 /* ServiceManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManagerMock.swift; sourceTree = "<group>"; };
+		E202E226265CC84E001B0674 /* DashboardProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardProtocolMock.swift; sourceTree = "<group>"; };
+		E202E228265CD138001B0674 /* SearchProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProtocolMock.swift; sourceTree = "<group>"; };
+		E202E22A265CDC44001B0674 /* RouterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterMock.swift; sourceTree = "<group>"; };
+		E202E22E265CF439001B0674 /* StoreManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManagerMock.swift; sourceTree = "<group>"; };
 		E2B9E8CA265A921400A2E287 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		E2B9E8CC265AE5B700A2E287 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		E2B9E8CE265B571F00A2E287 /* IntradayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayCell.swift; sourceTree = "<group>"; };
@@ -132,6 +144,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E202E221265CB588001B0674 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E202E222265CC0BF001B0674 /* DashboardViewModelTests.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		E2B9E8C9265A91E800A2E287 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,8 +215,8 @@
 		E2EF52C22656567D002EE9E8 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				E2EF5316265A305B002EE9E8 /* Utilities */,
-				E2EF52EB2658E74C002EE9E8 /* Models */,
+				E2EF5316265A305B002EE9E8 /* UtilitiesServicesNOthers */,
+				E2EF52EB2658E74C002EE9E8 /* ViewModels */,
 				E2EF52CF2656622D002EE9E8 /* Services */,
 			);
 			path = Mocks;
@@ -205,6 +225,7 @@
 		E2EF52C326565684002EE9E8 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				E202E221265CB588001B0674 /* ViewModels */,
 				E2EF5317265A3065002EE9E8 /* Utilities */,
 				E2EF52EC2658E753002EE9E8 /* Models */,
 				E2EF52D026566296002EE9E8 /* Services */,
@@ -318,11 +339,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		E2EF52EB2658E74C002EE9E8 /* Models */ = {
+		E2EF52EB2658E74C002EE9E8 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				E202E226265CC84E001B0674 /* DashboardProtocolMock.swift */,
+				E202E228265CD138001B0674 /* SearchProtocolMock.swift */,
 			);
-			path = Models;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		E2EF52EC2658E753002EE9E8 /* Models */ = {
@@ -346,12 +369,15 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		E2EF5316265A305B002EE9E8 /* Utilities */ = {
+		E2EF5316265A305B002EE9E8 /* UtilitiesServicesNOthers */ = {
 			isa = PBXGroup;
 			children = (
 				E2EF531A265A309F002EE9E8 /* UserdefaultsMock.swift */,
+				E202E224265CC18A001B0674 /* ServiceManagerMock.swift */,
+				E202E22A265CDC44001B0674 /* RouterMock.swift */,
+				E202E22E265CF439001B0674 /* StoreManagerMock.swift */,
 			);
-			path = Utilities;
+			path = UtilitiesServicesNOthers;
 			sourceTree = "<group>";
 		};
 		E2EF5317265A3065002EE9E8 /* Utilities */ = {
@@ -500,13 +526,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E202E22B265CDC44001B0674 /* RouterMock.swift in Sources */,
 				E2EF52D2265662D0002EE9E8 /* NetworkManagerTests.swift in Sources */,
 				E2EF52EE2658E76B002EE9E8 /* CandleTests.swift in Sources */,
+				E202E22F265CF439001B0674 /* StoreManagerMock.swift in Sources */,
+				E202E223265CC0BF001B0674 /* DashboardViewModelTests.swift in Sources */,
 				E2EF52F826590E14002EE9E8 /* ServiceManagerTests.swift in Sources */,
 				E2EF52F426590BE4002EE9E8 /* NetworkManagerMock.swift in Sources */,
+				E202E225265CC18A001B0674 /* ServiceManagerMock.swift in Sources */,
 				E2EF52F02658F2FF002EE9E8 /* MetaDataTests.swift in Sources */,
 				E2EF531B265A309F002EE9E8 /* UserdefaultsMock.swift in Sources */,
 				E2EF5313265A20B0002EE9E8 /* SearchServiceTests.swift in Sources */,
+				E202E229265CD138001B0674 /* SearchProtocolMock.swift in Sources */,
+				E202E227265CC84E001B0674 /* DashboardProtocolMock.swift in Sources */,
 				E2EF5319265A3087002EE9E8 /* StorageManagerTests.swift in Sources */,
 				E2EF52F22658FF75002EE9E8 /* CompanyTests.swift in Sources */,
 				E2EF52CE26566228002EE9E8 /* URLSessionMock.swift in Sources */,

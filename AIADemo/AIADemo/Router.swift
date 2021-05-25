@@ -19,6 +19,8 @@ class Router: RouterProtocol {
     
     static var sharedInstance:Router = Router()
     var rootNavigationController:UINavigationController?
+    var dashboardViewController:DashboardViewController!
+    var searchViewController:SearchDisplayViewController!
     
     var dashboardViewModel:DashboardViewModel?
     var intradayViewModel:IntradayViewModel?
@@ -30,7 +32,7 @@ class Router: RouterProtocol {
     func appLaunch(_ window: UIWindow) {
         
         self.dashboardViewModel = DashboardViewModel.init()
-        let dashboardViewController = DashboardViewController.initWithViewModel(self.dashboardViewModel!)
+        dashboardViewController = DashboardViewController.initWithViewModel(self.dashboardViewModel!)
         self.rootNavigationController = UINavigationController(rootViewController: dashboardViewController)
         
         self.rootNavigationController?.navigationBar.barTintColor = UIColor.init(named: STRINGS.COLORS.NAV_COLOR)
@@ -100,6 +102,24 @@ class Router: RouterProtocol {
                 self.currentRouteState = .dashboardView
             })
         }
+    }
+    
+    func displaySearchView() {
+        
+        if searchViewController == nil {
+            searchViewController = SearchDisplayViewController.initWithViewModel(self.dashboardViewModel!)
+        }
+        searchViewController.modalPresentationStyle = .popover
+        searchViewController.popoverPresentationController?.delegate = dashboardViewController
+        searchViewController.popoverPresentationController?.permittedArrowDirections = .any
+        searchViewController.popoverPresentationController?.sourceView = dashboardViewController.searchBar
+        searchViewController.popoverPresentationController?.sourceRect = CGRect.init(x: dashboardViewController.searchBar.frame.origin.x, y: dashboardViewController.searchBar.frame.origin.y-90, width: dashboardViewController.searchBar.frame.width, height: dashboardViewController.searchBar.frame.height)
+        dashboardViewController.present(searchViewController, animated: true, completion: nil)
+        
+    }
+    
+    func hideSearchView() {
+        searchViewController.dismiss(animated: false, completion: nil)
     }
     
     

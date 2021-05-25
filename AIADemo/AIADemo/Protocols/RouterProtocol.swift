@@ -18,4 +18,9 @@ protocol RouterProtocol {
     func navigateToSettings()
     
     func backToDashboard()
+    
+    func displaySearchView()
+    
+    func hideSearchView()
+    
 }

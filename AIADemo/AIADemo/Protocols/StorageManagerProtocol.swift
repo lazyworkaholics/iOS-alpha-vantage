@@ -10,17 +10,20 @@ import Foundation
 protocol StorageManagerProtocol {
     
     func getInterval() -> Interval
+    
     func setInterval(interval:Interval)
     
     func getOutputSize() -> String
+    
     func setOutputSize(value:OutputSize)
     
+    func getAPIKey() -> String
+    
+    func setAPIKey(key:String)
+    
     func getDashboardData() -> [Search]
+    
     func saveToDashboardData( object:Search) -> [Search]
+    
     func deleteFromDashboardData( object:Search) -> [Search]
-}
-
-protocol UserDefaultsProtocol: UserDefaults {
-    
-    
 }
