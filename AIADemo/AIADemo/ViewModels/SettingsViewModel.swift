@@ -10,37 +10,42 @@ import Foundation
 struct SettingsViewModel {
     
     //MARK:- variables and initializers
-    var router:RouterProtocol = Router.sharedInstance
+    var router:RouterProtocol!
+    var storageManager:StorageManagerProtocol!
+    
+    init() {
+        
+        router = Router.sharedInstance
+        storageManager = StorageManager.init()
+    }
     
     // MARK: - settings custom functions
-    func navigateToDashboard() {
+    func routeToDashboard() {
         
         router.backToDashboard()
     }
     
-    func getOutputSizeSegmentIndex() -> Int{
+    func getOutputSizeSegmentIndex() -> Int {
         
-        let outputsize = StorageManager.init().getOutputSize()
+        let outputsize = storageManager.getOutputSize()
         if outputsize == STRINGS.COMPACT {
             return 0
-        } else {
-            return 1
         }
+        return 1
     }
     
     func setOutputSize(index:Int) {
         
         if index == 0 {
-            StorageManager.init().setOutputSize(value: .COMPACT)
+            storageManager.setOutputSize(value: .COMPACT)
         } else {
-            StorageManager.init().setOutputSize(value: .COMPACT)
+            storageManager.setOutputSize(value: .FULL)
         }
     }
     
     func getIntervalSegmentIndex() -> Int{
         
-        let interval = StorageManager.init().getInterval()
-        
+        let interval = storageManager.getInterval()
         switch interval {
         case .ONE_MIN:
             return 0
@@ -58,28 +63,28 @@ struct SettingsViewModel {
     func setInterval(index:Int) {
         switch index {
         case 0:
-            StorageManager.init().setInterval(interval: .ONE_MIN)
+            storageManager.setInterval(interval: .ONE_MIN)
             break
         case 1:
-            StorageManager.init().setInterval(interval: .FIVE_MINS)
+            storageManager.setInterval(interval: .FIVE_MINS)
             break
         case 2:
-            StorageManager.init().setInterval(interval: .FIFTEEN_MINS)
+            storageManager.setInterval(interval: .FIFTEEN_MINS)
             break
         case 3:
-            StorageManager.init().setInterval(interval: .THIRTY_MINS)
+            storageManager.setInterval(interval: .THIRTY_MINS)
             break
         default:
-            StorageManager.init().setInterval(interval: .SIXTY_MINS)
+            storageManager.setInterval(interval: .SIXTY_MINS)
             break
         }
     }
     
     func getapikeyText() -> String {
-        return StorageManager.init().getAPIKey()
+        return storageManager.getAPIKey()
     }
     
     func setAPIKey(key:String) {
-        StorageManager.init().setAPIKey(key: key)
+        storageManager.setAPIKey(key: key)
     }
 }

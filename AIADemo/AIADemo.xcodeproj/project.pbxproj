@@ -15,6 +15,7 @@
 		E202E22F265CF439001B0674 /* StoreManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E202E22E265CF439001B0674 /* StoreManagerMock.swift */; };
 		E202E231265D0DE0001B0674 /* IntradayViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E202E230265D0DE0001B0674 /* IntradayViewModelTests.swift */; };
 		E202E233265D0FBD001B0674 /* IntradayViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E202E232265D0FBD001B0674 /* IntradayViewModelMock.swift */; };
+		E202E235265D31AB001B0674 /* SettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E202E234265D31AB001B0674 /* SettingsViewModelTests.swift */; };
 		E2B9E8CB265A921400A2E287 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B9E8CA265A921400A2E287 /* SearchCell.swift */; };
 		E2B9E8CD265AE5B700A2E287 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B9E8CC265AE5B700A2E287 /* CollectionCell.swift */; };
 		E2B9E8CF265B571F00A2E287 /* IntradayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B9E8CE265B571F00A2E287 /* IntradayCell.swift */; };
@@ -80,6 +81,7 @@
 		E202E22E265CF439001B0674 /* StoreManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManagerMock.swift; sourceTree = "<group>"; };
 		E202E230265D0DE0001B0674 /* IntradayViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayViewModelTests.swift; sourceTree = "<group>"; };
 		E202E232265D0FBD001B0674 /* IntradayViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayViewModelMock.swift; sourceTree = "<group>"; };
+		E202E234265D31AB001B0674 /* SettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTests.swift; sourceTree = "<group>"; };
 		E2B9E8CA265A921400A2E287 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		E2B9E8CC265AE5B700A2E287 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		E2B9E8CE265B571F00A2E287 /* IntradayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayCell.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			children = (
 				E202E222265CC0BF001B0674 /* DashboardViewModelTests.swift */,
 				E202E230265D0DE0001B0674 /* IntradayViewModelTests.swift */,
+				E202E234265D31AB001B0674 /* SettingsViewModelTests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 				E202E225265CC18A001B0674 /* ServiceManagerMock.swift in Sources */,
 				E2EF52F02658F2FF002EE9E8 /* MetaDataTests.swift in Sources */,
 				E2EF531B265A309F002EE9E8 /* UserdefaultsMock.swift in Sources */,
+				E202E235265D31AB001B0674 /* SettingsViewModelTests.swift in Sources */,
 				E2EF5313265A20B0002EE9E8 /* SearchServiceTests.swift in Sources */,
 				E202E229265CD138001B0674 /* SearchProtocolMock.swift in Sources */,
 				E202E227265CC84E001B0674 /* DashboardProtocolMock.swift in Sources */,

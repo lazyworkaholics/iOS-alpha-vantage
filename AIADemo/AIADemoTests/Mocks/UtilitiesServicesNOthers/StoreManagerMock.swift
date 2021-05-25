@@ -11,20 +11,19 @@ import Foundation
 class StoreManagerMock: StorageManagerProtocol {
     
     var getInterval_mock:Interval?
-    var is_getInterval_called:Bool?
-    var is_setInterval_called:Bool?
+    var is_getInterval_called = false
+    var is_setInterval_called = false
     var getOutputSize_mock:String?
-    var is_getOutputSize_called:Bool?
-    var is_setOutputSize_called:Bool?
-    var is_getAPIKey_called:Bool?
+    var is_getOutputSize_called = false
+    var is_setOutputSize_called = false
+    var is_getAPIKey_called = false
     var getAPIKey_mock:String?
-    var is_setAPIKey_called:Bool?
+    var is_setAPIKey_called = false
     
     var mock_searches:[Search]?
-    var is_getDashboardData_called:Bool?
-    var is_saveToDashboardData_called:Bool?
-    var is_deleteFromDashboardData_called:Bool?
-    
+    var is_getDashboardData_called = false
+    var is_saveToDashboardData_called = false
+    var is_deleteFromDashboardData_called = false
     
     func getInterval() -> Interval {
         

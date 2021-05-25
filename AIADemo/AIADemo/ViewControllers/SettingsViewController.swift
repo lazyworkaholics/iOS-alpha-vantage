@@ -44,7 +44,7 @@ class SettingsViewController: UIViewController {
     
     @objc func back_buttonAction() {
         
-        viewModel.navigateToDashboard()
+        viewModel.routeToDashboard()
     }
     
     @objc func hideKeyboard() {
