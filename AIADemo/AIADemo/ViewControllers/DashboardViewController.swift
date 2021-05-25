@@ -138,7 +138,7 @@ extension DashboardViewController: DashboardViewModelProtocol {
 extension DashboardViewController: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        viewModel.searchforCompanies(keyword: searchBar.text!)
+        viewModel.searchforCompanies(keyword: textField.text!)
     }
 }
 
@@ -182,4 +182,3 @@ extension DashboardViewController: UICollectionViewDelegate {
         
     }
 }
-
