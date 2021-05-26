@@ -40,7 +40,7 @@ class IntradayViewModelTests: XCTestCase {
         mock_service.isServiceCallSuccess = false
         viewmodel.serviceManager = mock_service
         
-        let mockIntradayProtocol = IntradayViewModelMock.init()
+        let mockIntradayProtocol = ViewModelProtocolMock.init()
         viewmodel.intradayProtocol = mockIntradayProtocol
         
         
@@ -73,7 +73,7 @@ class IntradayViewModelTests: XCTestCase {
             mock_service.isServiceCallSuccess = true
             viewmodel.serviceManager = mock_service
             
-            let mockIntradayProtocol = IntradayViewModelMock.init()
+            let mockIntradayProtocol = ViewModelProtocolMock.init()
             viewmodel.intradayProtocol = mockIntradayProtocol
             
             
@@ -109,7 +109,7 @@ class IntradayViewModelTests: XCTestCase {
             mock_service.isServiceCallSuccess = true
             viewmodel.serviceManager = mock_service
             
-            let mockIntradayProtocol = IntradayViewModelMock.init()
+            let mockIntradayProtocol = ViewModelProtocolMock.init()
             viewmodel.intradayProtocol = mockIntradayProtocol
             
             

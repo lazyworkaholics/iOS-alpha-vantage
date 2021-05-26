@@ -40,7 +40,7 @@ class DailyAdjViewModelTests: XCTestCase {
         mock_service.isServiceCallSuccess = false
         viewmodel.serviceManager = mock_service
         
-        let mockDailyAdjProtocol = DailyAdjViewModelMock.init()
+        let mockDailyAdjProtocol = DailyAdjViewModelProtocolMock.init()
         viewmodel.dailyAdjProtocol = mockDailyAdjProtocol
         
         
@@ -74,7 +74,7 @@ class DailyAdjViewModelTests: XCTestCase {
             mock_service.isServiceCallSuccess = true
             viewmodel.serviceManager = mock_service
             
-            let mockDailyAdjProtocol = DailyAdjViewModelMock.init()
+            let mockDailyAdjProtocol = DailyAdjViewModelProtocolMock.init()
             viewmodel.dailyAdjProtocol = mockDailyAdjProtocol
             
             
@@ -111,7 +111,7 @@ class DailyAdjViewModelTests: XCTestCase {
             mock_service.isServiceCallSuccess = true
             viewmodel.serviceManager = mock_service
             
-            let mockDailyAdjiProtocol = DailyAdjViewModelMock.init()
+            let mockDailyAdjiProtocol = DailyAdjViewModelProtocolMock.init()
             viewmodel.dailyAdjProtocol = mockDailyAdjiProtocol
             
             
@@ -128,7 +128,7 @@ class DailyAdjViewModelTests: XCTestCase {
     
     func test_SegmentChange() {
         let viewmodel = DailyAdjViewModel.init([Search.init()])
-        let mockDailyAdjProtocol = DailyAdjViewModelMock.init()
+        let mockDailyAdjProtocol = DailyAdjViewModelProtocolMock.init()
         viewmodel.dailyAdjProtocol = mockDailyAdjProtocol
         
         viewmodel.segmentValueChange(index: 0)

@@ -9,9 +9,12 @@ import UIKit
 
 class SearchDisplayViewController: UIViewController {
 
+    //MARK:- iboutlets and variables
+    var viewModel: DashboardViewModel!
+    
     @IBOutlet var tableView:UITableView!
     @IBOutlet var activityindicator: UIActivityIndicatorView!
-    var viewModel: DashboardViewModel!
+    
     
     //MARK:- init and viewDidLoads
     class func initWithViewModel(_ viewModel: DashboardViewModel) -> SearchDisplayViewController {
@@ -30,7 +33,7 @@ class SearchDisplayViewController: UIViewController {
 }
 
 // MARK: - protocol implementations
-extension SearchDisplayViewController: SearchViewModelProtocol {
+extension SearchDisplayViewController: ViewModelProtocol {
     
     func reloadData() {
         DispatchQueue.main.async {

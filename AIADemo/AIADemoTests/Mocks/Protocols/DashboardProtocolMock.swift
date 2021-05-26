@@ -9,7 +9,7 @@ import Foundation
 @testable import AIADemo
 
 class DashboardProtocolMock: DashboardViewModelProtocol {
-    
+
     var is_showCollectionView_Called = false
     var is_hideCollectionView_Called = false
     var is_displaySearch_Called = false
@@ -19,7 +19,7 @@ class DashboardProtocolMock: DashboardViewModelProtocol {
     var is_isRightBarButtonHidden_Called = false
     var is_showStaticAlert_Called = false
     
-    func showCollectionView() {
+    func reloadData() {
         is_showCollectionView_Called = true
     }
     

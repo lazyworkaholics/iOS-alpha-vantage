@@ -16,11 +16,11 @@ import Foundation
     @objc optional func hideLoadingIndicator()
     
     @objc optional func showDoubleActionAlert(_ title: String, message: String?, firstTitle:String, secondTitle:String?, onfirstClick:@escaping (() -> Void), onSecondClick:(() -> Void)?)
+    
+    func reloadData()
 }
 
 protocol DashboardViewModelProtocol: ViewModelProtocol {
-    
-    func showCollectionView()
     
     func hideCollectionView()
         
@@ -31,19 +31,7 @@ protocol DashboardViewModelProtocol: ViewModelProtocol {
     func isRightBarButtonHidden(isHidden:Bool) 
 }
 
-protocol IntradayViewModelProtocol: ViewModelProtocol {
-    
-    func showTableView()
-}
-
 protocol DailyAdjViewModelProtocol: ViewModelProtocol {
     
     func setSegmentHeaders(titles:[String])
-    
-    func showTableView()
-}
-
-protocol SearchViewModelProtocol: ViewModelProtocol {
-    
-    func reloadData()
 }

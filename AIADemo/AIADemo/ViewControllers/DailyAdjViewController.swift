@@ -10,12 +10,12 @@ import UIKit
 class DailyAdjViewController: UIViewController {
 
     //MARK:- iboutlets and variables
+    var viewModel: DailyAdjViewModel!
+    
     @IBOutlet var segmentControl:UISegmentedControl!
     @IBOutlet var segmentControl2:UISegmentedControl!
     @IBOutlet var tableView:UITableView!
     @IBOutlet var activityindicator: UIActivityIndicatorView!
-    
-    var viewModel: DailyAdjViewModel!
     
     //MARK:- init and viewDidLoads
     class func initWithViewModel(_ viewModel: DailyAdjViewModel) -> DailyAdjViewController {
@@ -85,7 +85,7 @@ extension DailyAdjViewController: DailyAdjViewModelProtocol {
         })
     }
     
-    func showTableView() {
+    func reloadData() {
         
         DispatchQueue.main.async(execute: {() -> Void in
             

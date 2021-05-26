@@ -10,13 +10,13 @@ import UIKit
 class DashboardViewController: UIViewController, UIPopoverPresentationControllerDelegate {
 
     //MARK:- iboutlets and variables
+    var viewModel: DashboardViewModel!
+    
     @IBOutlet var searchBar:UITextField!
     @IBOutlet var segmentControl:UISegmentedControl!
-    
     @IBOutlet var collectionView:UICollectionView!
     @IBOutlet var collectionNilLabel:UILabel!
-    
-    var viewModel: DashboardViewModel!
+
     var popover: UIPopoverPresentationController!
     
     //MARK:- init and viewDidLoads
@@ -97,13 +97,13 @@ extension DashboardViewController: DashboardViewModelProtocol {
         }
     }
     
-    func showCollectionView() {
+    func reloadData() {
         DispatchQueue.main.async(execute: {() -> Void in
             
             self.segmentControl.isHidden = false
             self.collectionView.isHidden = false
-            self.collectionView.reloadData()
             self.collectionNilLabel.isHidden = true
+            self.collectionView.reloadData()
         })
     }
     

@@ -40,7 +40,7 @@ class DailyAdjViewModel {
             self.dataSource = dailyAdjust
             self.dailyAdjProtocol?.setSegmentHeaders(titles: self._getHeaders())
             if self.dataSource?.errors.count != self.dataSource?.symbols.count {
-                self.dailyAdjProtocol?.showTableView()
+                self.dailyAdjProtocol?.reloadData()
             } else {
                 let error = self.dataSource?.errors[(self.dataSource?.symbols[0])!]
                 self.dailyAdjProtocol?.showStaticAlert?(STRINGS.ERROR, message: error?.localizedDescription ?? ERROR.DESCRIPTION.DAILY_ADJ_ERROR)
@@ -66,7 +66,7 @@ class DailyAdjViewModel {
             compareBy = .close
             break
         }
-        dailyAdjProtocol?.showTableView()
+        dailyAdjProtocol?.reloadData()
     }
     
     func routeToDashboard() {

@@ -2,37 +2,28 @@
 //  IntradayViewModelMock.swift
 //  AIADemoTests
 //
-//  Created by Harsha VARDHAN on 25/05/2021.
+//  Created by Harsha VARDHAN on 26/05/2021.
 //
 
 import Foundation
+import UIKit
 @testable import AIADemo
 
-class IntradayViewModelMock: IntradayViewModelProtocol {
+class IntradayViewModelMock: IntradayViewModel {
     
-    var is_showTableView_called = false
-    var is_showLoadingIndicator_Called = false
-    var is_hideLoadingIndicator_Called = false
-    var is_showStaticAlert_Called = false
-    var is_showDoubleActionAlert_Called = false
+    var is_routeToDashboard_Called = false
+    var is_sortIDChange_Called = false
+    var getValueText:String?
     
-    func showLoadingIndicator() {
-        is_showLoadingIndicator_Called = true
+    override func routeToDashboard() {
+        is_routeToDashboard_Called = true
     }
     
-    func hideLoadingIndicator() {
-        is_hideLoadingIndicator_Called = true
+    override func sortIDChange(index: Int) {
+        is_sortIDChange_Called = true
     }
     
-    @objc func showStaticAlert(_ title: String, message: String) {
-        is_showStaticAlert_Called = true
-    }
-    
-    @objc func showDoubleActionAlert(_ title: String, message: String?, firstTitle:String, secondTitle:String?, onfirstClick:@escaping (() -> Void), onSecondClick:(() -> Void)?) {
-        is_showDoubleActionAlert_Called = true
-    }
-    
-    func showTableView() {
-        is_showTableView_called = true
+    override func getValue(index: Int, object: SortBy) -> String {
+        return getValueText!
     }
 }

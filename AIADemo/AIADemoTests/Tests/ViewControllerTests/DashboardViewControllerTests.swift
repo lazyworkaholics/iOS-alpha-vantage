@@ -11,15 +11,12 @@ import XCTest
 class DashboardViewControllerTests: XCTestCase {
 
     override func setUpWithError() throws {
-        
     }
 
     override func tearDownWithError() throws {
-        
     }
     
     func test_initWithViewModel() {
-        
         let viewmodel = DashboardViewModel.init()
         let viewController = DashboardViewController.initWithViewModel(viewmodel)
         XCTAssertNotNil(viewController.viewModel)
@@ -99,7 +96,7 @@ class DashboardViewControllerTests: XCTestCase {
         let viewController = DashboardViewController.initWithViewModel(viewmodel)
         viewController.loadView()
         
-        viewController.showCollectionView()
+        viewController.reloadData()
         XCTAssertFalse(viewController.segmentControl.isHidden)
         XCTAssertFalse(viewController.collectionView.isHidden)
         viewController.hideCollectionView()
@@ -156,7 +153,7 @@ class DashboardViewControllerTests: XCTestCase {
         let isDailyAdjustChecked_stub = false
         viewmodel.isDailyAdjustChecked_stub = isDailyAdjustChecked_stub
         let cell = viewController.collectionView(viewController.collectionView, cellForItemAt: IndexPath.init(item: 0, section: 0))
-        
+        viewController.collectionView(viewController.collectionView, didSelectItemAt: IndexPath.init(item: 0, section: 0))
         XCTAssertNotNil(cell)
         XCTAssertTrue(viewmodel.is_getDashboardCompanyName_called)
         XCTAssertTrue(viewmodel.is_getDashboardCompanySymbol_called)

@@ -10,7 +10,7 @@ import Foundation
 class IntradayViewModel {
     
     //MARK:- variables and initializers
-    var intradayProtocol: IntradayViewModelProtocol?
+    var intradayProtocol: ViewModelProtocol?
     var search: Search
     var dataSource: Company?
     var sortedCandles: [Candle]?
@@ -36,7 +36,7 @@ class IntradayViewModel {
             } else {
                 self.dataSource = company
                 self.sortedCandles = company.getCandles(.date)
-                self.intradayProtocol?.showTableView()
+                self.intradayProtocol?.reloadData()
             }
             self.intradayProtocol?.hideLoadingIndicator?()
         }, onFailure: { error in
@@ -65,7 +65,7 @@ class IntradayViewModel {
             sortedCandles = (dataSource?.getCandles(.close)) ?? []
             break
         }
-        self.intradayProtocol?.showTableView()
+        self.intradayProtocol?.reloadData()
     }
     
     func routeToDashboard() {

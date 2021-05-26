@@ -10,10 +10,11 @@ import UIKit
 class IntradayViewController: UIViewController {
     
     //MARK:- iboutlets and variables
+    var viewModel: IntradayViewModel!
+    
     @IBOutlet var segmentControl:UISegmentedControl!
     @IBOutlet var tableView:UITableView!
     @IBOutlet var activityindicator: UIActivityIndicatorView!
-    var viewModel: IntradayViewModel!
     
     //MARK:- init and viewDidLoads
     class func initWithViewModel(_ viewModel: IntradayViewModel) -> IntradayViewController {
@@ -50,11 +51,12 @@ class IntradayViewController: UIViewController {
 }
 
 // MARK: - protocol implementations
-extension IntradayViewController: IntradayViewModelProtocol {
+extension IntradayViewController: ViewModelProtocol {
     
-    func showTableView() {
+    func reloadData() {
         DispatchQueue.main.async {
             
+            self.segmentControl.isHidden = false
             self.tableView.reloadData()
         }
     }

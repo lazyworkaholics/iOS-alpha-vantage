@@ -11,7 +11,7 @@ class DashboardViewModel {
     
     //MARK:- variables and initializers
     var dashboardProtocol: DashboardViewModelProtocol?
-    var searchProtocol: SearchViewModelProtocol?
+    var searchProtocol: ViewModelProtocol?
     var router:RouterProtocol!
     
     var dashboardDataSource:[Search]!
@@ -85,7 +85,7 @@ class DashboardViewModel {
                 if dailyAdj_CheckIndexes.count == 0 {
                     _clearAndReloadCollection()
                 } else {
-                    dashboardProtocol?.showCollectionView()
+                    dashboardProtocol?.reloadData()
                     dashboardProtocol?.isRightBarButtonHidden(isHidden: false)
                 }
             } else {
@@ -95,7 +95,7 @@ class DashboardViewModel {
                     router.navigateToDailyAdj(with: searches)
                     self._clearAndReloadCollection()
                 } else {
-                    dashboardProtocol?.showCollectionView()
+                    dashboardProtocol?.reloadData()
                     dashboardProtocol?.isRightBarButtonHidden(isHidden: false)
                 }
             }
@@ -211,7 +211,7 @@ class DashboardViewModel {
     // MARK: - Private functions
     private func _clearAndReloadCollection() {
         dailyAdj_CheckIndexes = []
-        dashboardProtocol?.showCollectionView()
+        dashboardProtocol?.reloadData()
         dashboardProtocol?.isRightBarButtonHidden(isHidden: true)
     }
 }

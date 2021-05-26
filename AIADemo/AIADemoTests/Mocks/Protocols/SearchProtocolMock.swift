@@ -1,21 +1,20 @@
 //
-//  DailyAdjViewModelMock.swift
+//  SearchProtocolMock.swift
 //  AIADemoTests
 //
-//  Created by Harsha VARDHAN on 26/05/2021.
+//  Created by Harsha VARDHAN on 25/05/2021.
 //
 
 import Foundation
 @testable import AIADemo
 
-class DailyAdjViewModelMock: DailyAdjViewModelProtocol {
-
-    var is_showTableView_called = false
+class SearchProtocolMock: ViewModelProtocol {
+    
     var is_showLoadingIndicator_Called = false
     var is_hideLoadingIndicator_Called = false
     var is_showStaticAlert_Called = false
-    var is_showDoubleActionAlert_Called = false
-    var is_setSegmentHeaders_called = false
+    var is_doubleActionAlert_Called = false
+    var is_reloadData_called = false
     
     func showLoadingIndicator() {
         is_showLoadingIndicator_Called = true
@@ -25,19 +24,15 @@ class DailyAdjViewModelMock: DailyAdjViewModelProtocol {
         is_hideLoadingIndicator_Called = true
     }
     
-    func setSegmentHeaders(titles: [String]) {
-        is_setSegmentHeaders_called = true
-    }
-    
     @objc func showStaticAlert(_ title: String, message: String) {
         is_showStaticAlert_Called = true
     }
     
     @objc func showDoubleActionAlert(_ title: String, message: String?, firstTitle:String, secondTitle:String?, onfirstClick:@escaping (() -> Void), onSecondClick:(() -> Void)?) {
-        is_showDoubleActionAlert_Called = true
+        is_doubleActionAlert_Called = true
     }
     
-    func showTableView() {
-        is_showTableView_called = true
+    func reloadData() {
+        is_reloadData_called = true
     }
 }
