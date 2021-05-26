@@ -21,19 +21,19 @@ class IntradayCell: UITableViewCell {
         
         open_lbl.layer.cornerRadius = 10
         open_lbl.layer.borderWidth = 0.5
-        open_lbl.layer.borderColor = UIColor.init(named: "navigation")?.cgColor
+        open_lbl.layer.borderColor = UIColor.init(named: STRINGS.COLORS.NAVIGATION)?.cgColor
         
         high_lbl.layer.cornerRadius = 10
         high_lbl.layer.borderWidth = 0.5
-        high_lbl.layer.borderColor = UIColor.init(named: "navigation")?.cgColor
+        high_lbl.layer.borderColor = UIColor.init(named: STRINGS.COLORS.NAVIGATION)?.cgColor
         
         low_lbl.layer.cornerRadius = 10
         low_lbl.layer.borderWidth = 0.5
-        low_lbl.layer.borderColor = UIColor.init(named: "navigation")?.cgColor
+        low_lbl.layer.borderColor = UIColor.init(named: STRINGS.COLORS.NAVIGATION)?.cgColor
         
         close_lbl.layer.cornerRadius = 10
         close_lbl.layer.borderWidth = 0.5
-        close_lbl.layer.borderColor = UIColor.init(named: "navigation")?.cgColor
+        close_lbl.layer.borderColor = UIColor.init(named: STRINGS.COLORS.NAVIGATION)?.cgColor
     }
 
 }

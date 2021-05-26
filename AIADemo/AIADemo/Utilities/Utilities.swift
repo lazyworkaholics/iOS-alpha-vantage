@@ -22,18 +22,4 @@ struct Utilities {
         }
         return date
     }
-    
-    func sort(dataSource:[Company], search:[Search]) -> [Company] {
-        
-        var returnSource:[Company] = []
-        for key in search {
-            for company in dataSource {
-                if key.symbol == company.metadata?.symbol {
-                    returnSource.append(company)
-                    break
-                }
-            }
-        }
-        return returnSource
-    }
 }

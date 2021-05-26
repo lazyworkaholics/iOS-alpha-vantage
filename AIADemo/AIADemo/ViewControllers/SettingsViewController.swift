@@ -34,6 +34,8 @@ class SettingsViewController: UIViewController {
         let leftBarButton = UIBarButtonItem.init(image: UIImage.init(named: STRINGS.DOWN), style: UIBarButtonItem.Style.plain, target: self, action: #selector(back_buttonAction))
         navigationItem.leftBarButtonItem = leftBarButton
         
+        intervalSegment.ensureiOS12Style()
+        outputSizeSegment.ensureiOS12Style()
         intervalSegment.selectedSegmentIndex = viewModel.getIntervalSegmentIndex()
         outputSizeSegment.selectedSegmentIndex = viewModel.getOutputSizeSegmentIndex()
         apikeyTextField.text = viewModel.getapikeyText()
@@ -42,6 +44,12 @@ class SettingsViewController: UIViewController {
         view.addGestureRecognizer(tapGesture)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        viewModel.routeToDashboard()
+    }
+    
+    //MARK:- user interactions
     @objc func back_buttonAction() {
         
         viewModel.routeToDashboard()
@@ -73,9 +81,11 @@ class SettingsViewController: UIViewController {
     
 }
 
+//MARK: - textField delegate functions
 extension SettingsViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         for textField in self.view.subviews where textField is UITextField {
             textField.resignFirstResponder()
         }

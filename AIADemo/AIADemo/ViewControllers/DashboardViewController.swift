@@ -35,7 +35,7 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let leftBarButton = UIBarButtonItem.init(image: UIImage.init(named: STRINGS.SETTINGS), style: UIBarButtonItem.Style.plain, target: self, action: #selector(DashboardViewController.settings_buttonAction))
+        let leftBarButton = UIBarButtonItem.init(image: UIImage.init(named: STRINGS.SETTINGS), style: UIBarButtonItem.Style.plain, target: self, action: #selector(settings_buttonAction))
         self.navigationItem.leftBarButtonItem = leftBarButton
         
         self.setupUI()
@@ -47,6 +47,7 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: width)
         
+        segmentControl.ensureiOS12Style()
         if viewModel.getDashboardCompaniesCount() == 0 {
             segmentControl.isHidden = true
             collectionNilLabel.isHidden = false
@@ -59,7 +60,7 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
         }
     }
     
-    //MARK:- Custom Button Actions
+    //MARK:- user interactions
     @objc func settings_buttonAction() {
         
         viewModel.routeTosettingsView()
@@ -83,6 +84,7 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
     }
 }
 
+// MARK: - protocol implementations
 extension DashboardViewController: DashboardViewModelProtocol {
     
     func isRightBarButtonHidden(isHidden:Bool) {
@@ -90,7 +92,7 @@ extension DashboardViewController: DashboardViewModelProtocol {
         if isHidden {
             self.navigationItem.rightBarButtonItem = nil
         } else {
-            let rightBarButton = UIBarButtonItem.init(image: UIImage.init(named: STRINGS.NEXT), style: UIBarButtonItem.Style.plain, target: self, action: #selector(DashboardViewController.dailyAdj_buttonAction))
+            let rightBarButton = UIBarButtonItem.init(image: UIImage.init(named: STRINGS.NEXT), style: UIBarButtonItem.Style.plain, target: self, action: #selector(dailyAdj_buttonAction))
             self.navigationItem.rightBarButtonItem = rightBarButton
         }
     }
@@ -115,7 +117,6 @@ extension DashboardViewController: DashboardViewModelProtocol {
     }
     
     func showStaticAlert(_ title: String, message: String) {
-        
         RedundantFunctions.init().showStaticAlert(title, message: message, onViewController: self)
     }
     
@@ -134,7 +135,7 @@ extension DashboardViewController: DashboardViewModelProtocol {
     }
 }
 
-//MARK: - UITextFieldDelegate functions
+//MARK: - textField delegate functions
 extension DashboardViewController: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -142,7 +143,7 @@ extension DashboardViewController: UITextFieldDelegate {
     }
 }
 
-//MARK: - CollectionView Delegates functions
+//MARK: - collection view delegate and datasource functions
 extension DashboardViewController: UICollectionViewDataSource {
    
 
@@ -153,7 +154,7 @@ extension DashboardViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! CollectionCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: STRINGS.CELLS.COLLECTION, for: indexPath) as! CollectionCell
         
         cell.name_lbl.text = viewModel.getDashboardCompanyName(for: indexPath.row)
         cell.symbol_lbl.text = viewModel.getDashboardCompanySymbol(for: indexPath.row)
@@ -161,7 +162,7 @@ extension DashboardViewController: UICollectionViewDataSource {
         cell.selected_Image.isHidden = !viewModel.isDailyAdjustChecked(index: indexPath.row)
         cell.contentView.layer.cornerRadius = 10
         cell.contentView.layer.borderWidth = 1
-        cell.contentView.layer.borderColor = UIColor.init(named: "navigation")?.cgColor
+        cell.contentView.layer.borderColor = UIColor.init(named: STRINGS.COLORS.NAVIGATION)?.cgColor
    
         return cell
     }
@@ -176,7 +177,7 @@ extension DashboardViewController: UICollectionViewDelegate {
     
     @IBAction func deleteButtonAction(_ sender: UIButton) {
         
-        RedundantFunctions.init().showDoubleActionAlert("Do you want to remove this company from your dashboard ?", message: "", firstTitle: STRINGS.YES, secondTitle: STRINGS.NO, onfirstClick: {
+        RedundantFunctions.init().showDoubleActionAlert(STRINGS.DELETE_FROM_DASHBOARD, message: "", firstTitle: STRINGS.YES, secondTitle: STRINGS.NO, onfirstClick: {
             self.viewModel.removeSearchItem(at: sender.tag)
         }, onSecondClick: {}, onViewController: self)
         

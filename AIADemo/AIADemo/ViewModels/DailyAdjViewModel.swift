@@ -119,7 +119,7 @@ class DailyAdjViewModel {
     // MARK: - internal functions
     private func _getHeaders() -> [String] {
         var headers = dataSource?.symbols ?? []
-        headers.insert("Date", at: 0)
+        headers.insert(STRINGS.DATE, at: 0)
         
         while headers.count < 4 {
             headers.append("-")

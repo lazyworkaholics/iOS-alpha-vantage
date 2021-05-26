@@ -56,6 +56,7 @@ struct STRINGS {
     static let OK = "OK"
     static let YES = "Yes"
     static let NO = "No"
+    static let NAME = "name"
     static let SYMBOL = "symbol"
     static let OUTPUTSIZE = "outputsize"
     static let APIKEY = "apikey"
@@ -87,10 +88,17 @@ struct STRINGS {
     static let BACK = "back"
     static let DOWN = "down"
     static let NEXT = "next"
+    static let DATE = "Date"
+    
+    static let TIME_FORMAT = "HH:mm"
+    static let DAY_FORMAT = "yyyy-MM-dd"
+    static let DASHBOARD_DATA = "dashboard_data"
     
     static let ALREADY_ADDED_TEXT = "This company is already added to your dashboard"
     static let ADD_TO_DASHBOARD1 = "Do you want to add "
     static let ADD_TO_DASHBOARD2 = " to your dashboard?"
+    
+    static let DELETE_FROM_DASHBOARD = "Do you want to remove this company from your dashboard ?"
     
     struct VIEWCONTROLLERS {
         
@@ -101,9 +109,16 @@ struct STRINGS {
         static let SEARCH = "SearchDisplayViewController"
     }
     
+    struct CELLS {
+        static let COLLECTION = "CollectionCell"
+        static let SEARCH = "SearchCell"
+        static let INTRADAY = "IntradayCell"
+        static let DAILYADJ = "DailyAdjCell"
+    }
+    
     struct COLORS {
         
-        static let FONT_COLOR = "font"
-        static let NAV_COLOR = "navigation"
+        static let FONT = "font"
+        static let NAVIGATION = "navigation"
     }
 }

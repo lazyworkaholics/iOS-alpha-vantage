@@ -34,12 +34,14 @@ class DailyAdjViewController: UIViewController {
         
         super.viewDidLoad()
 
-        let leftBarButton = UIBarButtonItem.init(image: UIImage.init(named: STRINGS.BACK), style: UIBarButtonItem.Style.plain, target: self, action: #selector(DailyAdjViewController.back_buttonAction))
+        let leftBarButton = UIBarButtonItem.init(image: UIImage.init(named: STRINGS.BACK), style: UIBarButtonItem.Style.plain, target: self, action: #selector(back_buttonAction))
         navigationItem.leftBarButtonItem = leftBarButton
-        
+        segmentControl.ensureiOS12Style()
+        segmentControl2.ensureiOS12Style()
         viewModel.getData()
     }
     
+    //MARK:- user interactions
     @objc func back_buttonAction() {
         
         viewModel.routeToDashboard()
@@ -50,6 +52,7 @@ class DailyAdjViewController: UIViewController {
     }
 }
 
+// MARK: - protocol implementations
 extension DailyAdjViewController: DailyAdjViewModelProtocol {
     
     func showStaticAlert(_ title: String, message: String) {
@@ -93,6 +96,7 @@ extension DailyAdjViewController: DailyAdjViewModelProtocol {
     }
 }
 
+//MARK: - tableView delegate and datasource functions
 extension DailyAdjViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -102,7 +106,7 @@ extension DailyAdjViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DailyAdjCell") as! DailyAdjCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: STRINGS.CELLS.DAILYADJ) as! DailyAdjCell
         let data = viewModel.getData(for: indexPath.row)
         cell.date_lbl.text = data[0]
         cell.c1_lbl.text = data[1]

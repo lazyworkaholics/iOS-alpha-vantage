@@ -73,30 +73,30 @@ struct StorageManager: StorageManagerProtocol {
     
     func getDashboardData() -> [Search] {
     
-        let dashboardData = userDefaults.object(forKey: "dashboard_data") as? [[String:String]] ?? []
+        let dashboardData = userDefaults.object(forKey: STRINGS.DASHBOARD_DATA) as? [[String:String]] ?? []
         return self._unSortToSearch(data: dashboardData)
     }
     
     func saveToDashboardData( object:Search) -> [Search] {
     
-        var dashboardData = userDefaults.object(forKey: "dashboard_data") as? [[String:String]] ?? []
-        dashboardData.append(["name":object.name, "symbol":object.symbol])
+        var dashboardData = userDefaults.object(forKey: STRINGS.DASHBOARD_DATA) as? [[String:String]] ?? []
+        dashboardData.append([STRINGS.NAME:object.name, STRINGS.SYMBOL:object.symbol])
         
         if dashboardData.count == 51 {
             dashboardData.remove(at: 0)
         }
         
-        userDefaults.set(dashboardData, forKey: "dashboard_data")
+        userDefaults.set(dashboardData, forKey: STRINGS.DASHBOARD_DATA)
         return self._unSortToSearch(data: dashboardData)
     }
     
     func deleteFromDashboardData( object:Search) -> [Search] {
         
-        var dashboardData = userDefaults.object(forKey: "dashboard_data") as? [[String:String]] ?? []
+        var dashboardData = userDefaults.object(forKey: STRINGS.DASHBOARD_DATA) as? [[String:String]] ?? []
         
         var index = 0
         for item in dashboardData {
-            if item["symbol"] == object.symbol {
+            if item[STRINGS.SYMBOL] == object.symbol {
                 break
             }
             index += 1
@@ -105,7 +105,7 @@ struct StorageManager: StorageManagerProtocol {
             dashboardData.remove(at: index)
         }
 
-        userDefaults.setValue(dashboardData, forKey: "dashboard_data")
+        userDefaults.setValue(dashboardData, forKey: STRINGS.DASHBOARD_DATA)
         return self._unSortToSearch(data: dashboardData)
     }
     
@@ -114,8 +114,8 @@ struct StorageManager: StorageManagerProtocol {
         var searchElements:[Search] = []
         for eachElement in data {
             var search = Search.init()
-            search.name = eachElement["name"]
-            search.symbol = eachElement["symbol"]
+            search.name = eachElement[STRINGS.NAME]
+            search.symbol = eachElement[STRINGS.SYMBOL]
             searchElements.append(search)
         }
         return searchElements.reversed()

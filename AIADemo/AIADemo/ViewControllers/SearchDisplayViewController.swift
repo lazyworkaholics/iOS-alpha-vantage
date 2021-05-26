@@ -29,6 +29,7 @@ class SearchDisplayViewController: UIViewController {
     }
 }
 
+// MARK: - protocol implementations
 extension SearchDisplayViewController: SearchViewModelProtocol {
     
     func reloadData() {
@@ -64,7 +65,7 @@ extension SearchDisplayViewController: SearchViewModelProtocol {
     }
 }
 
-//MARK:- TableView DataSource Protocol functions
+//MARK: - tableView delegate and datasource functions
 extension SearchDisplayViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -74,14 +75,13 @@ extension SearchDisplayViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell") as! SearchCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: STRINGS.CELLS.SEARCH) as! SearchCell
         cell.name_lbl.text = viewModel.getSearchCompanyName(for: indexPath.row)
         cell.symbol_lbl.text = viewModel.getSearchCompanySymbol(for: indexPath.row)
         return cell
     }
 }
 
-//MARK:- TableView DataSource Protocol functions
 extension SearchDisplayViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

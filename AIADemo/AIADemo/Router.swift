@@ -35,7 +35,7 @@ class Router: RouterProtocol {
         dashboardViewController = DashboardViewController.initWithViewModel(self.dashboardViewModel!)
         self.rootNavigationController = UINavigationController(rootViewController: dashboardViewController)
         
-        self.rootNavigationController?.navigationBar.barTintColor = UIColor.init(named: STRINGS.COLORS.NAV_COLOR)
+        self.rootNavigationController?.navigationBar.barTintColor = UIColor.init(named: STRINGS.COLORS.NAVIGATION)
         window.tintColor = UIColor.black
         
         window.rootViewController = self.rootNavigationController!
@@ -80,7 +80,7 @@ class Router: RouterProtocol {
                 let settingViewModel = SettingsViewModel.init()
                 let viewcontroller = SettingsViewController.initWithViewModel(settingViewModel)
                 let navigationController2 = UINavigationController.init(rootViewController: viewcontroller)
-                navigationController2.navigationBar.barTintColor = UIColor.init(named: STRINGS.COLORS.NAV_COLOR)
+                navigationController2.navigationBar.barTintColor = UIColor.init(named: STRINGS.COLORS.NAVIGATION)
                 self.rootNavigationController?.present(navigationController2, animated: true, completion: nil)
             })
         }

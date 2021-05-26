@@ -13,7 +13,6 @@ class IntradayViewController: UIViewController {
     @IBOutlet var segmentControl:UISegmentedControl!
     @IBOutlet var tableView:UITableView!
     @IBOutlet var activityindicator: UIActivityIndicatorView!
-//    @IBOutlet var collectionNilLabel:UILabel!
     var viewModel: IntradayViewModel!
     
     //MARK:- init and viewDidLoads
@@ -32,12 +31,13 @@ class IntradayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let leftBarButton = UIBarButtonItem.init(image: UIImage.init(named: STRINGS.BACK), style: UIBarButtonItem.Style.plain, target: self, action: #selector(IntradayViewController.back_buttonAction))
+        let leftBarButton = UIBarButtonItem.init(image: UIImage.init(named: STRINGS.BACK), style: UIBarButtonItem.Style.plain, target: self, action: #selector(back_buttonAction))
         navigationItem.leftBarButtonItem = leftBarButton
-        
+        segmentControl.ensureiOS12Style()
         viewModel.getCompanyData()
     }
     
+    //MARK:- user interactions
     @objc func back_buttonAction() {
         
         viewModel.routeToDashboard()
@@ -49,10 +49,10 @@ class IntradayViewController: UIViewController {
     }
 }
 
+// MARK: - protocol implementations
 extension IntradayViewController: IntradayViewModelProtocol {
     
     func showTableView() {
-        
         DispatchQueue.main.async {
             
             self.tableView.reloadData()
@@ -85,6 +85,7 @@ extension IntradayViewController: IntradayViewModelProtocol {
     }
 }
 
+//MARK: - tableView delegate and datasource functions
 extension IntradayViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -94,7 +95,7 @@ extension IntradayViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "IntradayCell") as! IntradayCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: STRINGS.CELLS.INTRADAY) as! IntradayCell
         cell.time_lbl.text = viewModel.getValue(index: indexPath.row, object: .date)
         cell.open_lbl.text = viewModel.getValue(index: indexPath.row, object: .open)
         cell.close_lbl.text = viewModel.getValue(index: indexPath.row, object: .close)

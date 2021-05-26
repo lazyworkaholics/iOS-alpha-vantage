@@ -19,12 +19,13 @@ struct SettingsViewModel {
         storageManager = StorageManager.init()
     }
     
-    // MARK: - settings custom functions
+    // MARK: - SettingsViewController - Action Handlers
     func routeToDashboard() {
         
         router.backToDashboard()
     }
     
+    // MARK: - SettingsViewController - Action Handlers
     func getOutputSizeSegmentIndex() -> Int {
         
         let outputsize = storageManager.getOutputSize()

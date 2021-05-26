@@ -39,8 +39,8 @@ struct Candle: Decodable {
     }
     
     init(from decoder:Decoder) throws {
-        
         do {
+            
             let container = try decoder.container(keyedBy:CodingKeys.self)
             
             open = try Double(container.decode(String.self, forKey: .open))
@@ -76,9 +76,9 @@ struct Candle: Decodable {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone =  TimeZone.init(identifier: timeZone)
         if isIntraday {
-            dateFormatter.dateFormat = "HH:mm"
+            dateFormatter.dateFormat = STRINGS.TIME_FORMAT
         } else {
-            dateFormatter.dateFormat = "yyyy-MM-dd"
+            dateFormatter.dateFormat = STRINGS.DAY_FORMAT
         }
         return dateFormatter.string(from: timeStamp!)
     }

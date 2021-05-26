@@ -20,6 +20,7 @@
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RYZ-a1-Jsb">
                                 <rect key="frame" x="10" y="54" width="394" height="36"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="WzX-4C-3jk"/>
                                 </constraints>
@@ -196,6 +197,7 @@
                         <subviews>
                             <segmentedControl hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Bj1-FZ-B1N">
                                 <rect key="frame" x="10" y="104" width="394" height="36"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="fsk-Lo-eml"/>
                                 </constraints>
@@ -213,7 +215,8 @@
                                 </connections>
                             </segmentedControl>
                             <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="T7j-FO-92r">
-                                <rect key="frame" x="50" y="54" width="314" height="36"/>
+                                <rect key="frame" x="80" y="54" width="254" height="36"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="w0K-OR-A9S"/>
                                 </constraints>
@@ -333,9 +336,9 @@
                         <color key="backgroundColor" name="background"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="odi-Ce-CkA" firstAttribute="trailing" secondItem="T7j-FO-92r" secondAttribute="trailing" constant="50" id="Gih-ZD-LsE"/>
+                            <constraint firstItem="odi-Ce-CkA" firstAttribute="trailing" secondItem="T7j-FO-92r" secondAttribute="trailing" constant="80" id="Gih-ZD-LsE"/>
                             <constraint firstItem="odi-Ce-CkA" firstAttribute="trailing" secondItem="Ytg-3u-5pC" secondAttribute="trailing" constant="10" id="GyO-RM-YrJ"/>
-                            <constraint firstItem="T7j-FO-92r" firstAttribute="leading" secondItem="odi-Ce-CkA" secondAttribute="leading" constant="50" id="OXC-GM-oAy"/>
+                            <constraint firstItem="T7j-FO-92r" firstAttribute="leading" secondItem="odi-Ce-CkA" secondAttribute="leading" constant="80" id="OXC-GM-oAy"/>
                             <constraint firstItem="Bj1-FZ-B1N" firstAttribute="top" secondItem="T7j-FO-92r" secondAttribute="bottom" constant="15" id="RMi-0h-BAh"/>
                             <constraint firstItem="odi-Ce-CkA" firstAttribute="trailing" secondItem="Bj1-FZ-B1N" secondAttribute="trailing" constant="10" id="RSo-8Y-Qc5"/>
                             <constraint firstItem="Ytg-3u-5pC" firstAttribute="top" secondItem="Bj1-FZ-B1N" secondAttribute="bottom" constant="10" id="Vg0-ir-I4D"/>
@@ -388,6 +391,7 @@
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="91k-Os-zvE">
                                 <rect key="frame" x="10" y="95" width="394" height="36"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="PNJ-ff-gUT"/>
                                 </constraints>
@@ -406,6 +410,7 @@
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="twP-ZO-zhM">
                                 <rect key="frame" x="10" y="201" width="200" height="36"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Il4-RH-9KF"/>
                                     <constraint firstAttribute="width" constant="200" id="OKy-Vn-xoh"/>
@@ -625,6 +630,7 @@
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xQ3-SU-fPD">
                                 <rect key="frame" x="10" y="108" width="394" height="36"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="ylr-VK-F9W"/>
                                 </constraints>

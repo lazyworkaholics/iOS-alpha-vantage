@@ -66,6 +66,7 @@
 		E2F6346A265E40DE00FC0D99 /* ServiceManagerADJTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F63469265E40DE00FC0D99 /* ServiceManagerADJTests.swift */; };
 		E2F6346C265E46CB00FC0D99 /* DailyAdjViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F6346B265E46CB00FC0D99 /* DailyAdjViewModelTests.swift */; };
 		E2F6346E265E478D00FC0D99 /* DailyAdjViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F6346D265E478D00FC0D99 /* DailyAdjViewModelMock.swift */; };
+		E2F63470265E5A8600FC0D99 /* UISegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F6346F265E5A8600FC0D99 /* UISegmentControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		E2F63469265E40DE00FC0D99 /* ServiceManagerADJTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManagerADJTests.swift; sourceTree = "<group>"; };
 		E2F6346B265E46CB00FC0D99 /* DailyAdjViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdjViewModelTests.swift; sourceTree = "<group>"; };
 		E2F6346D265E478D00FC0D99 /* DailyAdjViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdjViewModelMock.swift; sourceTree = "<group>"; };
+		E2F6346F265E5A8600FC0D99 /* UISegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,6 +369,7 @@
 		E2EF52E62658CEFE002EE9E8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E2F6346F265E5A8600FC0D99 /* UISegmentControl.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				E2EF52FA26591A59002EE9E8 /* Router.swift in Sources */,
 				E2BFB8B0265B75C00053A55B /* RedundantFunctions.swift in Sources */,
 				E2EF530926593283002EE9E8 /* IntradayViewModel.swift in Sources */,
+				E2F63470265E5A8600FC0D99 /* UISegmentControl.swift in Sources */,
 				E2EF530B26595557002EE9E8 /* DailyAdjViewModel.swift in Sources */,
 				E2EF531D265A330C002EE9E8 /* StorageManagerProtocol.swift in Sources */,
 				E2EF52E52658AA03002EE9E8 /* Candle.swift in Sources */,
