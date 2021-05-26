@@ -5,7 +5,6 @@
 //  Created by Harsha VARDHAN on 26/05/2021.
 //
 
-import Foundation
 import UIKit
 @testable import AIADemo
 

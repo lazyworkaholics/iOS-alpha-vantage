@@ -76,10 +76,12 @@ class DailyAdjViewModel {
     
     // MARK: - DailyAdjViewController - Data Handlers
     func getRowCount() -> Int {
+        
         return dataSource?.uniqueDates.count ?? 0
     }
         
     func getData(for index:Int) -> [String] {
+        
         var array:[String] = []
         
         guard let date_string = dataSource?.uniqueDates[index] else {

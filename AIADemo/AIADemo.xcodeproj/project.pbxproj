@@ -69,6 +69,8 @@
 		E2F63470265E5A8600FC0D99 /* UISegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F6346F265E5A8600FC0D99 /* UISegmentControl.swift */; };
 		E2F63472265E7BBC00FC0D99 /* IntradayViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F63471265E7BBC00FC0D99 /* IntradayViewControllerTests.swift */; };
 		E2F63476265E8F8F00FC0D99 /* IntradayViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F63475265E8F8F00FC0D99 /* IntradayViewModelMock.swift */; };
+		E2F63478265E92F300FC0D99 /* DailyAdjViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F63477265E92F300FC0D99 /* DailyAdjViewModelMock.swift */; };
+		E2F6347A265E937400FC0D99 /* DailyAdjViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F63479265E937400FC0D99 /* DailyAdjViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +150,8 @@
 		E2F6346F265E5A8600FC0D99 /* UISegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentControl.swift; sourceTree = "<group>"; };
 		E2F63471265E7BBC00FC0D99 /* IntradayViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayViewControllerTests.swift; sourceTree = "<group>"; };
 		E2F63475265E8F8F00FC0D99 /* IntradayViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayViewModelMock.swift; sourceTree = "<group>"; };
+		E2F63477265E92F300FC0D99 /* DailyAdjViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdjViewModelMock.swift; sourceTree = "<group>"; };
+		E2F63479265E937400FC0D99 /* DailyAdjViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdjViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +188,7 @@
 			children = (
 				E202E23A265D41F6001B0674 /* DashboardViewControllerTests.swift */,
 				E2F63471265E7BBC00FC0D99 /* IntradayViewControllerTests.swift */,
+				E2F63479265E937400FC0D99 /* DailyAdjViewControllerTests.swift */,
 			);
 			path = ViewControllerTests;
 			sourceTree = "<group>";
@@ -385,6 +390,7 @@
 			children = (
 				E202E23C265D47A3001B0674 /* DashboardViewModelMock.swift */,
 				E2F63475265E8F8F00FC0D99 /* IntradayViewModelMock.swift */,
+				E2F63477265E92F300FC0D99 /* DailyAdjViewModelMock.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -580,6 +586,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2F63478265E92F300FC0D99 /* DailyAdjViewModelMock.swift in Sources */,
 				E202E23B265D41F6001B0674 /* DashboardViewControllerTests.swift in Sources */,
 				E202E22B265CDC44001B0674 /* RouterMock.swift in Sources */,
 				E2EF52D2265662D0002EE9E8 /* NetworkManagerTests.swift in Sources */,
@@ -603,6 +610,7 @@
 				E2F63472265E7BBC00FC0D99 /* IntradayViewControllerTests.swift in Sources */,
 				E202E227265CC84E001B0674 /* DashboardProtocolMock.swift in Sources */,
 				E2EF5319265A3087002EE9E8 /* StorageManagerTests.swift in Sources */,
+				E2F6347A265E937400FC0D99 /* DailyAdjViewControllerTests.swift in Sources */,
 				E2EF52F22658FF75002EE9E8 /* CompanyTests.swift in Sources */,
 				E202E231265D0DE0001B0674 /* IntradayViewModelTests.swift in Sources */,
 				E2EF52CE26566228002EE9E8 /* URLSessionMock.swift in Sources */,

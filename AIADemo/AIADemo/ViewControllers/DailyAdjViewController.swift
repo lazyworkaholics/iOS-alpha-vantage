@@ -77,10 +77,8 @@ extension DailyAdjViewController: DailyAdjViewModelProtocol {
     func setSegmentHeaders(titles:[String]) {
         DispatchQueue.main.async(execute: {() -> Void in
             
-            var index = 0
-            for title in titles {
-                self.segmentControl.setTitle(title, forSegmentAt: index)
-                index += 1
+            for index in 0...titles.count-1 {
+                self.segmentControl.setTitle(titles[index], forSegmentAt: index)
             }
         })
     }
