@@ -14,10 +14,9 @@ class IntradayViewModel {
     var search: Search
     var dataSource: Company?
     var sortedCandles: [Candle]?
-    var router:RouterProtocol?
+    var router:RouterProtocol!
     var serviceManager: ServiceManagerProtocol!
     
-    // MARK: - intraday functions
     init(_ search: Search) {
         
         self.search = search

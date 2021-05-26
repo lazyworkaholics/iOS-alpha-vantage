@@ -12,17 +12,22 @@ class DailyAdjViewModel {
     //MARK:- variables and initializers
     var dailyAdjProtocol: DailyAdjViewModelProtocol?
     var searches: [Search]
-    var router:RouterProtocol = Router.sharedInstance
     
     var dataSource:DailyAdjust?
     var compareBy:CompareBy = .open
+    
+    var router:RouterProtocol!
+    var serviceManager: ServiceManagerProtocol!
     
     // MARK: - daily adj functions
     init(_ search: [Search]) {
         
         self.searches = search
+        router = Router.sharedInstance
+        serviceManager = ServiceManager.init()
     }
     
+    // MARK: - DailyAdjViewController - Action Handlers
     func getData() {
 
         var searchSymbols:[String] = []
@@ -30,7 +35,7 @@ class DailyAdjViewModel {
             searchSymbols.append(search.symbol)
         }
         self.dailyAdjProtocol?.showLoadingIndicator?()
-        ServiceManager.init().getDailyAdjusts(searchSymbols) { dailyAdjust in
+        serviceManager.getDailyAdjusts(searchSymbols) { dailyAdjust in
             
             self.dataSource = dailyAdjust
             self.dailyAdjProtocol?.setSegmentHeaders(titles: self._getHeaders())
@@ -64,6 +69,12 @@ class DailyAdjViewModel {
         dailyAdjProtocol?.showTableView()
     }
     
+    func routeToDashboard() {
+        
+        router.backToDashboard()
+    }
+    
+    // MARK: - DailyAdjViewController - Data Handlers
     func getRowCount() -> Int {
         return dataSource?.uniqueDates.count ?? 0
     }
@@ -94,7 +105,6 @@ class DailyAdjViewModel {
                     case .close:
                         array.append((candle?.close)!)
                         break
-                    
                     }
                 } else {
                     array.append("-")
@@ -106,11 +116,7 @@ class DailyAdjViewModel {
         return array
     }
     
-    func navigateToDashboard() {
-        
-        router.backToDashboard()
-    }
-    
+    // MARK: - internal functions
     private func _getHeaders() -> [String] {
         var headers = dataSource?.symbols ?? []
         headers.insert("Date", at: 0)

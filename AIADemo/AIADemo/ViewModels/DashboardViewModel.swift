@@ -24,7 +24,6 @@ class DashboardViewModel {
     var serviceManager: ServiceManagerProtocol!
     var storeManager: StorageManagerProtocol!
     
-    // MARK: - dashboard functions
     init()  {
         
         router = Router.sharedInstance

@@ -17,6 +17,9 @@ protocol ServiceManagerProtocol {
                         onSuccess successBlock: @escaping ([Search]) -> Void,
                         onFailure failureBlock: @escaping (NSError) -> Void)
     
+    func getDailyAdjusts(_ companySymbols:[String],
+                         onCompletion completionBlock: @escaping (DailyAdjust) -> Void)
+    
 }
 
 protocol NetworkManagerProtocol {

@@ -42,7 +42,7 @@ class DailyAdjViewController: UIViewController {
     
     @objc func back_buttonAction() {
         
-        viewModel.navigateToDashboard()
+        viewModel.routeToDashboard()
     }
     
     @IBAction func segmentToggle(_ sender: UISegmentedControl) {

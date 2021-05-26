@@ -64,6 +64,8 @@
 		E2EF531D265A330C002EE9E8 /* StorageManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF531C265A330C002EE9E8 /* StorageManagerProtocol.swift */; };
 		E2EF531F265A6240002EE9E8 /* SearchDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF531E265A6240002EE9E8 /* SearchDisplayViewController.swift */; };
 		E2F6346A265E40DE00FC0D99 /* ServiceManagerADJTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F63469265E40DE00FC0D99 /* ServiceManagerADJTests.swift */; };
+		E2F6346C265E46CB00FC0D99 /* DailyAdjViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F6346B265E46CB00FC0D99 /* DailyAdjViewModelTests.swift */; };
+		E2F6346E265E478D00FC0D99 /* DailyAdjViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F6346D265E478D00FC0D99 /* DailyAdjViewModelMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +140,8 @@
 		E2EF531C265A330C002EE9E8 /* StorageManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManagerProtocol.swift; sourceTree = "<group>"; };
 		E2EF531E265A6240002EE9E8 /* SearchDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDisplayViewController.swift; sourceTree = "<group>"; };
 		E2F63469265E40DE00FC0D99 /* ServiceManagerADJTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManagerADJTests.swift; sourceTree = "<group>"; };
+		E2F6346B265E46CB00FC0D99 /* DailyAdjViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdjViewModelTests.swift; sourceTree = "<group>"; };
+		E2F6346D265E478D00FC0D99 /* DailyAdjViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdjViewModelMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +167,7 @@
 			children = (
 				E202E222265CC0BF001B0674 /* DashboardViewModelTests.swift */,
 				E202E230265D0DE0001B0674 /* IntradayViewModelTests.swift */,
+				E2F6346B265E46CB00FC0D99 /* DailyAdjViewModelTests.swift */,
 				E202E234265D31AB001B0674 /* SettingsViewModelTests.swift */,
 			);
 			path = ViewModels;
@@ -372,6 +377,7 @@
 				E202E226265CC84E001B0674 /* DashboardProtocolMock.swift */,
 				E202E228265CD138001B0674 /* SearchProtocolMock.swift */,
 				E202E232265D0FBD001B0674 /* IntradayViewModelMock.swift */,
+				E2F6346D265E478D00FC0D99 /* DailyAdjViewModelMock.swift */,
 				E202E23C265D47A3001B0674 /* DashboardViewModelMock.swift */,
 			);
 			path = ViewModels;
@@ -562,12 +568,14 @@
 				E202E233265D0FBD001B0674 /* IntradayViewModelMock.swift in Sources */,
 				E2EF52EE2658E76B002EE9E8 /* CandleTests.swift in Sources */,
 				E202E22F265CF439001B0674 /* StoreManagerMock.swift in Sources */,
+				E2F6346E265E478D00FC0D99 /* DailyAdjViewModelMock.swift in Sources */,
 				E202E223265CC0BF001B0674 /* DashboardViewModelTests.swift in Sources */,
 				E2EF52F826590E14002EE9E8 /* ServiceManagerTests.swift in Sources */,
 				E2EF52F426590BE4002EE9E8 /* NetworkManagerMock.swift in Sources */,
 				E202E225265CC18A001B0674 /* ServiceManagerMock.swift in Sources */,
 				E2EF52F02658F2FF002EE9E8 /* MetaDataTests.swift in Sources */,
 				E2EF531B265A309F002EE9E8 /* UserdefaultsMock.swift in Sources */,
+				E2F6346C265E46CB00FC0D99 /* DailyAdjViewModelTests.swift in Sources */,
 				E202E23D265D47A3001B0674 /* DashboardViewModelMock.swift in Sources */,
 				E202E235265D31AB001B0674 /* SettingsViewModelTests.swift in Sources */,
 				E2EF5313265A20B0002EE9E8 /* SearchServiceTests.swift in Sources */,

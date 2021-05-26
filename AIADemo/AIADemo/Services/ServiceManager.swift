@@ -72,7 +72,8 @@ struct ServiceManager: ServiceManagerProtocol   {
                         })
     }
     
-    func getDailyAdjusts(_ companySymbols:[String], onCompletion completionBlock: @escaping (DailyAdjust) -> Void) {
+    func getDailyAdjusts(_ companySymbols:[String],
+                         onCompletion completionBlock: @escaping (DailyAdjust) -> Void) {
         
         var dailyAdjust:DailyAdjust = DailyAdjust.init()
         let dispatchGroup = DispatchGroup()
@@ -92,27 +93,7 @@ struct ServiceManager: ServiceManagerProtocol   {
         }
         
         dispatchGroup.notify(queue: .main) {
-            
-            var dates:[String] = []
-            var parsedData:[String:[String:Candle_Lite]] = [:]
-            for companyKeyValue in dailyAdjust.companies {
-                
-                if dailyAdjust.timeZone == nil {
-                    dailyAdjust.timeZone = (companyKeyValue.value.metadata?.timezone)
-                }
-                
-                var lite_candles:[String:Candle_Lite] = [:]
-                for candle in companyKeyValue.value.candles {
-                    let dateString = candle.getTimeStamp(timeZone: (companyKeyValue.value.metadata?.timezone!)!, isIntraday: false)
-                    dates.append(dateString)
-                    lite_candles[dateString] = Candle_Lite.init(open: String(candle.open), high: String(candle.high), low: String(candle.low), close: String(candle.close))
-                }
-                parsedData[companyKeyValue.key] = lite_candles
-            }
-            
-            dailyAdjust.uniqueDates = Array(Set(dates))
-            dailyAdjust.uniqueDates = dailyAdjust.uniqueDates.sorted(by:{ $0 > $1 })
-            dailyAdjust.parsedData = parsedData
+            dailyAdjust.parseData()
             completionBlock(dailyAdjust)
         }
     }
