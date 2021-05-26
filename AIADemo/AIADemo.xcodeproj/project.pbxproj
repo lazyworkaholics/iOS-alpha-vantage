@@ -63,6 +63,7 @@
 		E2EF531B265A309F002EE9E8 /* UserdefaultsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF531A265A309F002EE9E8 /* UserdefaultsMock.swift */; };
 		E2EF531D265A330C002EE9E8 /* StorageManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF531C265A330C002EE9E8 /* StorageManagerProtocol.swift */; };
 		E2EF531F265A6240002EE9E8 /* SearchDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EF531E265A6240002EE9E8 /* SearchDisplayViewController.swift */; };
+		E2F6346A265E40DE00FC0D99 /* ServiceManagerADJTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F63469265E40DE00FC0D99 /* ServiceManagerADJTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +137,7 @@
 		E2EF531A265A309F002EE9E8 /* UserdefaultsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultsMock.swift; sourceTree = "<group>"; };
 		E2EF531C265A330C002EE9E8 /* StorageManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManagerProtocol.swift; sourceTree = "<group>"; };
 		E2EF531E265A6240002EE9E8 /* SearchDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDisplayViewController.swift; sourceTree = "<group>"; };
+		E2F63469265E40DE00FC0D99 /* ServiceManagerADJTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManagerADJTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				E2EF52F726590E14002EE9E8 /* ServiceManagerTests.swift */,
+				E2F63469265E40DE00FC0D99 /* ServiceManagerADJTests.swift */,
 				E2EF5312265A20B0002EE9E8 /* SearchServiceTests.swift */,
 				E2EF52D1265662D0002EE9E8 /* NetworkManagerTests.swift */,
 			);
@@ -568,6 +571,7 @@
 				E202E23D265D47A3001B0674 /* DashboardViewModelMock.swift in Sources */,
 				E202E235265D31AB001B0674 /* SettingsViewModelTests.swift in Sources */,
 				E2EF5313265A20B0002EE9E8 /* SearchServiceTests.swift in Sources */,
+				E2F6346A265E40DE00FC0D99 /* ServiceManagerADJTests.swift in Sources */,
 				E202E229265CD138001B0674 /* SearchProtocolMock.swift in Sources */,
 				E202E227265CC84E001B0674 /* DashboardProtocolMock.swift in Sources */,
 				E2EF5319265A3087002EE9E8 /* StorageManagerTests.swift in Sources */,
