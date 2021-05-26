@@ -71,6 +71,9 @@
 		E2F63476265E8F8F00FC0D99 /* IntradayViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F63475265E8F8F00FC0D99 /* IntradayViewModelMock.swift */; };
 		E2F63478265E92F300FC0D99 /* DailyAdjViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F63477265E92F300FC0D99 /* DailyAdjViewModelMock.swift */; };
 		E2F6347A265E937400FC0D99 /* DailyAdjViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F63479265E937400FC0D99 /* DailyAdjViewControllerTests.swift */; };
+		E2F6347C265E9E1400FC0D99 /* SettingsViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F6347B265E9E1400FC0D99 /* SettingsViewModelMock.swift */; };
+		E2F6347E265E9EB200FC0D99 /* SettingsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F6347D265E9EB200FC0D99 /* SettingsViewControllerTests.swift */; };
+		E2F63480265EA38900FC0D99 /* SearchDisplayViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F6347F265EA38900FC0D99 /* SearchDisplayViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +155,9 @@
 		E2F63475265E8F8F00FC0D99 /* IntradayViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayViewModelMock.swift; sourceTree = "<group>"; };
 		E2F63477265E92F300FC0D99 /* DailyAdjViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdjViewModelMock.swift; sourceTree = "<group>"; };
 		E2F63479265E937400FC0D99 /* DailyAdjViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyAdjViewControllerTests.swift; sourceTree = "<group>"; };
+		E2F6347B265E9E1400FC0D99 /* SettingsViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelMock.swift; sourceTree = "<group>"; };
+		E2F6347D265E9EB200FC0D99 /* SettingsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerTests.swift; sourceTree = "<group>"; };
+		E2F6347F265EA38900FC0D99 /* SearchDisplayViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDisplayViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +195,8 @@
 				E202E23A265D41F6001B0674 /* DashboardViewControllerTests.swift */,
 				E2F63471265E7BBC00FC0D99 /* IntradayViewControllerTests.swift */,
 				E2F63479265E937400FC0D99 /* DailyAdjViewControllerTests.swift */,
+				E2F6347D265E9EB200FC0D99 /* SettingsViewControllerTests.swift */,
+				E2F6347F265EA38900FC0D99 /* SearchDisplayViewControllerTests.swift */,
 			);
 			path = ViewControllerTests;
 			sourceTree = "<group>";
@@ -267,11 +275,11 @@
 		E2EF52C326565684002EE9E8 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				E202E238265D41D2001B0674 /* ViewControllerTests */,
 				E202E221265CB588001B0674 /* ViewModels */,
 				E2EF5317265A3065002EE9E8 /* UtilitiesServicesNOthers */,
 				E2EF52EC2658E753002EE9E8 /* Models */,
 				E2EF52D026566296002EE9E8 /* Services */,
+				E202E238265D41D2001B0674 /* ViewControllerTests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -391,6 +399,7 @@
 				E202E23C265D47A3001B0674 /* DashboardViewModelMock.swift */,
 				E2F63475265E8F8F00FC0D99 /* IntradayViewModelMock.swift */,
 				E2F63477265E92F300FC0D99 /* DailyAdjViewModelMock.swift */,
+				E2F6347B265E9E1400FC0D99 /* SettingsViewModelMock.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -588,6 +597,7 @@
 			files = (
 				E2F63478265E92F300FC0D99 /* DailyAdjViewModelMock.swift in Sources */,
 				E202E23B265D41F6001B0674 /* DashboardViewControllerTests.swift in Sources */,
+				E2F6347C265E9E1400FC0D99 /* SettingsViewModelMock.swift in Sources */,
 				E202E22B265CDC44001B0674 /* RouterMock.swift in Sources */,
 				E2EF52D2265662D0002EE9E8 /* NetworkManagerTests.swift in Sources */,
 				E202E233265D0FBD001B0674 /* ViewModelProtocolMock.swift in Sources */,
@@ -607,9 +617,11 @@
 				E2F6346A265E40DE00FC0D99 /* ServiceManagerADJTests.swift in Sources */,
 				E2F63476265E8F8F00FC0D99 /* IntradayViewModelMock.swift in Sources */,
 				E202E229265CD138001B0674 /* SearchProtocolMock.swift in Sources */,
+				E2F63480265EA38900FC0D99 /* SearchDisplayViewControllerTests.swift in Sources */,
 				E2F63472265E7BBC00FC0D99 /* IntradayViewControllerTests.swift in Sources */,
 				E202E227265CC84E001B0674 /* DashboardProtocolMock.swift in Sources */,
 				E2EF5319265A3087002EE9E8 /* StorageManagerTests.swift in Sources */,
+				E2F6347E265E9EB200FC0D99 /* SettingsViewControllerTests.swift in Sources */,
 				E2F6347A265E937400FC0D99 /* DailyAdjViewControllerTests.swift in Sources */,
 				E2EF52F22658FF75002EE9E8 /* CompanyTests.swift in Sources */,
 				E202E231265D0DE0001B0674 /* IntradayViewModelTests.swift in Sources */,
@@ -769,14 +781,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M57FNS7F48;
+				DEVELOPMENT_TEAM = 63DA3SWC73;
 				INFOPLIST_FILE = AIADemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vkey.AIADemo;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.v-key.vtap";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -789,14 +801,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M57FNS7F48;
+				DEVELOPMENT_TEAM = 63DA3SWC73;
 				INFOPLIST_FILE = AIADemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vkey.AIADemo;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.v-key.vtap";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

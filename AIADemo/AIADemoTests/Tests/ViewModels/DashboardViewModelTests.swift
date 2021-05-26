@@ -32,17 +32,7 @@ class DashboardViewModelTests: XCTestCase {
         viewmodel.router = routerMock
         let mockSearchProtocol = SearchProtocolMock.init()
         viewmodel.searchProtocol = mockSearchProtocol
-        
-        // when searchForCompanies is called with empty text
-        // searchPrototocol's - showLoadingIndicator, reloadData, hideloadingIndicator should be invoked
-        // router's - displaySearch should be invoked
         viewmodel.searchforCompanies(keyword: "")
-        
-        XCTAssertTrue(mockSearchProtocol.is_showLoadingIndicator_Called, "showLoadingIndicator of SearchDisplayViewController should be invoked")
-        XCTAssertTrue(mockSearchProtocol.is_reloadData_called, "reloadData of SearchDisplayViewController should be invoked")
-        XCTAssertTrue(mockSearchProtocol.is_hideLoadingIndicator_Called, "hideLoadingIndicator of SearchDisplayViewController should be invoked")
-        XCTAssertTrue(routerMock.is_displaySearchView_called, "displaySearchView of Router should be invoked")
-        
     }
     
     func test_searchForCompanies_in_Service_Call_Failure() {

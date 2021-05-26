@@ -68,7 +68,7 @@ class SettingsViewController: UIViewController {
     @IBAction func intervalSegmentToggle(_ sender: UISegmentedControl) {
         
         hideKeyboard()
-        viewModel.setOutputSize(index: sender.selectedSegmentIndex)
+        viewModel.setInterval(index: sender.selectedSegmentIndex)
     }
     
     @IBAction func setAPIKeyAction(_ sender: UIButton) {

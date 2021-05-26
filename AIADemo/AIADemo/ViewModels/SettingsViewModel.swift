@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SettingsViewModel {
+class SettingsViewModel {
     
     //MARK:- variables and initializers
     var router:RouterProtocol!
@@ -25,7 +25,7 @@ struct SettingsViewModel {
         router.backToDashboard()
     }
     
-    // MARK: - SettingsViewController - Action Handlers
+    // MARK: - SettingsViewController - Data Handlers
     func getOutputSizeSegmentIndex() -> Int {
         
         let outputsize = storageManager.getOutputSize()
@@ -44,7 +44,7 @@ struct SettingsViewModel {
         }
     }
     
-    func getIntervalSegmentIndex() -> Int{
+    func getIntervalSegmentIndex() -> Int {
         
         let interval = storageManager.getInterval()
         switch interval {

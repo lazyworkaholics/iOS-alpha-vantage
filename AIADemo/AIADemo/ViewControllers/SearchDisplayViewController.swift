@@ -37,14 +37,12 @@ extension SearchDisplayViewController: ViewModelProtocol {
     
     func reloadData() {
         DispatchQueue.main.async {
-            
             self.tableView.reloadData()
         }
     }
     
     func showLoadingIndicator() {
         DispatchQueue.main.async {
-            
             self.activityindicator.isHidden = false
             self.activityindicator.startAnimating()
         }
@@ -52,13 +50,11 @@ extension SearchDisplayViewController: ViewModelProtocol {
     
     func hideLoadingIndicator() {
         DispatchQueue.main.async {
-            
             self.activityindicator.stopAnimating()
         }
     }
     
     func showStaticAlert(_ title: String, message: String) {
-        
         RedundantFunctions.init().showStaticAlert(title, message: message, onViewController: self)
     }
     

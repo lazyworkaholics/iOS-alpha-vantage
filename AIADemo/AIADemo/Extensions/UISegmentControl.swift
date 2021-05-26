@@ -18,7 +18,7 @@ extension UISegmentedControl {
             self.layer.borderWidth = 0.5
 
             let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(named: STRINGS.COLORS.NAVIGATION)]
-            self.setTitleTextAttributes(titleTextAttributes, for:.normal)
+            self.setTitleTextAttributes(titleTextAttributes as [NSAttributedString.Key : Any], for:.normal)
 
             let titleTextAttributes1 = [NSAttributedString.Key.foregroundColor: UIColor.black]
             self.setTitleTextAttributes(titleTextAttributes1, for:.selected)

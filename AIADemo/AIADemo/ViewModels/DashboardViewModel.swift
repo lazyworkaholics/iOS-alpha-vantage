@@ -39,21 +39,15 @@ class DashboardViewModel {
     
     // MARK: - DashboardViewController - Action Handlers
     func searchforCompanies(keyword: String) {
-        
-        if isSearchDisplayPresented == false {
-            router.displaySearchView()
-            isSearchDisplayPresented = true
-        }
-        
-        searchProtocol?.showLoadingIndicator!()
-        if keyword == "" {
+        let trimmedKeyword = keyword.replacingOccurrences(of: " ", with: "", options: .literal, range: nil)
+        if trimmedKeyword != "" {
+            if isSearchDisplayPresented == false {
+                router.displaySearchView()
+                isSearchDisplayPresented = true
+            }
             
-            searchDataSource = []
-            searchProtocol?.reloadData()
-            searchProtocol?.hideLoadingIndicator!()
-        } else {
-            
-            serviceManager.search(keyword,
+            searchProtocol?.showLoadingIndicator!()
+            serviceManager.search(trimmedKeyword,
                                          onSuccess: { searchResults in
                                             
                                             self.searchDataSource = searchResults
@@ -65,6 +59,7 @@ class DashboardViewModel {
                                             self.searchProtocol?.hideLoadingIndicator!()
                                          })
         }
+        
     }
     
     func companySelected(at index: Int) {
