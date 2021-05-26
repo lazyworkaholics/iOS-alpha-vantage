@@ -53,15 +53,22 @@ class DailyAdjViewController: UIViewController {
 extension DailyAdjViewController: DailyAdjViewModelProtocol {
     
     func showStaticAlert(_ title: String, message: String) {
-        
+        RedundantFunctions.init().showStaticAlert(title, message: message, onViewController: self)
     }
     
     func showLoadingIndicator() {
-        
+        DispatchQueue.main.async {
+            
+            self.activityindicator.isHidden = false
+            self.activityindicator.startAnimating()
+        }
     }
     
     func hideLoadingIndicator() {
-        
+        DispatchQueue.main.async {
+            
+            self.activityindicator.stopAnimating()
+        }
     }
     
     func setSegmentHeaders(titles:[String]) {
@@ -97,10 +104,10 @@ extension DailyAdjViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DailyAdjCell") as! DailyAdjCell
         let data = viewModel.getData(for: indexPath.row)
-        cell.date_lbl.text = data.date
-        cell.c1_lbl.text = data.open_c1
-        cell.c2_lbl.text = data.open_c2
-        cell.c2_lbl.text = data.open_c2
+        cell.date_lbl.text = data[0]
+        cell.c1_lbl.text = data[1]
+        cell.c2_lbl.text = data[2]
+        cell.c3_lbl.text = data[3]
         return cell
     }
 }

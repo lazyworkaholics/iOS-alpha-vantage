@@ -14,9 +14,8 @@ class DailyAdjViewModel {
     var searches: [Search]
     var router:RouterProtocol = Router.sharedInstance
     
-    var dataSource:[Company] = []
-    var tailoredData:DailyAdjust?
-    var isSortbyOpen = true
+    var dataSource:DailyAdjust?
+    var compareBy:CompareBy = .open
     
     // MARK: - daily adj functions
     init(_ search: [Search]) {
@@ -25,85 +24,100 @@ class DailyAdjViewModel {
     }
     
     func getData() {
-        
-        var servicesInProgressCount = searches.count
-        
+
+        var searchSymbols:[String] = []
         for search in searches {
+            searchSymbols.append(search.symbol)
+        }
+        self.dailyAdjProtocol?.showLoadingIndicator?()
+        ServiceManager.init().getDailyAdjusts(searchSymbols) { dailyAdjust in
             
-            ServiceManager.init().getData(search.symbol, isIntraday: false, onSuccess: { [self] company in
-                
-                servicesInProgressCount -= 1
-                self.dataSource.append(company)
-                if servicesInProgressCount == 0 {
-                    self.parseData()
-                }
-            }, onFailure: { error in
-                
-                servicesInProgressCount -= 1
-                if servicesInProgressCount == 0 {
-                    if self.dataSource.count == 0 {
-                        self.dailyAdjProtocol?.showStaticAlert?(STRINGS.ERROR, message: error.localizedDescription)
-                    } else {
-                        self.parseData()
-                    }
-                }
-            })
+            self.dataSource = dailyAdjust
+            self.dailyAdjProtocol?.setSegmentHeaders(titles: self._getHeaders())
+            if self.dataSource?.errors.count != self.dataSource?.symbols.count {
+                self.dailyAdjProtocol?.showTableView()
+            } else {
+                let error = self.dataSource?.errors[(self.dataSource?.symbols[0])!]
+                self.dailyAdjProtocol?.showStaticAlert?(STRINGS.ERROR, message: error?.localizedDescription ?? ERROR.DESCRIPTION.DAILY_ADJ_ERROR)
+            }
+            self.dailyAdjProtocol?.hideLoadingIndicator?()
         }
     }
     
-    func parseData() {
-        
-        tailoredData = DailyAdjust.init()
-        tailoredData?.c1 = dataSource[0].metadata?.symbol ?? "-"
-        tailoredData?.c2 = dataSource[1].metadata?.symbol ?? "-"
-        tailoredData?.c3 = dataSource[2].metadata?.symbol ?? "-"
-        
-        let c1Candles = dataSource[0].getCandles(.date)
-        let c2Candles = dataSource[1].getCandles(.date)
-        let c3Candles = dataSource[1].getCandles(.date)
-        
-        var compare_candles:[Candle_Compare] = []
-        for index in 0...c1Candles.count-1 {
-            var candle_adj = Candle_Compare.init()
-            candle_adj.open_c1 = String(c1Candles[index].open)
-            candle_adj.open_c2 = String(c2Candles[index].open)
-            candle_adj.open_c3 = String(c3Candles[index].open)
-            candle_adj.low_c1 = String(c1Candles[index].low)
-            candle_adj.low_c2 = String(c2Candles[index].low)
-            candle_adj.low_c3 = String(c3Candles[index].low)
-            candle_adj.date = c1Candles[index].getTimeStamp(timeZone: (dataSource[0].metadata?.timezone)!, isIntraday: false)
-            compare_candles.append(candle_adj)
-        }
-        tailoredData?.candles = compare_candles
-        
-        var headers = ["Date"]
-        headers.append(tailoredData!.c1!)
-        headers.append(tailoredData!.c2!)
-        headers.append(tailoredData!.c3!)
-        
-        dailyAdjProtocol?.setSegmentHeaders(titles: headers)
-        dailyAdjProtocol?.showTableView()
-    }
     
     func segmentValueChange(index:Int) {
-        if index == 0 {
-            isSortbyOpen = true
-        } else {
-            isSortbyOpen = false
+        
+        switch index {
+        case 0:
+            compareBy = .open
+            break
+        case 1:
+            compareBy = .high
+            break
+        case 2:
+            compareBy = .low
+            break
+        default:
+            compareBy = .close
+            break
         }
         dailyAdjProtocol?.showTableView()
     }
     
     func getRowCount() -> Int {
-        return tailoredData?.candles.count ?? 0
+        return dataSource?.uniqueDates.count ?? 0
     }
-    
-    func getData(for index:Int) -> Candle_Compare {
-        return tailoredData!.candles[index]
+        
+    func getData(for index:Int) -> [String] {
+        var array:[String] = []
+        
+        guard let date_string = dataSource?.uniqueDates[index] else {
+            return ["-", "-", "-", "-"]
+        }
+        
+        array.append(date_string)
+        for index in 1...3 {
+            if (index-1) < (dataSource?.symbols.count ?? 0) {
+                let company = dataSource?.parsedData[(dataSource?.symbols[index-1])!]
+                let candle = company?[date_string]
+                if candle != nil {
+                    switch compareBy {
+                    case .open:
+                        array.append((candle?.open)!)
+                        break
+                    case .high:
+                        array.append((candle?.high)!)
+                        break
+                    case .low:
+                        array.append((candle?.low)!)
+                        break
+                    case .close:
+                        array.append((candle?.close)!)
+                        break
+                    
+                    }
+                } else {
+                    array.append("-")
+                }
+            } else {
+                array.append("-")
+            }
+        }
+        return array
     }
     
     func navigateToDashboard() {
         
         router.backToDashboard()
+    }
+    
+    private func _getHeaders() -> [String] {
+        var headers = dataSource?.symbols ?? []
+        headers.insert("Date", at: 0)
+        
+        while headers.count < 4 {
+            headers.append("-")
+        }
+        return headers
     }
 }

@@ -7,24 +7,28 @@
 
 import Foundation
 
-struct DailyAdjust {
-    
-    var c1: String?
-    var c2: String?
-    var c3: String?
-    
-    var candles:[Candle_Compare] = []
+enum CompareBy {
+    case open
+    case high
+    case low
+    case close
 }
 
-struct Candle_Compare {
+struct DailyAdjust {
     
-    var date: String?
+    var symbols:[String] = []
+    var companies:[String:Company] = [:]
+    var errors:[String:Error] = [:]
     
-    var open_c1: String?
-    var open_c2: String?
-    var open_c3: String?
+    var timeZone: String?
+    var uniqueDates:[String] = []
+    var parsedData:[String:[String:Candle_Lite]] = [:]
+}
+
+struct Candle_Lite {
     
-    var low_c1: String?
-    var low_c2: String?
-    var low_c3: String?
+    var open:String!
+    var high:String!
+    var low:String!
+    var close:String!
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SortingID {
+enum SortBy {
     
     case open
     case high
@@ -64,7 +64,7 @@ struct Company: Decodable {
         }
     }
     
-    func getCandles(_ sortby:SortingID) -> [Candle] {
+    func getCandles(_ sortby:SortBy) -> [Candle] {
         
         switch sortby {
         case .open:

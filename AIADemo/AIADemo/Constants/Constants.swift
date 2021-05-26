@@ -46,6 +46,7 @@ struct ERROR {
         
         static let NO_INTERNET = "Internet connection appears to be offline"
         static let PARSING_ERROR = "Cannot parse response of the httpclient"
+        static let DAILY_ADJ_ERROR = "Error in receiving data for the selected companies"
     }
     
 }

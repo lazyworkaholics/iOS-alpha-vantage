@@ -16,7 +16,7 @@ struct ServiceManager: ServiceManagerProtocol   {
     }
     
     
-    //MARK: - Internal functions
+    //MARK: - Services
     func getData(_ companySymbol: String, isIntraday: Bool,
                         onSuccess successBlock: @escaping (Company) -> Void,
                         onFailure failureBlock: @escaping (NSError) -> Void) {
@@ -70,6 +70,51 @@ struct ServiceManager: ServiceManagerProtocol   {
                             (error) in
                             failureBlock(error)
                         })
+    }
+    
+    func getDailyAdjusts(_ companySymbols:[String], onCompletion completionBlock: @escaping (DailyAdjust) -> Void) {
+        
+        var dailyAdjust:DailyAdjust = DailyAdjust.init()
+        let dispatchGroup = DispatchGroup()
+        for symbol in companySymbols {
+            
+            dispatchGroup.enter()
+            dailyAdjust.symbols.append(symbol)
+            self.getData(symbol, isIntraday: false, onSuccess: {(company) in
+                
+                dailyAdjust.companies[symbol] = company
+                dispatchGroup.leave()
+            }, onFailure: {(error) in
+                
+                dailyAdjust.errors[symbol] = error
+                dispatchGroup.leave()
+            })
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            
+            var dates:[String] = []
+            var parsedData:[String:[String:Candle_Lite]] = [:]
+            for companyKeyValue in dailyAdjust.companies {
+                
+                if dailyAdjust.timeZone == nil {
+                    dailyAdjust.timeZone = (companyKeyValue.value.metadata?.timezone)
+                }
+                
+                var lite_candles:[String:Candle_Lite] = [:]
+                for candle in companyKeyValue.value.candles {
+                    let dateString = candle.getTimeStamp(timeZone: (companyKeyValue.value.metadata?.timezone!)!, isIntraday: false)
+                    dates.append(dateString)
+                    lite_candles[dateString] = Candle_Lite.init(open: String(candle.open), high: String(candle.high), low: String(candle.low), close: String(candle.close))
+                }
+                parsedData[companyKeyValue.key] = lite_candles
+            }
+            
+            dailyAdjust.uniqueDates = Array(Set(dates))
+            dailyAdjust.uniqueDates = dailyAdjust.uniqueDates.sorted(by:{ $0 > $1 })
+            dailyAdjust.parsedData = parsedData
+            completionBlock(dailyAdjust)
+        }
     }
     
     

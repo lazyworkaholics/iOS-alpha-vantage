@@ -80,7 +80,7 @@ class IntradayViewModel {
         return sortedCandles!.count
     }
     
-    func getValue(index:Int, object:SortingID) -> String {
+    func getValue(index:Int, object:SortBy) -> String {
         
         let candle = sortedCandles![index]
         switch object {
