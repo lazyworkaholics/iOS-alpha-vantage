@@ -11,13 +11,12 @@ class DailyAdjViewModel {
     
     //MARK:- variables and initializers
     var dailyAdjProtocol: DailyAdjViewModelProtocol?
+    var router:RouterProtocol
+    var serviceManager: ServiceManagerProtocol
+    
     var searches: [Search]
-    
     var dataSource:DailyAdjust?
-    var compareBy:CompareBy = .open
-    
-    var router:RouterProtocol!
-    var serviceManager: ServiceManagerProtocol!
+    var compareBy:CompareBy
     
     // MARK: - daily adj functions
     init(_ search: [Search]) {
@@ -25,6 +24,7 @@ class DailyAdjViewModel {
         self.searches = search
         router = Router.sharedInstance
         serviceManager = ServiceManager.init()
+        compareBy = .open
     }
     
     // MARK: - DailyAdjViewController - Action Handlers

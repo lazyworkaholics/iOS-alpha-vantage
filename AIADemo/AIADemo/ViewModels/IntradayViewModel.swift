@@ -11,11 +11,12 @@ class IntradayViewModel {
     
     //MARK:- variables and initializers
     var intradayProtocol: ViewModelProtocol?
+    var router:RouterProtocol
+    var serviceManager: ServiceManagerProtocol
+    
     var search: Search
     var dataSource: Company?
     var sortedCandles: [Candle]?
-    var router:RouterProtocol!
-    var serviceManager: ServiceManagerProtocol!
     
     init(_ search: Search) {
         
@@ -70,7 +71,7 @@ class IntradayViewModel {
     
     func routeToDashboard() {
         
-        router!.backToDashboard()
+        router.backToDashboard()
     }
     
     // MARK: - IntradayViewController - Data Handlers

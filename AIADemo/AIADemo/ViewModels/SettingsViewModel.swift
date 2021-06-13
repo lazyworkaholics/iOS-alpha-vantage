@@ -10,8 +10,8 @@ import Foundation
 class SettingsViewModel {
     
     //MARK:- variables and initializers
-    var router:RouterProtocol!
-    var storageManager:StorageManagerProtocol!
+    var router:RouterProtocol
+    var storageManager:StorageManagerProtocol
     
     init() {
         

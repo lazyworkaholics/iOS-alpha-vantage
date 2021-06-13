@@ -12,18 +12,18 @@ class DashboardViewModel {
     //MARK:- variables and initializers
     var dashboardProtocol: DashboardViewModelProtocol?
     var searchProtocol: ViewModelProtocol?
-    var router:RouterProtocol!
+    var router:RouterProtocol
+    var serviceManager: ServiceManagerProtocol
+    var storeManager: StorageManagerProtocol
     
-    var dashboardDataSource:[Search]!
-    var isIntraday:Bool!
-    var dailyAdj_CheckIndexes:[Int]!
+    var dashboardDataSource:[Search]
+    var searchDataSource:[Search]
     
-    var isSearchDisplayPresented:Bool!
-    var searchDataSource:[Search]!
-    
-    var serviceManager: ServiceManagerProtocol!
-    var storeManager: StorageManagerProtocol!
-    
+    // find a way to make these private
+    var isIntraday:Bool
+    var isSearchDisplayPresented:Bool
+    var dailyAdj_CheckIndexes:[Int]
+   
     init()  {
         
         router = Router.sharedInstance
@@ -31,10 +31,10 @@ class DashboardViewModel {
         storeManager = StorageManager.init()
         dashboardDataSource = storeManager.getDashboardData()
         
-        isIntraday = true
-        dailyAdj_CheckIndexes = []
-        isSearchDisplayPresented = false
         searchDataSource = []
+        isIntraday = true
+        isSearchDisplayPresented = false
+        dailyAdj_CheckIndexes = []
     }
     
     // MARK: - DashboardViewController - Action Handlers

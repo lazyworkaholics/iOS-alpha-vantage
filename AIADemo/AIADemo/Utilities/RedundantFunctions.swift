@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RedundantFunctions: NSObject {
+class RedundantFunctions {
 
     func showDoubleActionAlert(_ title: String, message: String?, firstTitle:String, secondTitle:String?, onfirstClick:@escaping (() -> Void), onSecondClick:(() -> Void)?, onViewController:UIViewController) {
         DispatchQueue.main.async(execute: {() -> Void in
